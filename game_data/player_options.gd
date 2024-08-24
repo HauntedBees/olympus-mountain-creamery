@@ -13,3 +13,6 @@ class_name PlayerOptions extends Resource
 @export var gamepad_one := JOY_BUTTON_A
 ## Gamepad button for the second button.
 @export var gamepad_two := JOY_BUTTON_B
+
+## When true, the player can pour milk in multiple button presses instead of one.
+@export var multiple_milk_pours := false
