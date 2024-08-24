@@ -2,3 +2,7 @@ res://game_states/01_pour_milk/pour_milk.tscn
 res://game_data/player_options.gd
 res://game_states/game_state.gd
 res://game_states/01_pour_milk/pour_milk.gd
+res://game_states/01_pour_milk/boil_pot.tscn
+res://game_states/01_pour_milk/milk_top.gdshader
+res://game_states/01_pour_milk/boil_pot.gd
+res://game_data/player.gd
