@@ -6,6 +6,10 @@ var _milk_amount := 0.0
 var _did_start_pouring := false
 
 @onready var _boil_pot: BoilPot = %BoilPot
+@onready var _milk_label: Label = %MilkLabel
+
+func _ready() -> void:
+	_update_milk_label()
 
 func _process(delta: float) -> void:
 	if _input_blocked:
@@ -21,9 +25,13 @@ func _process(delta: float) -> void:
 			amount_poured = Player.data.milk_amount
 		_milk_amount += amount_poured
 		Player.data.milk_amount -= amount_poured
+		_update_milk_label()
 		_boil_pot.fill_percent = _milk_amount / Player.data.milk_pot_capacity
 	elif _did_start_pouring && !Player.options.multiple_milk_pours:
 		_finish_pouring()
+
+func _update_milk_label() -> void:
+	_milk_label.text = "Milk Remaining: %.1fτ" % Player.data.milk_amount
 
 func _finish_pouring() -> void:
 	print("DONE")

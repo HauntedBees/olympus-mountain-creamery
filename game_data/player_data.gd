@@ -4,4 +4,4 @@ class_name PlayerData extends Resource
 @export var milk_pot_capacity := 10.0
 
 ## How much milk the player has.
-@export var milk_amount := 5.0
+@export var milk_amount := 50.0

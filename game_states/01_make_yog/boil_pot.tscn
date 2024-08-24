@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://c7ggwfed6pagk"]
 
 [ext_resource type="Texture2D" uid="uid://bwooy8nn6ri5j" path="res://assets/boil_pot_back.png" id="1_joymm"]
-[ext_resource type="Script" path="res://game_states/01_pour_milk/boil_pot.gd" id="1_upsne"]
+[ext_resource type="Script" path="res://game_states/01_make_yog/boil_pot.gd" id="1_upsne"]
 [ext_resource type="Texture2D" uid="uid://dpgd21xcp4d0x" path="res://assets/boil_pot_front.png" id="2_hrtsu"]
-[ext_resource type="Material" uid="uid://ja50dlic4nnr" path="res://game_states/01_pour_milk/milk_top.tres" id="3_kqbfs"]
+[ext_resource type="Material" uid="uid://ja50dlic4nnr" path="res://game_states/01_make_yog/milk_top.tres" id="3_kqbfs"]
 [ext_resource type="Texture2D" uid="uid://bo3njgjsco0st" path="res://assets/milk_top.png" id="3_qvwro"]
 
 [node name="BoilPot" type="Control"]
