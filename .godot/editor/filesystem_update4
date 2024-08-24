@@ -19,3 +19,4 @@ res://game_scenes/01_make_yog/make_yog.tscn
 res://game_scenes/01_make_yog/states/heat_milk.gd
 res://game_scenes/01_make_yog/make_game_scene.gd
 res://game_data/player.gd
+res://game_scenes/01_make_yog/boil_pot.gd

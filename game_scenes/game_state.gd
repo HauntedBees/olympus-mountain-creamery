@@ -10,5 +10,6 @@ var _scene: GameScene
 func _init(s: GameScene) -> void:
 	_scene = s
 
-func update(_d: float) -> void:
-	pass
+func initialize() -> void: pass
+func update(_d: float) -> void: pass
+func clean() -> void: pass

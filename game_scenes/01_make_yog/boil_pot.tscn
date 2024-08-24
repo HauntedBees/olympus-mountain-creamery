@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7ggwfed6pagk"]
+[gd_scene load_steps=9 format=3 uid="uid://c7ggwfed6pagk"]
 
 [ext_resource type="Texture2D" uid="uid://bwooy8nn6ri5j" path="res://assets/boil_pot_back.png" id="1_joymm"]
 [ext_resource type="Script" path="res://game_scenes/01_make_yog/boil_pot.gd" id="1_upsne"]
 [ext_resource type="Texture2D" uid="uid://dpgd21xcp4d0x" path="res://assets/boil_pot_front.png" id="2_hrtsu"]
 [ext_resource type="Material" uid="uid://ja50dlic4nnr" path="res://game_scenes/01_make_yog/milk_top.tres" id="3_kqbfs"]
 [ext_resource type="Texture2D" uid="uid://bo3njgjsco0st" path="res://assets/milk_top.png" id="3_qvwro"]
+[ext_resource type="Texture2D" uid="uid://g68eturabbx8" path="res://assets/stir_spoon.png" id="4_ka1xr"]
+[ext_resource type="Texture2D" uid="uid://cmtn48i8uhhr8" path="res://assets/boil_pot_back_lip.png" id="6_4h61a"]
+
+[sub_resource type="Curve2D" id="Curve2D_4aijx"]
+_data = {
+"points": PackedVector2Array(-0.943874, 12.2704, 0.943874, -12.2704, -73, -142, -74.0941, 0.471937, 74.0941, -0.471937, 2, -169, 0, 0, 0, 0, 2, -169, 0.943874, -20.7652, -0.943874, 20.7652, 85, -145, 50.0253, -1.41581, -50.0253, 1.41581, 2, -110, -5.19131, 13.6862, 5.19131, -13.6862, -73, -142)
+}
+point_count = 6
 
 [node name="BoilPot" type="Control"]
 custom_minimum_size = Vector2(407, 331)
@@ -17,16 +25,62 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+[node name="BackContainer" type="MarginContainer" parent="CenterContainer"]
 layout_mode = 2
-theme_override_constants/margin_bottom = 12
+theme_override_constants/margin_bottom = 27
 
-[node name="Back" type="TextureRect" parent="CenterContainer/MarginContainer"]
-clip_children = 2
+[node name="Back" type="TextureRect" parent="CenterContainer/BackContainer"]
 layout_mode = 2
 texture = ExtResource("1_joymm")
 
-[node name="Milk" type="VBoxContainer" parent="CenterContainer/MarginContainer/Back"]
+[node name="BackLip" type="Control" parent="CenterContainer"]
+custom_minimum_size = Vector2(407, 317)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/BackLip"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 7
+theme_override_constants/margin_top = -41
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/BackLip/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("6_4h61a")
+stretch_mode = 3
+
+[node name="SpoonContainer" type="Control" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Path2D" type="Path2D" parent="CenterContainer/SpoonContainer"]
+curve = SubResource("Curve2D_4aijx")
+
+[node name="SpoonPath" type="PathFollow2D" parent="CenterContainer/SpoonContainer/Path2D"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(-73, -142)
+rotation = -1.49402
+rotates = false
+
+[node name="Spoon" type="Sprite2D" parent="CenterContainer/SpoonContainer/Path2D/SpoonPath"]
+rotation = 1.49402
+texture = ExtResource("4_ka1xr")
+
+[node name="BackMaskContainer" type="MarginContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 27
+
+[node name="Back" type="TextureRect" parent="CenterContainer/BackMaskContainer"]
+clip_children = 1
+layout_mode = 2
+texture = ExtResource("1_joymm")
+
+[node name="Milk" type="VBoxContainer" parent="CenterContainer/BackMaskContainer/Back"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -38,11 +92,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="Control" type="Control" parent="CenterContainer/MarginContainer/Back/Milk"]
+[node name="Control" type="Control" parent="CenterContainer/BackMaskContainer/Back/Milk"]
 custom_minimum_size = Vector2(32, 8)
 layout_mode = 2
 
-[node name="MilkTop" type="TextureRect" parent="CenterContainer/MarginContainer/Back/Milk/Control"]
+[node name="MilkTop" type="TextureRect" parent="CenterContainer/BackMaskContainer/Back/Milk/Control"]
 texture_repeat = 2
 material = ExtResource("3_kqbfs")
 custom_minimum_size = Vector2(316, 8)
@@ -56,7 +110,7 @@ grow_vertical = 0
 texture = ExtResource("3_qvwro")
 expand_mode = 1
 
-[node name="MilkBase" type="ColorRect" parent="CenterContainer/MarginContainer/Back/Milk"]
+[node name="MilkBase" type="ColorRect" parent="CenterContainer/BackMaskContainer/Back/Milk"]
 layout_mode = 2
 size_flags_vertical = 3
 

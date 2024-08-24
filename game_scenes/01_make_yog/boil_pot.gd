@@ -8,6 +8,7 @@ const _MAX_MILK_Y := 310.0
 		fill_percent = value
 		_update_milk_pos()
 
+@onready var spoon_path: PathFollow2D = %SpoonPath
 @onready var _milk: VBoxContainer = %Milk
 
 func _update_milk_pos() -> void:
