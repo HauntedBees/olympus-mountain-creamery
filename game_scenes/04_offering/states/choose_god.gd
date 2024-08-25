@@ -37,7 +37,7 @@ func _next_god() -> void:
 		_god_node.queue_free()
 		_god_node = null
 	if _god_idx < 0:
-		_make_off.offer_go_prompt.modulate.a = 1.0
+		_make_off.offer_go_prompt.toggle_visibility(true)
 		_make_off.offer_go_prompt.text = "Leave"
 		# TODO: going away message
 		_set_text()
@@ -46,5 +46,5 @@ func _next_god() -> void:
 	_make_off.offer_go_prompt.text = "Offer"
 	_god_node = _GODS[_god_idx].instantiate()
 	_make_off.god_spot.add_child(_god_node)
-	_make_off.offer_go_prompt.modulate.a  = 0.0 if _current_details.completed || _current_details.failed else 1.0
+	_make_off.offer_go_prompt.toggle_visibility(!_current_details.completed && !_current_details.failed)
 	_set_text()

@@ -7,7 +7,7 @@ func _init(s: GameScene, god: int, god_node: God, yogurt: MilkPotData) -> void:
 	_yog_given = yogurt
 
 func initialize() -> void:
-	_make_off.next_prompt.modulate.a = 0.0
+	_make_off.next_prompt.toggle_visibility(false)
 	_make_off.offer_go_prompt.text = "Next"
 	_bestow_yogurt_reward()
 
@@ -16,7 +16,7 @@ func update(_delta: float) -> void:
 		change_state.emit(ChooseGodState.new(_scene, _god_idx, _god_node))
 
 func clean() -> void:
-	_make_off.next_prompt.modulate.a = 1.0
+	_make_off.next_prompt.toggle_visibility(true)
 
 func _bestow_yogurt_reward() -> void:
 	var quest := Player.data.god_details[_god_idx]

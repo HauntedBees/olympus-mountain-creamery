@@ -23,6 +23,9 @@ func _ready() -> void:
 	Player.input_method_changed.connect(_set_input_display)
 	_set_input_display()
 
+func toggle_visibility(toggle: bool) -> void:
+	modulate.a = 1.0 if toggle else 0.0
+
 func _set_input_display() -> void:
 	if !is_inside_tree():
 		await ready
