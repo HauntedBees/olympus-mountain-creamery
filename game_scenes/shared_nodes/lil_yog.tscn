@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://db3scdbjxvvfs"]
+
+[ext_resource type="Script" path="res://game_scenes/shared_nodes/lil_yog.gd" id="1_l3ux7"]
+[ext_resource type="PackedScene" uid="uid://onydyldr07sm" path="res://game_scenes/shared_nodes/yog_jar.tscn" id="1_mdp3w"]
+
+[node name="LilYog" type="Control"]
+custom_minimum_size = Vector2(70, 60)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1212.0
+offset_bottom = -661.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l3ux7")
+
+[node name="YogJar" parent="." instance=ExtResource("1_mdp3w")]
+unique_name_in_owner = true
+scale = Vector2(0.5, 0.5)

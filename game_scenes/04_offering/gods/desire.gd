@@ -10,3 +10,20 @@ enum Flavor { Any, Sweet, Rich, Refreshing, Savory, Luxurious, Earthy, Floral, F
 
 ## Minutes until the mission is failed.
 @export var time_limit := 3600.0
+
+static func get_flavors(p: MilkPotData) -> Array[Flavor]:
+	var f: Array[Flavor] = [Flavor.Any]
+	if p.fermentation_time >= MilkPotData.SOUR_LIMIT:
+		f.append(Flavor.Sour)
+	match p.flavoring:
+		ItemCount.Type.Honey: f.append_array([Flavor.Sweet, Flavor.Rich])
+		ItemCount.Type.Mint: f.append_array([Flavor.Refreshing, Flavor.Savory])
+		ItemCount.Type.Saffron: f.append_array([Flavor.Luxurious, Flavor.Earthy, Flavor.Floral])
+		ItemCount.Type.Pomegranate: f.append_array([Flavor.Fruity, Flavor.Rich, Flavor.Floral])
+		ItemCount.Type.Walnut: f.append_array([Flavor.Bitter, Flavor.Earthy, Flavor.Savory])
+	if p.quality_multiplier >= 1.5:
+		f.append(Flavor.Quality)
+	return f
+
+func is_match(p: MilkPotData) -> bool:
+	return get_flavors(p).has(flavor)

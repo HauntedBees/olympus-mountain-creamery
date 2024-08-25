@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1hoftry4uri6"]
+
+[ext_resource type="Script" path="res://game_scenes/shared_nodes/framed_yog.gd" id="1_f7ebp"]
+[ext_resource type="Texture2D" uid="uid://c2gq7b5wttnyk" path="res://assets/kenney/panel_brown_corners_a.png" id="1_kp75d"]
+[ext_resource type="PackedScene" uid="uid://onydyldr07sm" path="res://game_scenes/shared_nodes/yog_jar.tscn" id="2_8j0vc"]
+
+[node name="FramedYog" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -592.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f7ebp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_kp75d")
+
+[node name="Control" type="Control" parent="."]
+custom_minimum_size = Vector2(102, 89.25)
+layout_mode = 2
+
+[node name="YogJar" parent="Control" instance=ExtResource("2_8j0vc")]
+unique_name_in_owner = true
+scale = Vector2(0.75, 0.75)

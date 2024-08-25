@@ -1,6 +1,6 @@
 class_name OutsideScene extends GameScene
 
-const _JAR_SCENE := preload("res://game_scenes/shared_nodes/yog_jar.tscn")
+const _JAR_SCENE := preload("res://game_scenes/shared_nodes/lil_yog.tscn")
 const _JAR_SCALE := Vector2(0.5, 0.5)
 
 @onready var _yog_prompt: ActionPrompt = %YogPrompt
@@ -21,13 +21,9 @@ func _ready() -> void:
 		Player.data.milk_pot_capacity
 	]
 	for y in Player.data.yogurts:
-		var c := Control.new()
-		c.custom_minimum_size = Vector2(70, 60)
-		var j: YogJar = _JAR_SCENE.instantiate()
-		j.scale = _JAR_SCALE
-		c.add_child(j)
+		var c: LilYog = _JAR_SCENE.instantiate()
 		_yogurts_container.add_child(c)
-		j.set_from_info(y)
+		c.yog_jar.set_from_info(y)
 
 func _input(event: InputEvent) -> void:
 	if _changing:

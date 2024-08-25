@@ -4,7 +4,6 @@ const _GODS: Array[PackedScene] = [
 	preload("res://game_scenes/04_offering/gods/meus.tscn")
 ]
 
-var _god_idx := -1
 var _god_node: God
 
 func initialize() -> void:
@@ -22,6 +21,7 @@ func update(_delta: float) -> void:
 		if Player.data.god_time_remaining[_god_idx] < 0.0:
 			# TODO: signal failure
 			return
+		change_state.emit(ChooseYogurtState.new(_scene, _god_idx))
 
 func _set_text() -> void:
 	if _god_idx < 0:
