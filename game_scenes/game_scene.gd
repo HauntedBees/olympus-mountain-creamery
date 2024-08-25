@@ -20,6 +20,7 @@ func start() -> void:
 func _change_state(new_state: GameState) -> void:
 	var t := create_tween()
 	if _state:
+		_state.input_blocked = true
 		t.tween_property(_transition, "color:a", 1.0, _TRANSITION_TIME)
 	t.tween_callback(func() -> void:
 		if _state:
@@ -32,6 +33,8 @@ func _change_state(new_state: GameState) -> void:
 	t.tween_property(_transition, "color:a", 0.0, _TRANSITION_TIME)
 
 func _change_scene(path: String) -> void:
+	if _state:
+		_state.input_blocked = true
 	var t := create_tween()
 	t.tween_property(_transition, "color:a", 1.0, _TRANSITION_TIME)
 	t.tween_callback(func() -> void:

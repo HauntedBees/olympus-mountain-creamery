@@ -2,7 +2,6 @@ class_name FillJarsState extends MakeYogGameState
 
 const _YOG_JAR_SCENE := preload("res://game_scenes/01_make_yog/yog_jar.tscn")
 const _MILK_POUR_RATE := 0.75
-const _JAR_CAPACITY := 5.0
 
 enum State { Animating, Pouring, Flavoring }
 
@@ -27,6 +26,9 @@ func clean() -> void:
 	for y in _yog_jar_displays:
 		y.queue_free()
 	_yog_jar_displays.clear()
+	_yog_jars.clear()
+	_current_jar = null
+	_current_jar_display = null
 
 func update(delta: float) -> void:
 	match _state:
@@ -47,7 +49,7 @@ func update_pour(delta: float) -> void:
 		_pot.amount -= amount_poured
 		_update_milk_label()
 		# TODO: overflow
-		_current_jar_display.fill_percent = _current_jar.amount / _JAR_CAPACITY
+		_current_jar_display.fill_percent = _current_jar.amount / PlayerData.JAR_CAPACITY
 		if _pot.amount <= 0:
 			_finish_pouring()
 	elif _did_start_pouring && !Player.options.multiple_milk_pours:
@@ -61,12 +63,16 @@ func _update_milk_label() -> void:
 	_make_yog.info_label.text = "Milk Remaining: %.1fτ" % _pot.amount
 
 func _finish_pouring() -> void:
+	Player.data.yogurts.append_array(_yog_jars)
 	change_scene.emit("res://game_scenes/02_outside/outside.tscn")
 
 func _add_yog() -> void:
 	_state = State.Animating
 	if _current_jar:
 		_yog_jars.append(_current_jar)
+	if Player.data.jars == 0:
+		_finish_pouring()
+		return
 	var rect := _root.get_viewport_rect()
 	var midpoint := rect.size.y * 0.6
 	if _current_jar_display:
@@ -78,6 +84,7 @@ func _add_yog() -> void:
 	_current_jar_display.position = Vector2(rect.end.x + _current_jar_display.size.x, midpoint)
 	_current_jar = _pot.duplicate()
 	_current_jar.amount = 0.0
+	Player.data.jars -= 1
 	input_blocked = true
 	var t := _root.create_tween()
 	var mid_x := rect.size.x / 2.0 - _current_jar_display.size.x / 2.0

@@ -1,5 +1,7 @@
 class_name PlayerData extends Resource
 
+const JAR_CAPACITY := 5.0
+
 ## How much milk the player has.
 @export var milk_amount := 30.0
 
@@ -17,3 +19,6 @@ class_name PlayerData extends Resource
 
 ## Amount of arm energy recovered per second.
 @export var arm_recovery_rate := 0.5
+
+## The player's actively fermenting yogurt jars.
+@export var yogurts: Array[MilkPotData] = []

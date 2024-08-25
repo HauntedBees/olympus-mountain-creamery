@@ -26,6 +26,11 @@ func _ready() -> void:
 	_milk_gradient = grad.duplicate()
 	grad_tex.gradient = _milk_gradient
 
+func set_from_info(p: MilkPotData) -> void:
+	fill_percent = p.amount / PlayerData.JAR_CAPACITY
+	burn_amount = p.burnt_amount
+	# TODO: flavor
+
 func _update_milk_pos() -> void:
 	if !is_inside_tree():
 		await ready
