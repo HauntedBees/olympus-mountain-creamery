@@ -13,6 +13,8 @@ func initialize() -> void:
 	_make_yog.temp_meter.cold = true
 	_make_yog.ice_container.visible = true
 	_make_yog.ice_container.ice_amount = 50
+	_make_yog.left_btn.text = "Ice"
+	_make_yog.right_btn.text = "Next"
 	_make_yog.info_label.text = ""
 	
 func clean() -> void:

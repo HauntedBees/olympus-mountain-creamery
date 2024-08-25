@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ppx0mkhv67k6"]
+[gd_scene load_steps=8 format=3 uid="uid://ppx0mkhv67k6"]
 
 [ext_resource type="Script" path="res://game_scenes/01_make_yog/make_yog.gd" id="1_e2rrb"]
 [ext_resource type="Shader" uid="uid://76asy4soysao" path="res://game_scenes/01_make_yog/fire.tres" id="4_1emc4"]
 [ext_resource type="PackedScene" uid="uid://c7ggwfed6pagk" path="res://game_scenes/01_make_yog/boil_pot.tscn" id="4_us5hp"]
 [ext_resource type="PackedScene" uid="uid://bvqiad5oamvxy" path="res://game_scenes/01_make_yog/temp_meter.tscn" id="5_sycg0"]
+[ext_resource type="PackedScene" uid="uid://4f3hwjrkf0my" path="res://game_scenes/03_shop/vert_prompt.tscn" id="6_2mk1b"]
 [ext_resource type="Script" path="res://game_scenes/01_make_yog/ice_bath.gd" id="6_ojxcj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lkslk"]
@@ -14,6 +15,7 @@ shader_parameter/outer = Color(1, 0.309804, 0, 1)
 shader_parameter/inner_threshold = 0.4
 shader_parameter/outer_threshold = 0.15
 shader_parameter/soft_edge = 0.0
+shader_parameter/time_mult = 1.0
 shader_parameter/center = Vector2(0.5, 1.1)
 shader_parameter/OCTAVES = 6
 
@@ -111,6 +113,41 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MainMenu" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -236.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 8
+
+[node name="Info" type="HBoxContainer" parent="MainMenu"]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="LeftBtn" parent="MainMenu/Info" instance=ExtResource("6_2mk1b")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Offer"
+state = 0
+
+[node name="VSeparator" type="VSeparator" parent="MainMenu/Info"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RightBtn" parent="MainMenu/Info" instance=ExtResource("6_2mk1b")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Next"
+state = 1
 
 [node name="Transition" type="ColorRect" parent="."]
 unique_name_in_owner = true

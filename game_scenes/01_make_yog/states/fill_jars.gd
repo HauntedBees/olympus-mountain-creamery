@@ -17,6 +17,8 @@ func initialize() -> void:
 	_make_yog.boil_pot.visible = false
 	_root = _make_yog.yog_jars
 	_root.visible = true
+	_make_yog.left_btn.text = "Pour"
+	_make_yog.right_btn.text = "Flavor"
 	_add_yog()
 	_update_milk_label()
 	

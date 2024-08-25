@@ -6,6 +6,8 @@ class_name MakeYogurtScene extends GameScene
 @onready var temp_meter: TempMeter = %TempMeter
 @onready var ice_container: IceBath = %IceContainer
 @onready var yog_jars: Control = %YogJars
+@onready var left_btn: VertPrompt = %LeftBtn
+@onready var right_btn: VertPrompt = %RightBtn
 
 func _ready() -> void:
 	_change_state(PourMilkState.new(self, MilkPotData.new()))

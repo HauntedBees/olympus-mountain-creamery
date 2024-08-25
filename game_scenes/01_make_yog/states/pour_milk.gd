@@ -6,6 +6,9 @@ var _did_start_pouring := false
 
 func initialize() -> void:
 	_update_milk_label()
+	_make_yog.left_btn.text = "Pour"
+	_make_yog.right_btn.text = "Next"
+	_make_yog.right_btn.toggle_visibility(Player.options.multiple_milk_pours)
 
 func update(delta: float) -> void:
 	if Player.options.multiple_milk_pours && Input.is_action_just_pressed("button_two"):
@@ -24,6 +27,9 @@ func update(delta: float) -> void:
 		_make_yog.boil_pot.fill_percent = _pot.amount / Player.data.milk_pot_capacity
 	elif _did_start_pouring && !Player.options.multiple_milk_pours:
 		_finish_pouring()
+
+func clean() -> void:
+	_make_yog.right_btn.toggle_visibility(true)
 
 ## Fills up faster at start and end than middle.
 func _fill_formula(current_amount: float) -> float:

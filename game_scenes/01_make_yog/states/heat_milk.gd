@@ -28,6 +28,8 @@ func initialize() -> void:
 	_spoon.visible = true
 	_energy = Player.data.arm_energy
 	_max_energy = _energy
+	_make_yog.left_btn.text = "Stir"
+	_make_yog.right_btn.text = "Heat"
 	_update_energy_label()
 
 func update(delta: float) -> void:
