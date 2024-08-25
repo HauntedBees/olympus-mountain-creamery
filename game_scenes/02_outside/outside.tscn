@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ba5oef6kaft2k"]
+[gd_scene load_steps=3 format=3 uid="uid://ba5oef6kaft2k"]
 
 [ext_resource type="Script" path="res://game_scenes/02_outside/outside.gd" id="1_6smvh"]
 [ext_resource type="PackedScene" uid="uid://bnurmvdujjqn1" path="res://game_scenes/02_outside/action_prompt.tscn" id="1_yp2mu"]
-[ext_resource type="PackedScene" uid="uid://onydyldr07sm" path="res://game_scenes/01_make_yog/yog_jar.tscn" id="3_u2bge"]
 
 [node name="Outside" type="Control"]
 layout_mode = 3
@@ -101,11 +100,3 @@ anchor_bottom = 1.0
 offset_right = 666.0
 grow_vertical = 2
 columns = 8
-
-[node name="Control" type="Control" parent="Yogurts"]
-custom_minimum_size = Vector2(68, 59)
-layout_mode = 2
-
-[node name="YogJar" parent="Yogurts/Control" instance=ExtResource("3_u2bge")]
-layout_mode = 1
-scale = Vector2(0.5, 0.5)

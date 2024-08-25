@@ -63,6 +63,8 @@ func _update_milk_label() -> void:
 	_make_yog.info_label.text = "Milk Remaining: %.1fτ" % _pot.amount
 
 func _finish_pouring() -> void:
+	if _current_jar:
+		_yog_jars.append(_current_jar)
 	Player.data.yogurts.append_array(_yog_jars)
 	change_scene.emit("res://game_scenes/02_outside/outside.tscn")
 
