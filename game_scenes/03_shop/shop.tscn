@@ -32,67 +32,57 @@ columns = 5
 [node name="None" parent="VBoxContainer/ItemList" instance=ExtResource("1_naxsf")]
 unique_name_in_owner = true
 layout_mode = 2
-selected = false
 
 [node name="Milk" parent="VBoxContainer/ItemList" instance=ExtResource("1_naxsf")]
 unique_name_in_owner = true
 layout_mode = 2
 item = 9
-selected = false
 
 [node name="Jars" parent="VBoxContainer/ItemList" instance=ExtResource("1_naxsf")]
 unique_name_in_owner = true
 layout_mode = 2
 item = 6
-selected = false
 
 [node name="Honey" parent="VBoxContainer/ItemList" instance=ExtResource("1_naxsf")]
 unique_name_in_owner = true
 layout_mode = 2
 item = 1
-selected = false
 
 [node name="Mint" parent="VBoxContainer/ItemList" instance=ExtResource("1_naxsf")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 item = 2
-selected = false
 
 [node name="Saffron" parent="VBoxContainer/ItemList" instance=ExtResource("1_naxsf")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 item = 3
-selected = false
 
 [node name="Pomegranate" parent="VBoxContainer/ItemList" instance=ExtResource("1_naxsf")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 item = 4
-selected = false
 
 [node name="Walnuts" parent="VBoxContainer/ItemList" instance=ExtResource("1_naxsf")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 item = 5
-selected = false
 
 [node name="PotUpgrade" parent="VBoxContainer/ItemList" instance=ExtResource("1_naxsf")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 item = 7
-selected = false
 
 [node name="SpoonUpgrade" parent="VBoxContainer/ItemList" instance=ExtResource("1_naxsf")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 item = 8
-selected = false
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
 layout_mode = 2

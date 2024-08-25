@@ -1,0 +1,136 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmf2jdr3xq56b"]
+
+[ext_resource type="Texture2D" uid="uid://bfcvka4iuur25" path="res://assets/meus/zbody.png" id="1_6kwus"]
+[ext_resource type="Texture2D" uid="uid://bjc3fth1ev1ga" path="res://assets/meus/zhead.png" id="2_0p2uv"]
+[ext_resource type="Shader" uid="uid://76asy4soysao" path="res://game_scenes/01_make_yog/fire.tres" id="3_rt2n6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lskd7"]
+shader = ExtResource("3_rt2n6")
+shader_parameter/transparent = Color(0, 0, 0, 0)
+shader_parameter/inner = Color(1, 1, 1, 1)
+shader_parameter/outer = Color(0.796078, 1, 1, 1)
+shader_parameter/inner_threshold = 0.3
+shader_parameter/outer_threshold = 0.045
+shader_parameter/soft_edge = 0.0
+shader_parameter/time_mult = 0.1
+shader_parameter/center = Vector2(0.5, 0.87)
+shader_parameter/OCTAVES = 6
+
+[sub_resource type="Animation" id="Animation_wv334"]
+resource_name = "base"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 3.03333, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1), Vector2(1.1, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 3, 5.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 10.0, 10.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_sauja"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dk4nw"]
+_data = {
+"RESET": SubResource("Animation_sauja"),
+"base": SubResource("Animation_wv334")
+}
+
+[node name="Meus" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Body" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -143.5
+offset_top = 0.333332
+offset_right = 143.5
+offset_bottom = 0.333313
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(143, 0)
+texture = ExtResource("1_6kwus")
+stretch_mode = 3
+
+[node name="Head" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -140.5
+offset_right = 140.5
+offset_bottom = 307.0
+grow_horizontal = 2
+texture = ExtResource("2_0p2uv")
+stretch_mode = 3
+
+[node name="Clouds" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_lskd7")
+custom_minimum_size = Vector2(940, 300)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -470.0
+offset_top = -300.0
+offset_right = 470.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dk4nw")
+}
+autoplay = "base"

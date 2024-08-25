@@ -26,7 +26,7 @@ window/size/viewport_height=720
 
 [gui]
 
-theme/custom="res://theem.tres"
+theme/custom="res://assets/theem.tres"
 
 [input]
 
