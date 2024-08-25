@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://vriv63llhdyd"
-path="res://.godot/imported/Aegean.ttf-811eeccde0657bea37ae0604d5569764.fontdata"
+uid="uid://dhcii6gssucck"
+path="res://.godot/imported/KamilloGrotesk-SemiBold.ttf-a6700e8ea23dd83b034591e2b972a7cf.fontdata"
 
 [deps]
 
-source_file="res://assets/Aegean.ttf"
-dest_files=["res://.godot/imported/Aegean.ttf-811eeccde0657bea37ae0604d5569764.fontdata"]
+source_file="res://assets/KamilloGrotesk-SemiBold.ttf"
+dest_files=["res://.godot/imported/KamilloGrotesk-SemiBold.ttf-a6700e8ea23dd83b034591e2b972a7cf.fontdata"]
 
 [params]
 

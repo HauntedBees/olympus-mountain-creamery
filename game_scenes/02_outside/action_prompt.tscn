@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dxxxttfyqnckd" path="res://assets/kenney/round_brown_dark.png" id="4_fk2g6"]
 
 [node name="ActionPrompt" type="NinePatchRect"]
-custom_minimum_size = Vector2(450, 96)
+custom_minimum_size = Vector2(490, 96)
 offset_right = 450.0
 offset_bottom = 96.0
 texture = ExtResource("1_nvtt3")

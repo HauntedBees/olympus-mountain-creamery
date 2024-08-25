@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=5 format=3 uid="uid://carntceclimm5"]
 
-[ext_resource type="FontFile" uid="uid://vriv63llhdyd" path="res://assets/Aegean.ttf" id="1_jv65p"]
+[ext_resource type="FontFile" uid="uid://dhcii6gssucck" path="res://assets/KamilloGrotesk-SemiBold.ttf" id="1_81221"]
 [ext_resource type="Texture2D" uid="uid://ckplhoa70p81t" path="res://assets/kenney/panel_brown_corners_b.png" id="2_uirx6"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6okd0"]
@@ -15,6 +15,6 @@ texture_margin_bottom = 20.0
 [resource]
 Label/constants/outline_size = 8
 Label/font_sizes/font_size = 32
-Label/fonts/font = ExtResource("1_jv65p")
+Label/fonts/font = ExtResource("1_81221")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_6okd0")
 VSeparator/styles/separator = SubResource("StyleBoxEmpty_0qk1v")
