@@ -22,3 +22,8 @@ const JAR_CAPACITY := 5.0
 
 ## The player's actively fermenting yogurt jars.
 @export var yogurts: Array[MilkPotData] = []
+
+## The non-dairy non-container items the player has.
+@export var inventory: Array[ItemCount] = [
+	ItemCount.new(ItemCount.Type.Honey, 3)
+]
