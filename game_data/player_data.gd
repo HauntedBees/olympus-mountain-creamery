@@ -26,6 +26,9 @@ const JAR_CAPACITY := 5.0
 ## Amount of arm energy recovered per second.
 @export var arm_recovery_rate := 0.5
 
+## The items the player can buy. More are unlocked with each successful quest completed.
+@export var items_available_to_buy := 3
+
 ## The player's actively fermenting yogurt jars.
 @export var yogurts: Array[MilkPotData] = []
 

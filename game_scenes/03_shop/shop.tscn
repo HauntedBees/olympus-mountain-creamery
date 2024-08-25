@@ -25,6 +25,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="ItemList" type="GridContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 columns = 5
@@ -50,25 +51,21 @@ item = 1
 
 [node name="Mint" parent="VBoxContainer/ItemList" instance=ExtResource("1_naxsf")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 item = 2
 
 [node name="Saffron" parent="VBoxContainer/ItemList" instance=ExtResource("1_naxsf")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 item = 3
 
 [node name="Pomegranate" parent="VBoxContainer/ItemList" instance=ExtResource("1_naxsf")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 item = 4
 
 [node name="Walnuts" parent="VBoxContainer/ItemList" instance=ExtResource("1_naxsf")]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 item = 5
 

@@ -3,6 +3,7 @@ class_name ShopScene extends GameScene
 @onready var _items: Array[ItemDisplay] = [%None, %Milk, %Jars, %Honey, %Mint, %Saffron, %Pomegranate, %Walnuts, %PotUpgrade, %SpoonUpgrade]
 @onready var _item_desc: Label = %ItemDesc
 @onready var _money_label: Label = %MoneyLabel
+@onready var _item_list: GridContainer = %ItemList
 
 var _idx := 1
 var _changing := false
@@ -10,6 +11,9 @@ var _changing := false
 func _ready() -> void:
 	_change_idx(_idx)
 	_update_money_label()
+	for idx in _items.size():
+		_items[idx].visible = idx <= Player.data.items_available_to_buy
+	_item_list.columns = 5 if Player.data.items_available_to_buy > 7 else 8
 
 func _process(_delta: float) -> void:
 	if _changing:

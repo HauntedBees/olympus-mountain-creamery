@@ -72,6 +72,7 @@ func _bestow_yogurt_reward() -> void:
 			tb.text = _god_node.didnt_want_message
 
 func _advance_to_next_quest() -> void:
+	Player.data.items_available_to_buy += 1
 	var quest := Player.data.god_details[_god_idx]
 	var next_quest := quest.desire_idx + 1
 	if next_quest >= _god_node.requirements.size():
