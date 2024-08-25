@@ -61,8 +61,7 @@ func _update_milk_label() -> void:
 	_make_yog.info_label.text = "Milk Remaining: %.1fτ" % _pot.amount
 
 func _finish_pouring() -> void:
-	# TODO: some animation/delay/transition to finish things off
-	change_state.emit(HeatMilkState.new(_make_yog, _pot))
+	change_scene.emit("res://game_scenes/02_outside/outside.tscn")
 
 func _add_yog() -> void:
 	_state = State.Animating

@@ -2,6 +2,7 @@ class_name GameState extends RefCounted
 
 @warning_ignore("unused_signal")
 signal change_state(s: GameState)
+signal change_scene(path: String)
 
 var input_blocked := false
 

@@ -1,16 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://ppx0mkhv67k6"]
+[gd_scene load_steps=7 format=3 uid="uid://ppx0mkhv67k6"]
 
 [ext_resource type="Script" path="res://game_scenes/01_make_yog/make_yog.gd" id="1_e2rrb"]
-[ext_resource type="FontFile" uid="uid://vriv63llhdyd" path="res://assets/Aegean.ttf" id="3_0roav"]
 [ext_resource type="Shader" uid="uid://76asy4soysao" path="res://game_scenes/01_make_yog/fire.tres" id="4_1emc4"]
 [ext_resource type="PackedScene" uid="uid://c7ggwfed6pagk" path="res://game_scenes/01_make_yog/boil_pot.tscn" id="4_us5hp"]
 [ext_resource type="PackedScene" uid="uid://bvqiad5oamvxy" path="res://game_scenes/01_make_yog/temp_meter.tscn" id="5_sycg0"]
 [ext_resource type="Script" path="res://game_scenes/01_make_yog/ice_bath.gd" id="6_ojxcj"]
-
-[sub_resource type="Theme" id="Theme_d8av5"]
-Label/constants/outline_size = 8
-Label/font_sizes/font_size = 32
-Label/fonts/font = ExtResource("3_0roav")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lkslk"]
 shader = ExtResource("4_1emc4")
@@ -37,8 +31,7 @@ unique_name_in_owner = true
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-theme = SubResource("Theme_d8av5")
-text = "Milk Remaining: 10.0Lτ"
+text = "Milk Remaining: 10.0τ"
 
 [node name="PotContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -120,6 +113,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Transition" type="ColorRect" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

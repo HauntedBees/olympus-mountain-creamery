@@ -1,0 +1,93 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba5oef6kaft2k"]
+
+[ext_resource type="Script" path="res://game_scenes/02_outside/outside.gd" id="1_6smvh"]
+[ext_resource type="PackedScene" uid="uid://bnurmvdujjqn1" path="res://game_scenes/02_outside/action_prompt.tscn" id="1_yp2mu"]
+
+[node name="Outside" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6smvh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -577.0
+offset_top = -382.0
+offset_right = -23.0
+offset_bottom = -11.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 32
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_constants/separation = 96
+
+[node name="YogPrompt" parent="VBoxContainer/HBoxContainer3" instance=ExtResource("1_yp2mu")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Make more Yogurt"
+state = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="OfferPrompt" parent="VBoxContainer/HBoxContainer" instance=ExtResource("1_yp2mu")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Offer Yog to Gods"
+state = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ShopPrompt" parent="VBoxContainer/HBoxContainer2" instance=ExtResource("1_yp2mu")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Shop for Supplies"
+
+[node name="InfoLabel" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -180.0
+offset_top = 23.0
+offset_right = -27.0
+offset_bottom = 56.0
+grow_horizontal = 0
+text = "Money: 50ὀ
+Jars: 10
+Milk: 50τ
+Pot Capacity: 50τ"
+horizontal_alignment = 2
+
+[node name="Transition" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.12549, 0)
