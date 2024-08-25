@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvtsd4p0646t"]
+
+[ext_resource type="Script" path="res://game_scenes/01_make_yog/temp_meter.gd" id="1_b0nif"]
+[ext_resource type="Texture2D" uid="uid://b0ki74qfsrrv8" path="res://assets/meter.png" id="2_hbdgk"]
+[ext_resource type="Texture2D" uid="uid://dp4on8l7u00nm" path="res://assets/meter_pointer.png" id="3_0bx5a"]
+
+[node name="TempMeter" type="CenterContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b0nif")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_hbdgk")
+
+[node name="Rotater" type="TextureRect" parent="TextureRect"]
+unique_name_in_owner = true
+layout_mode = 2
+offset_left = 130.0
+offset_top = 88.0
+offset_right = 162.0
+offset_bottom = 153.0
+rotation = 3.14159
+pivot_offset = Vector2(16, 54)
+texture = ExtResource("3_0bx5a")
+stretch_mode = 2

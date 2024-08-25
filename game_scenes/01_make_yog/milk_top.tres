@@ -1,6 +1,7 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ja50dlic4nnr"]
 
-[ext_resource type="Shader" path="res://game_scenes/01_make_yog/milk_top.gdshader" id="1_2w48d"]
+[ext_resource type="Shader" path="res://game_scenes/01_make_yog/milk_top.gdshader" id="1_ccmhn"]
 
 [resource]
-shader = ExtResource("1_2w48d")
+shader = ExtResource("1_ccmhn")
+shader_parameter/milk_speed = 0.25

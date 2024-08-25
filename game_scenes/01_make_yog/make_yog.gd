@@ -1,11 +1,13 @@
 class_name MakeYogurtScene extends GameScene
 
 @onready var boil_pot: BoilPot = %BoilPot
-@onready var milk_label: Label = %InfoLabel
+@onready var info_label: Label = %InfoLabel
 @onready var fire: ColorRect = %Fire
+@onready var temp_meter: TempMeter = %TempMeter
+@onready var ice_container: IceBath = %IceContainer
 
 func _ready() -> void:
-	_change_state(PourMilkState.new(self))
+	_change_state(PourMilkState.new(self, MilkPotData.new()))
 
 func _change_state(new_state: MakeYogGameState) -> void:
 	if _state:

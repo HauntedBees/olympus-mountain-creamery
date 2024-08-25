@@ -1,0 +1,115 @@
+[gd_scene load_steps=10 format=3 uid="uid://onydyldr07sm"]
+
+[ext_resource type="Script" path="res://game_scenes/01_make_yog/boil_pot.gd" id="1_xnyt3"]
+[ext_resource type="Texture2D" uid="uid://j0thu0idbytq" path="res://assets/yog_jar_back.png" id="2_jorf2"]
+[ext_resource type="Texture2D" uid="uid://dpdv6mjofmhat" path="res://assets/yog_jar_back_lip.png" id="3_68g1j"]
+[ext_resource type="Shader" path="res://game_scenes/01_make_yog/milk_top.gdshader" id="4_d2vud"]
+[ext_resource type="Texture2D" uid="uid://b24ddyh74mwan" path="res://assets/yog_jar_front.png" id="6_72sl3"]
+[ext_resource type="Texture2D" uid="uid://bo3njgjsco0st" path="res://assets/milk_top.png" id="6_cjwf5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_l6x03"]
+shader = ExtResource("4_d2vud")
+shader_parameter/milk_speed = 0.04
+
+[sub_resource type="Gradient" id="Gradient_dh7jb"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sdsnm"]
+gradient = SubResource("Gradient_dh7jb")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="YogJar" type="Control"]
+custom_minimum_size = Vector2(136, 119)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 136.0
+offset_bottom = 119.0
+script = ExtResource("1_xnyt3")
+max_milk_y = 110.0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackContainer" type="MarginContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 8
+
+[node name="Back" type="TextureRect" parent="CenterContainer/BackContainer"]
+layout_mode = 2
+texture = ExtResource("2_jorf2")
+
+[node name="BackLip" type="Control" parent="CenterContainer"]
+custom_minimum_size = Vector2(136, 119)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/BackLip"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_constants/margin_left = -1
+theme_override_constants/margin_top = -36
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/BackLip/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("3_68g1j")
+stretch_mode = 3
+
+[node name="BackMaskContainer" type="MarginContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 8
+
+[node name="Back" type="TextureRect" parent="CenterContainer/BackMaskContainer"]
+clip_children = 1
+layout_mode = 2
+texture = ExtResource("2_jorf2")
+
+[node name="Milk" type="VBoxContainer" parent="CenterContainer/BackMaskContainer/Back"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 110.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="CenterContainer/BackMaskContainer/Back/Milk"]
+custom_minimum_size = Vector2(32, 4)
+layout_mode = 2
+
+[node name="MilkTop" type="TextureRect" parent="CenterContainer/BackMaskContainer/Back/Milk/Control"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_l6x03")
+custom_minimum_size = Vector2(316, 4)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("6_cjwf5")
+expand_mode = 1
+
+[node name="MilkBase" type="TextureRect" parent="CenterContainer/BackMaskContainer/Back/Milk"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+texture = SubResource("GradientTexture2D_sdsnm")
+
+[node name="Front" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("6_72sl3")

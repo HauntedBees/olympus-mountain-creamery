@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c7ggwfed6pagk"]
+[gd_scene load_steps=11 format=3 uid="uid://c7ggwfed6pagk"]
 
 [ext_resource type="Texture2D" uid="uid://bwooy8nn6ri5j" path="res://assets/boil_pot_back.png" id="1_joymm"]
 [ext_resource type="Script" path="res://game_scenes/01_make_yog/boil_pot.gd" id="1_upsne"]
@@ -14,11 +14,20 @@ _data = {
 }
 point_count = 6
 
+[sub_resource type="Gradient" id="Gradient_jof00"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_sdsnm"]
+gradient = SubResource("Gradient_jof00")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
 [node name="BoilPot" type="Control"]
 custom_minimum_size = Vector2(407, 331)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_upsne")
+burn_amount = null
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 0
@@ -110,9 +119,11 @@ grow_vertical = 0
 texture = ExtResource("3_qvwro")
 expand_mode = 1
 
-[node name="MilkBase" type="ColorRect" parent="CenterContainer/BackMaskContainer/Back/Milk"]
+[node name="MilkBase" type="TextureRect" parent="CenterContainer/BackMaskContainer/Back/Milk"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+texture = SubResource("GradientTexture2D_sdsnm")
 
 [node name="Front" type="TextureRect" parent="CenterContainer"]
 layout_mode = 2

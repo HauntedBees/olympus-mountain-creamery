@@ -1,7 +1,7 @@
 ## Options related to sound, accessibility, etc.
 class_name PlayerOptions extends Resource
 
-## The multiplier applied to various in-game actions.
+## The multiplier applied to various in-game actions. Lower numbers make actions slower/easier.
 @export var speed_multiplier := 1.0
 
 ## Keyboard key for the first button.
