@@ -21,7 +21,9 @@ enum Type {
 	## Stirring increase for Spoon
 	SpoonUpgrade,
 	## It's milk
-	Milk
+	Milk,
+	## Money
+	Money
 }
 
 const ITEM_NAMES := {
@@ -34,7 +36,8 @@ const ITEM_NAMES := {
 	Type.Jars: "Five Yogurt Jars",
 	Type.PotUpgrade: "Bigger Pot",
 	Type.SpoonUpgrade: "Sturdier Spoon",
-	Type.Milk: "20τ of Milk"
+	Type.Milk: "20τ of Milk",
+	Type.Money: "Ὀbolus"
 }
 const ITEM_COSTS := {
 	Type.None: 0,
@@ -46,7 +49,8 @@ const ITEM_COSTS := {
 	Type.Jars: 5,
 	Type.PotUpgrade: 30,
 	Type.SpoonUpgrade: 30,
-	Type.Milk: 10
+	Type.Milk: 10,
+	Type.Money: 1
 }
 const ITEM_DESCRIPTIONS := {
 	Type.None: "Leave the Shop and return to your Yogurt Chamber.",
@@ -58,7 +62,8 @@ const ITEM_DESCRIPTIONS := {
 	Type.Jars: "Five more Jars to fill with yogurt.",
 	Type.PotUpgrade: "Increase the amount of milk you can pour in your preparation pot by 10τ.",
 	Type.SpoonUpgrade: "A sturdier spoon that you can stir more easily without getting tired.",
-	Type.Milk: "20τ of milk, for yogurt-making purposes."
+	Type.Milk: "20τ of milk, for yogurt-making purposes.",
+	Type.Money: "This shouldn't be a thing you can see."
 }
 
 ## What the item is.
@@ -67,6 +72,6 @@ const ITEM_DESCRIPTIONS := {
 ## How much of it the player has.
 @export var amount: int
 
-func _init(t: Type, a := 1) -> void:
+func _init(t := Type.None, a := 1) -> void:
 	type = t
 	amount = a

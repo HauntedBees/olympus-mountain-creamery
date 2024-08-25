@@ -14,3 +14,6 @@ class_name QuestDetails extends Resource
 
 ## Whether the God has given up on you.
 @export var failed := false
+
+## Whether you've completed all the God's requests.
+@export var completed := false

@@ -1,8 +1,10 @@
 class_name MilkPotData extends Resource
 
-const SOUPY_LIMIT := 2.0
-const SOURING_SOON_LIMIT := 8.0
-const SOUR_LIMIT := 10.0
+const _MINUTE := 60.0
+const SOUPY_LIMIT := 2.0 * _MINUTE
+const SOURING_SOON_LIMIT := 8.0 * _MINUTE
+const SOUR_LIMIT := 10.0 * _MINUTE
+const SMALL_JAR_LIMIT := 2.75
 
 ## The amount of milk is in the pot.
 @export var amount := 0.0
@@ -19,8 +21,8 @@ const SOUR_LIMIT := 10.0
 ## Increased by quality of pours and other factors.
 @export var quality_multiplier := 1.0
 
-## From 2 to 10 is good. Anything higher is too sour.
-@export_range(0.0, 11.0) var fermentation_time := 0.0
+## Measured in seconds. From 2 to 10 minutes is good. Anything higher is too sour.
+@export_range(0.0, 660.0) var fermentation_time := 0.0
 
 ## Flavoring added to the yogurt.
 @export var flavoring := ItemCount.Type.None

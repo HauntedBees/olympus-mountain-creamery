@@ -1,6 +1,8 @@
 extends God
 
 func get_desires_string(d: QuestDetails) -> String:
+	if d.completed:
+		return "Thank you for your service. My hunger has been sated, and I have only you to thank."
 	if d.failed:
 		return "You have failed me... I do not want your yogurt ever again. Leave me be, foolish mortal!"
 	var desire := requirements[d.desire_idx]

@@ -18,9 +18,9 @@ func update(_delta: float) -> void:
 		_next_yog()
 	elif Input.is_action_pressed("button_one"):
 		if _yog_idx < 0:
-			change_state.emit(ChooseGodState.new(_scene, _god_idx))
-			return
-		# TODO: offer it
+			change_state.emit(ChooseGodState.new(_scene, _god_idx, _god_node))
+		else:
+			change_state.emit(MakeOfferState.new(_scene, _god_idx, _god_node, _curr_yog_info))
 
 func clean() -> void:
 	_container.visible = false
@@ -56,7 +56,7 @@ func _set_text() -> void:
 		details.append("The milk used to make this was very burnt.")
 	elif _curr_yog_info.burnt_amount >= 0.4:
 		details.append("The milk used to make this was a bit burnt.")
-	if _curr_yog_info.amount < 3.0:
+	if _curr_yog_info.amount < MilkPotData.SMALL_JAR_LIMIT:
 		details.append("The jar isn't very full.")
 	match _curr_yog_info.flavoring:
 		ItemCount.Type.None: details.append("It's unflavored.")

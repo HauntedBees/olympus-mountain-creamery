@@ -51,6 +51,7 @@ func _change_idx(idx: int) -> void:
 		var count := Player.data.get_item_count(item)
 		var you_have_string := "You have %d" % count
 		match item:
+			ItemCount.Type.Money: you_have_string = "You have %dὀ" % count
 			ItemCount.Type.Milk: you_have_string = "You have %.1fτ" % count
 			ItemCount.Type.PotUpgrade: you_have_string = "Current capacity is %.1fτ" % count
 			ItemCount.Type.SpoonUpgrade: you_have_string = "Current power is %.1f" % count

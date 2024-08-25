@@ -4,7 +4,6 @@ const _GODS: Array[PackedScene] = [
 	preload("res://game_scenes/04_offering/gods/meus.tscn")
 ]
 
-var _god_node: God
 var _current_details: QuestDetails
 
 func initialize() -> void:
@@ -20,10 +19,9 @@ func update(_delta: float) -> void:
 		if _god_idx < 0:
 			change_scene.emit("res://game_scenes/02_outside/outside.tscn")
 			return
-		if _current_details.failed:
-			# TODO: signal failure
+		if _current_details.failed || _current_details.completed:
 			return
-		change_state.emit(ChooseYogurtState.new(_scene, _god_idx))
+		change_state.emit(ChooseYogurtState.new(_scene, _god_idx, _god_node))
 
 func _set_text() -> void:
 	if _god_idx < 0:
@@ -37,8 +35,9 @@ func _next_god() -> void:
 		_god_idx = -1
 	if _god_node:
 		_god_node.queue_free()
-	if _god_idx < 0:
 		_god_node = null
+	if _god_idx < 0:
+		_make_off.offer_go_prompt.modulate.a = 1.0
 		_make_off.offer_go_prompt.text = "Leave"
 		# TODO: going away message
 		_set_text()
@@ -47,4 +46,5 @@ func _next_god() -> void:
 	_make_off.offer_go_prompt.text = "Offer"
 	_god_node = _GODS[_god_idx].instantiate()
 	_make_off.god_spot.add_child(_god_node)
+	_make_off.offer_go_prompt.modulate.a  = 0.0 if _current_details.completed || _current_details.failed else 1.0
 	_set_text()

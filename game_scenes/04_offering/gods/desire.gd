@@ -11,6 +11,9 @@ enum Flavor { Any, Sweet, Rich, Refreshing, Savory, Luxurious, Earthy, Floral, F
 ## Minutes until the mission is failed.
 @export var time_limit := 3600.0
 
+## The reward received for the desire.
+@export var reward: Array[ItemCount] = []
+
 static func get_flavors(p: MilkPotData) -> Array[Flavor]:
 	var f: Array[Flavor] = [Flavor.Any]
 	if p.fermentation_time >= MilkPotData.SOUR_LIMIT:
@@ -27,3 +30,9 @@ static func get_flavors(p: MilkPotData) -> Array[Flavor]:
 
 func is_match(p: MilkPotData) -> bool:
 	return get_flavors(p).has(flavor)
+
+func get_quest(idx: int) -> QuestDetails:
+	var q := QuestDetails.new()
+	q.desire_idx = idx
+	q.time_remaining = time_limit
+	return q

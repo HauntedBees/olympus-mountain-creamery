@@ -47,6 +47,7 @@ func get_item_count(i: ItemCount.Type) -> float:
 		ItemCount.Type.Jars: return jars
 		ItemCount.Type.PotUpgrade: return milk_pot_capacity
 		ItemCount.Type.SpoonUpgrade: return arm_energy
+		ItemCount.Type.Money: return money
 	for item in inventory:
 		if item.type == i:
 			return item.amount
@@ -54,6 +55,8 @@ func get_item_count(i: ItemCount.Type) -> float:
 
 func add_item(item: ItemCount.Type, amount: int) -> void:
 	match item:
+		ItemCount.Type.Money:
+			money += amount
 		ItemCount.Type.Milk: 
 			milk_amount += 20.0 * amount
 			return

@@ -104,7 +104,8 @@ text = "Meus:
     What's good milky boy?"
 autowrap_mode = 3
 
-[node name="VertPrompt2" parent="VBoxContainer/MainMenu/Info" instance=ExtResource("2_gty0a")]
+[node name="NextPrompt" parent="VBoxContainer/MainMenu/Info" instance=ExtResource("2_gty0a")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Next"
 state = 1
