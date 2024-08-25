@@ -2,9 +2,11 @@ class_name God extends Control
 
 @export var requirements: Array[Desire] = []
 
-func get_desires_string(idx: int, time: float) -> String:
-	var desire := requirements[idx]
-	return "I want %d yogurts in %.0f seconds." % [desire.yogurt_amount, _time_string(time)]
+func get_desires_string(d: QuestDetails) -> String:
+	if d.failed:
+		return "You failed."
+	var desire := requirements[d.desire_idx]
+	return "I want %d yogurts in %.0f seconds." % [desire.yogurt_amount - d.amount_given, _time_string(d.time_remaining)]
 
 func _time_string(time: float) -> String:
 	if time > 60.0:

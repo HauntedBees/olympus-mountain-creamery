@@ -6,10 +6,7 @@ const JAR_CAPACITY := 5.0
 @export var gods_unlocked := 1
 
 ## Progress on each God's yogurt-desiring quests.
-@export var god_progress: Array[int] = [0, 0, 0, 0, 0]
-
-## How much time the player has left before failing the current God quests.
-@export var god_time_remaining: Array[float] = [10, 3600, 3600, 3600, 3600]
+@export var god_details: Array[QuestDetails] = [QuestDetails.new()]
 
 ## How much milk the player has.
 @export var milk_amount := 30.0
