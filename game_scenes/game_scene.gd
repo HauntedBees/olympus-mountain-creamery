@@ -4,5 +4,7 @@ class_name GameScene extends Control
 var _state: GameState
 
 func _process(delta: float) -> void:
+	if !_state:
+		return
 	if !_state.input_blocked:
 		_state.update(delta)

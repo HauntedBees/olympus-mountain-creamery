@@ -64,7 +64,6 @@ func _finish_check(delta: float) -> void:
 		return
 	_sweet_spot_time_remaining = 0.0
 	input_blocked = true
-	# TODO: some animation/delay/transition to finish things off
 	change_state.emit(CoolMilkState.new(_make_yog, _pot))
 
 func _update_energy_label() -> void:

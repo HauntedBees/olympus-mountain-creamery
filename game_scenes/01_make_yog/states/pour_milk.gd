@@ -34,6 +34,5 @@ func _update_milk_label() -> void:
 
 func _finish_pouring() -> void:
 	input_blocked = true
-	# TODO: some animation/delay/transition to finish things off
-	#change_state.emit(HeatMilkState.new(_make_yog, _pot))
-	change_state.emit(FillJarsState.new(_make_yog, _pot))
+	change_state.emit(HeatMilkState.new(_make_yog, _pot))
+	#change_state.emit(FillJarsState.new(_make_yog, _pot))
