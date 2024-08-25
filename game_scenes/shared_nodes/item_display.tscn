@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dne47q8u5if22"]
+
+[ext_resource type="Texture2D" uid="uid://c2gq7b5wttnyk" path="res://assets/kenney/panel_brown_corners_a.png" id="1_6psl6"]
+[ext_resource type="Script" path="res://game_scenes/shared_nodes/item_display.gd" id="2_h76au"]
+[ext_resource type="Texture2D" uid="uid://c501t58o105if" path="res://assets/items.png" id="2_latkt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qa7kg"]
+resource_local_to_scene = true
+atlas = ExtResource("2_latkt")
+region = Rect2(64, 128, 64, 64)
+
+[node name="ItemDisplay" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_6psl6")
+script = ExtResource("2_h76au")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="IconImage" type="TextureRect" parent="CenterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = SubResource("AtlasTexture_qa7kg")
+stretch_mode = 5

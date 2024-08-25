@@ -27,3 +27,41 @@ const JAR_CAPACITY := 5.0
 @export var inventory: Array[ItemCount] = [
 	ItemCount.new(ItemCount.Type.Honey, 3)
 ]
+
+func _init() -> void:
+	for i in 5:
+		var m := MilkPotData.new()
+		m.amount = randf_range(JAR_CAPACITY * 0.6, JAR_CAPACITY * 0.8)
+		m.fermentation_time = randf()
+		yogurts.append(m)
+
+func get_item_count(i: ItemCount.Type) -> float:
+	match i:
+		ItemCount.Type.Milk: return milk_amount
+		ItemCount.Type.Jars: return jars
+		ItemCount.Type.PotUpgrade: return milk_pot_capacity
+		ItemCount.Type.SpoonUpgrade: return arm_energy
+	for item in inventory:
+		if item.type == i:
+			return item.amount
+	return 0
+
+func add_item(item: ItemCount.Type, amount: int) -> void:
+	match item:
+		ItemCount.Type.Milk: 
+			milk_amount += 20.0 * amount
+			return
+		ItemCount.Type.Jars:
+			jars += 5 * amount
+			return
+		ItemCount.Type.PotUpgrade:
+			milk_pot_capacity += 10.0 * amount
+			return
+		ItemCount.Type.SpoonUpgrade:
+			arm_energy += 1.5 * amount
+			return
+	for i in inventory:
+		if i.type == item:
+			i.amount += amount
+			return
+	inventory.append(ItemCount.new(item, amount))

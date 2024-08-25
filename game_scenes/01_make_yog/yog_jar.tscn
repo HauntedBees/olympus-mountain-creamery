@@ -11,12 +11,12 @@
 shader = ExtResource("4_d2vud")
 shader_parameter/milk_speed = 0.04
 
-[sub_resource type="Gradient" id="Gradient_pd1my"]
+[sub_resource type="Gradient" id="Gradient_rnfh6"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_sdsnm"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_pd1my")
+gradient = SubResource("Gradient_rnfh6")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 

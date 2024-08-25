@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c2gq7b5wttnyk" path="res://assets/kenney/panel_brown_corners_a.png" id="1_nvtt3"]
 [ext_resource type="Script" path="res://game_scenes/02_outside/action_prompt.gd" id="2_l2xto"]
 [ext_resource type="Texture2D" uid="uid://4r6k78uqfcd8" path="res://assets/kenney/round_damaged_brown.png" id="2_nyqj0"]
-[ext_resource type="Texture2D" uid="uid://ckg8yvqkqnpeo" path="res://assets/kenney/minimap_icon_jewel_yellow.png" id="4_gniuh"]
+[ext_resource type="Texture2D" uid="uid://dxxxttfyqnckd" path="res://assets/kenney/round_brown_dark.png" id="4_fk2g6"]
 
 [node name="ActionPrompt" type="NinePatchRect"]
 custom_minimum_size = Vector2(450, 96)
@@ -36,7 +36,9 @@ texture = ExtResource("2_nyqj0")
 unique_name_in_owner = true
 custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
-texture = ExtResource("4_gniuh")
+texture = ExtResource("4_fk2g6")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="PromptText" type="Label" parent="HBoxContainer/CenterContainer"]
 unique_name_in_owner = true

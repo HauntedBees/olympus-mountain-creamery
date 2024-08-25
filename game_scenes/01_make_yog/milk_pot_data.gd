@@ -15,5 +15,5 @@ class_name MilkPotData extends Resource
 ## Increased by quality of pours and other factors.
 @export var quality_multiplier := 1.0
 
-## From 5 to 15 is good. Anything higher is too sour.
-@export_range(0.0, 20.0) var fermentation_time := 0.0
+## From 2 to 8 is good. Anything higher is too sour.
+@export_range(0.0, 10.0) var fermentation_time := 0.0

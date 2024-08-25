@@ -82,6 +82,15 @@ Milk: 50τ
 Pot Capacity: 50τ"
 horizontal_alignment = 2
 
+[node name="Yogurts" type="GridContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 666.0
+grow_vertical = 2
+columns = 8
+
 [node name="Transition" type="ColorRect" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
@@ -91,12 +100,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0.12549, 0)
-
-[node name="Yogurts" type="GridContainer" parent="."]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 666.0
-grow_vertical = 2
-columns = 8

@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://4f3hwjrkf0my"]
+
+[ext_resource type="Script" path="res://game_scenes/03_shop/vert_prompt.gd" id="1_rgfit"]
+[ext_resource type="Texture2D" uid="uid://4r6k78uqfcd8" path="res://assets/kenney/round_damaged_brown.png" id="1_udctj"]
+[ext_resource type="Texture2D" uid="uid://dxxxttfyqnckd" path="res://assets/kenney/round_brown_dark.png" id="2_50r6n"]
+[ext_resource type="Texture2D" uid="uid://c2gq7b5wttnyk" path="res://assets/kenney/panel_brown_corners_a.png" id="3_bdl6j"]
+
+[node name="VertPrompt" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -492.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rgfit")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("1_udctj")
+
+[node name="Selected" type="TextureRect" parent="CenterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("2_50r6n")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PromptText" type="Label" parent="CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Z"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CenterContainer2"]
+custom_minimum_size = Vector2(128, 96)
+layout_mode = 2
+texture = ExtResource("3_bdl6j")
+patch_margin_left = 30
+patch_margin_top = 30
+patch_margin_right = 30
+patch_margin_bottom = 30
+
+[node name="Label" type="Label" parent="CenterContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Next"
