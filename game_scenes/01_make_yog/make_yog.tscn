@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ppx0mkhv67k6"]
+[gd_scene load_steps=9 format=3 uid="uid://ppx0mkhv67k6"]
 
 [ext_resource type="Script" path="res://game_scenes/01_make_yog/make_yog.gd" id="1_e2rrb"]
 [ext_resource type="Shader" uid="uid://76asy4soysao" path="res://game_scenes/01_make_yog/fire.tres" id="4_1emc4"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bvqiad5oamvxy" path="res://game_scenes/01_make_yog/temp_meter.tscn" id="5_sycg0"]
 [ext_resource type="PackedScene" uid="uid://4f3hwjrkf0my" path="res://game_scenes/03_shop/vert_prompt.tscn" id="6_2mk1b"]
 [ext_resource type="Script" path="res://game_scenes/01_make_yog/ice_bath.gd" id="6_ojxcj"]
+[ext_resource type="PackedScene" uid="uid://dne47q8u5if22" path="res://game_scenes/shared_nodes/item_display.tscn" id="7_emncc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lkslk"]
 shader = ExtResource("4_1emc4")
@@ -148,6 +149,120 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Next"
 state = 1
+
+[node name="ItemList" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -212.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="None" parent="ItemList" instance=ExtResource("7_emncc")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Honey" parent="ItemList" instance=ExtResource("7_emncc")]
+unique_name_in_owner = true
+layout_mode = 2
+item = 1
+
+[node name="HoneyLabel" type="Label" parent="ItemList/Honey"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "x5"
+
+[node name="Mint" parent="ItemList" instance=ExtResource("7_emncc")]
+unique_name_in_owner = true
+layout_mode = 2
+item = 2
+
+[node name="MintLabel" type="Label" parent="ItemList/Mint"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "x5"
+
+[node name="Saffron" parent="ItemList" instance=ExtResource("7_emncc")]
+unique_name_in_owner = true
+layout_mode = 2
+item = 3
+
+[node name="SaffronLabel" type="Label" parent="ItemList/Saffron"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "x5"
+
+[node name="Pomegranate" parent="ItemList" instance=ExtResource("7_emncc")]
+unique_name_in_owner = true
+layout_mode = 2
+item = 4
+
+[node name="PomLabel" type="Label" parent="ItemList/Pomegranate"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "x5"
+
+[node name="Walnuts" parent="ItemList" instance=ExtResource("7_emncc")]
+unique_name_in_owner = true
+layout_mode = 2
+item = 5
+
+[node name="NutLabel" type="Label" parent="ItemList/Walnuts"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "x5"
 
 [node name="Transition" type="ColorRect" parent="."]
 unique_name_in_owner = true
