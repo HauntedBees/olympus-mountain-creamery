@@ -1,6 +1,6 @@
 class_name OutsideScene extends GameScene
 
-const _JAR_SCENE := preload("res://game_scenes/01_make_yog/yog_jar.tscn")
+const _JAR_SCENE := preload("res://game_scenes/shared_nodes/yog_jar.tscn")
 const _JAR_SCALE := Vector2(0.5, 0.5)
 
 @onready var _yog_prompt: ActionPrompt = %YogPrompt
@@ -43,6 +43,6 @@ func _input(event: InputEvent) -> void:
 			0: # Yogurt
 				_change_scene("res://game_scenes/01_make_yog/make_yog.tscn")
 			1: # Offering
-				pass
+				_change_scene("res://game_scenes/04_offering/offering.tscn")
 			2: # Shop
 				_change_scene("res://game_scenes/03_shop/shop.tscn")

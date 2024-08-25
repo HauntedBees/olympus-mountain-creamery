@@ -1,11 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmf2jdr3xq56b"]
+[gd_scene load_steps=11 format=3 uid="uid://dmf2jdr3xq56b"]
 
-[ext_resource type="Texture2D" uid="uid://bfcvka4iuur25" path="res://assets/meus/zbody.png" id="1_6kwus"]
-[ext_resource type="Texture2D" uid="uid://bjc3fth1ev1ga" path="res://assets/meus/zhead.png" id="2_0p2uv"]
-[ext_resource type="Shader" uid="uid://76asy4soysao" path="res://game_scenes/01_make_yog/fire.tres" id="3_rt2n6"]
+[ext_resource type="Script" path="res://game_scenes/04_offering/gods/meus.gd" id="1_t0sso"]
+[ext_resource type="Script" path="res://game_scenes/04_offering/gods/desire.gd" id="2_0pvo5"]
+[ext_resource type="Texture2D" uid="uid://bfcvka4iuur25" path="res://assets/meus/zbody.png" id="2_d1w38"]
+[ext_resource type="Texture2D" uid="uid://bjc3fth1ev1ga" path="res://assets/meus/zhead.png" id="3_wi8gn"]
+[ext_resource type="Shader" uid="uid://76asy4soysao" path="res://game_scenes/01_make_yog/fire.tres" id="4_axbc6"]
+
+[sub_resource type="Resource" id="Resource_cl1gn"]
+script = ExtResource("2_0pvo5")
+yogurt_amount = 1
+flavor = 0
+time_limit = 3600.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lskd7"]
-shader = ExtResource("3_rt2n6")
+shader = ExtResource("4_axbc6")
 shader_parameter/transparent = Color(0, 0, 0, 0)
 shader_parameter/inner = Color(1, 1, 1, 1)
 shader_parameter/outer = Color(0.796078, 1, 1, 1)
@@ -15,6 +23,33 @@ shader_parameter/soft_edge = 0.0
 shader_parameter/time_mult = 0.1
 shader_parameter/center = Vector2(0.5, 0.87)
 shader_parameter/OCTAVES = 6
+
+[sub_resource type="Animation" id="Animation_sauja"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_wv334"]
 resource_name = "base"
@@ -45,33 +80,6 @@ tracks/1/keys = {
 "values": [0.0, 10.0, 10.0, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_sauja"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Body:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Head:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0.0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dk4nw"]
 _data = {
 "RESET": SubResource("Animation_sauja"),
@@ -85,6 +93,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_t0sso")
+requirements = Array[ExtResource("2_0pvo5")]([SubResource("Resource_cl1gn")])
 
 [node name="Body" type="TextureRect" parent="."]
 layout_mode = 1
@@ -99,7 +109,7 @@ offset_bottom = 0.333313
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(143, 0)
-texture = ExtResource("1_6kwus")
+texture = ExtResource("2_d1w38")
 stretch_mode = 3
 
 [node name="Head" type="TextureRect" parent="."]
@@ -111,7 +121,7 @@ offset_left = -140.5
 offset_right = 140.5
 offset_bottom = 307.0
 grow_horizontal = 2
-texture = ExtResource("2_0p2uv")
+texture = ExtResource("3_wi8gn")
 stretch_mode = 3
 
 [node name="Clouds" type="ColorRect" parent="."]
@@ -123,9 +133,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -470.0
-offset_top = -300.0
-offset_right = 470.0
+offset_left = -865.0
+offset_top = -345.0
+offset_right = 880.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 0
 

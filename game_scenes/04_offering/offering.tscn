@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cn3fvsba1wgna"]
+[gd_scene load_steps=4 format=3 uid="uid://cn3fvsba1wgna"]
 
-[ext_resource type="PackedScene" uid="uid://dmf2jdr3xq56b" path="res://game_scenes/04_offering/meus.tscn" id="1_01tto"]
+[ext_resource type="Script" path="res://game_scenes/04_offering/offering.gd" id="1_jmqmc"]
+[ext_resource type="PackedScene" uid="uid://4f3hwjrkf0my" path="res://game_scenes/03_shop/vert_prompt.tscn" id="2_gty0a"]
+[ext_resource type="Texture2D" uid="uid://p1dyj23bf1a8" path="res://assets/kenney/button_brown.png" id="3_0801h"]
 
 [node name="Offering" type="Control"]
 layout_mode = 3
@@ -9,6 +11,84 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jmqmc")
 
-[node name="Meus" parent="." instance=ExtResource("1_01tto")]
+[node name="GodSpot" type="Control" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -236.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 8
+
+[node name="Info" type="HBoxContainer" parent="MainMenu"]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="OfferGoPrompt" parent="MainMenu/Info" instance=ExtResource("2_gty0a")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Offer"
+state = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MainMenu/Info"]
+custom_minimum_size = Vector2(640, 180)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_0801h")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="MainMenu/Info/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="TextBox" type="Label" parent="MainMenu/Info/NinePatchRect/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "Meus:
+    What's good milky boy?"
+autowrap_mode = 3
+
+[node name="VertPrompt2" parent="MainMenu/Info" instance=ExtResource("2_gty0a")]
+layout_mode = 2
+text = "Next"
+state = 1
+
+[node name="Transition" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.12549, 0)

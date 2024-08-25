@@ -1,6 +1,6 @@
 class_name FillJarsState extends MakeYogGameState
 
-const _YOG_JAR_SCENE := preload("res://game_scenes/01_make_yog/yog_jar.tscn")
+const _YOG_JAR_SCENE := preload("res://game_scenes/shared_nodes/yog_jar.tscn")
 const _MILK_POUR_RATE := 0.75
 
 enum State { Animating, Pouring, Flavoring }
