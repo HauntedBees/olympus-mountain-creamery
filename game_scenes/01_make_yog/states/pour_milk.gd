@@ -8,7 +8,7 @@ func initialize() -> void:
 	_update_milk_label()
 
 func update(delta: float) -> void:
-	if Input.is_action_just_pressed("button_two"):
+	if Player.options.multiple_milk_pours && Input.is_action_just_pressed("button_two"):
 		_finish_pouring()
 		return
 	if Input.is_action_pressed("button_one"):
@@ -35,4 +35,5 @@ func _update_milk_label() -> void:
 func _finish_pouring() -> void:
 	input_blocked = true
 	# TODO: some animation/delay/transition to finish things off
-	change_state.emit(HeatMilkState.new(_make_yog, _pot))
+	#change_state.emit(HeatMilkState.new(_make_yog, _pot))
+	change_state.emit(FillJarsState.new(_make_yog, _pot))

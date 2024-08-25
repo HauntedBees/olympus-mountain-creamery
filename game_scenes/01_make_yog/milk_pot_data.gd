@@ -1,4 +1,4 @@
-class_name MilkPotData extends RefCounted
+class_name MilkPotData extends Resource
 
 ## The amount of milk is in the pot.
 @export var amount := 0.0

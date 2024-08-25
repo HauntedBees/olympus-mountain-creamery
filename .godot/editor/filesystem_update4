@@ -33,3 +33,5 @@ res://game_scenes/01_make_yog/ice.tscn
 res://game_scenes/01_make_yog/yog_jar.tscn
 res://game_scenes/01_make_yog/milk_top.tres
 res://game_scenes/01_make_yog/yog_jar.gd
+res://game_scenes/01_make_yog/states/fill_jars.gd
+res://game_scenes/01_make_yog/states/pour_state.gd

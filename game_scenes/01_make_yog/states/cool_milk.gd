@@ -24,8 +24,9 @@ func clean() -> void:
 func update(delta: float) -> void:
 	if Input.is_action_just_pressed("button_two"):
 		input_blocked = true
+		# TODO: calculate bacteria and cool multipliers
 		# TODO: some animation/delay/transition to finish things off
-		change_state.emit(CoolMilkState.new(_make_yog, _pot))
+		change_state.emit(FillJarsState.new(_make_yog, _pot))
 		return
 	if Input.is_action_just_pressed("button_one"):
 		_ice_added += 0.1

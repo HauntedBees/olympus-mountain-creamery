@@ -108,3 +108,13 @@ offset_right = 256.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("6_ojxcj")
+
+[node name="YogJars" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
