@@ -1,0 +1,161 @@
+[gd_scene load_steps=14 format=3 uid="uid://dbrhe5ja58srd"]
+
+[ext_resource type="Script" path="res://game_scenes/04_offering/gods/demilker.gd" id="1_ake5b"]
+[ext_resource type="Texture2D" uid="uid://dxdfhjic22454" path="res://assets/gods/demilker/dheadhappy.png" id="3_xyywi"]
+[ext_resource type="Texture2D" uid="uid://cccaw7ca66aa" path="res://assets/gods/demilker/dheadhsad.png" id="4_qd4kf"]
+[ext_resource type="Script" path="res://game_scenes/04_offering/gods/desire.gd" id="5_shkll"]
+[ext_resource type="Script" path="res://game_data/item_count.gd" id="6_v25uf"]
+[ext_resource type="Texture2D" uid="uid://ce28t4opvi3o" path="res://assets/gods/demilker/dbody.png" id="7_mee48"]
+[ext_resource type="Texture2D" uid="uid://pmt8ovp6kcrk" path="res://assets/gods/demilker/dhead.png" id="8_crp4y"]
+[ext_resource type="Shader" uid="uid://76asy4soysao" path="res://game_scenes/01_make_yog/fire.tres" id="8_ipnyj"]
+
+[sub_resource type="Resource" id="Resource_tr02q"]
+script = ExtResource("5_shkll")
+yogurt_amount = 5
+flavor = 6
+time_limit = 1200.0
+reward = Array[ExtResource("6_v25uf")]([])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_du8nd"]
+shader = ExtResource("8_ipnyj")
+shader_parameter/transparent = Color(0, 0, 0, 0)
+shader_parameter/inner = Color(1, 1, 1, 1)
+shader_parameter/outer = Color(0.796078, 1, 0.537255, 1)
+shader_parameter/inner_threshold = 0.3
+shader_parameter/outer_threshold = 0.045
+shader_parameter/soft_edge = 0.0
+shader_parameter/time_mult = 0.1
+shader_parameter/center = Vector2(0.5, 0.87)
+shader_parameter/OCTAVES = 6
+
+[sub_resource type="Animation" id="Animation_sauja"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-17.0]
+}
+
+[sub_resource type="Animation" id="Animation_wv334"]
+resource_name = "base"
+length = 5.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.83333, 2.9, 4.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.05, 1), Vector2(1.05, 1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Head:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.8, 3.03333, 4.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-17.0, -10.0, -10.0, -17.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dk4nw"]
+_data = {
+"RESET": SubResource("Animation_sauja"),
+"base": SubResource("Animation_wv334")
+}
+
+[node name="Demilker" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ake5b")
+base_head = ExtResource("8_crp4y")
+happy_head = ExtResource("3_xyywi")
+angry_head = ExtResource("4_qd4kf")
+requirements = Array[ExtResource("5_shkll")]([SubResource("Resource_tr02q")])
+complete_message = "Thank you! Now please take accept this as my thanks!"
+not_ready_message = "It looks like this yogurt isn't ready yet. Please ensure your yogurt is properly fermented!"
+not_enough_message = "But... jar wasn't very full. Please fill the jar better next time!"
+final_warning_message = "Please don't do that again."
+failed_message = "I don't think I can accept your yogurt anymore."
+
+[node name="Body" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -143.5
+offset_top = 0.333332
+offset_right = 143.5
+offset_bottom = 0.333313
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(290, 0)
+texture = ExtResource("7_mee48")
+stretch_mode = 3
+
+[node name="Head" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -121.0
+offset_top = -17.0
+offset_right = 160.0
+offset_bottom = 290.0
+grow_horizontal = 2
+texture = ExtResource("8_crp4y")
+stretch_mode = 3
+
+[node name="Clouds" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_du8nd")
+custom_minimum_size = Vector2(940, 300)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -854.0
+offset_top = -276.0
+offset_right = 891.0
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dk4nw")
+}
+autoplay = "base"

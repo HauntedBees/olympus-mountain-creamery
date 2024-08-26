@@ -4,13 +4,13 @@ class_name God extends Control
 @export var happy_head: Texture2D
 @export var angry_head: Texture2D
 @export var requirements: Array[Desire] = []
-@export var success_message := "This is exactly what I wanted, thank you! Bring me %d more and I'll reward you!"
-@export var complete_message := "Thank you! Now please take this reward!"
-@export var not_ready_message := "This isn't yogurt! This is slightly curdled milk! Make sure your yogurt ferments before serving it!"
-@export var not_enough_message := "This jar was barely full though, make sure you fill the jar better next time!"
-@export var didnt_want_message := "This isn't what I wanted."
-@export var final_warning_message := "Don't fail me again!"
-@export var failed_message := "Your yogurt is not welcome here anymore!"
+@export_multiline var success_message := "This is exactly what I wanted, thank you! Bring me %d more and I'll reward you!"
+@export_multiline var complete_message := "Thank you! Now please take this reward!"
+@export_multiline var not_ready_message := "This isn't yogurt! This is slightly curdled milk! Make sure your yogurt ferments before serving it!"
+@export_multiline var not_enough_message := "This jar was barely full though, make sure you fill the jar better next time!"
+@export_multiline var didnt_want_message := "This isn't what I wanted."
+@export_multiline var final_warning_message := "Don't fail me again!"
+@export_multiline var failed_message := "Your yogurt is not welcome here anymore!"
 
 @onready var head: TextureRect = %Head
 
