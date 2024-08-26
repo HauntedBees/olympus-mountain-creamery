@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://tg2l0q4to2pk"]
+[gd_scene load_steps=12 format=3 uid="uid://tg2l0q4to2pk"]
 
 [ext_resource type="Script" path="res://game_scenes/03_shop/shop.gd" id="1_2k8su"]
 [ext_resource type="PackedScene" uid="uid://dne47q8u5if22" path="res://game_scenes/shared_nodes/item_display.tscn" id="1_naxsf"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bh5btu372im12" path="res://game_scenes/03_shop/shopkeep.tscn" id="2_2ipn1"]
 [ext_resource type="PackedScene" uid="uid://4f3hwjrkf0my" path="res://game_scenes/03_shop/vert_prompt.tscn" id="3_5dhdj"]
 [ext_resource type="Texture2D" uid="uid://cg0j1ehq4lb1b" path="res://assets/gods/shopkeeper/buble.png" id="6_63pco"]
+[ext_resource type="PackedScene" uid="uid://qylh2eymlhye" path="res://game_scenes/shared_nodes/background.tscn" id="7_ngvpf"]
+[ext_resource type="Texture2D" uid="uid://dgjjyineu56k4" path="res://assets/backgrounds/bg3.png" id="8_g5kx8"]
+[ext_resource type="Texture2D" uid="uid://yr8os1yrpn0n" path="res://assets/backgrounds/bg3p1.png" id="9_5i6rp"]
+[ext_resource type="Texture2D" uid="uid://m7r7ovvabwyh" path="res://assets/backgrounds/bg3p2.png" id="10_yjyfu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xsvvq"]
 font_size = 24
@@ -19,6 +23,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2k8su")
+
+[node name="Background" parent="." instance=ExtResource("7_ngvpf")]
+layout_mode = 1
+back_texture = ExtResource("8_g5kx8")
+glow_1_texture = ExtResource("9_5i6rp")
+glow_2_texture = ExtResource("10_yjyfu")
+glow_1_speed = 0.012
+glow_2_speed = -0.005
 
 [node name="Shopkeep" parent="." instance=ExtResource("2_2ipn1")]
 layout_mode = 1
@@ -166,16 +178,6 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "You have 20 ὀbolus."
 
-[node name="Transition" type="ColorRect" parent="."]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0.12549, 0)
-
 [node name="Buble" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 5
@@ -208,3 +210,13 @@ label_settings = SubResource("LabelSettings_xsvvq")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="Transition" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.12549, 0)

@@ -1,8 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://ppx0mkhv67k6"]
+[gd_scene load_steps=17 format=3 uid="uid://ppx0mkhv67k6"]
 
 [ext_resource type="Script" path="res://game_scenes/01_make_yog/make_yog.gd" id="1_e2rrb"]
-[ext_resource type="Texture2D" uid="uid://gojn6kl812co" path="res://assets/prep_background.png" id="2_xhjry"]
-[ext_resource type="Shader" path="res://game_scenes/01_make_yog/milk_top.gdshader" id="3_7rk2f"]
+[ext_resource type="PackedScene" uid="uid://qylh2eymlhye" path="res://game_scenes/shared_nodes/background.tscn" id="2_c2epk"]
+[ext_resource type="Texture2D" uid="uid://gojn6kl812co" path="res://assets/backgrounds/prep_background.png" id="2_xhjry"]
 [ext_resource type="Shader" uid="uid://76asy4soysao" path="res://game_scenes/01_make_yog/fire.tres" id="4_1emc4"]
 [ext_resource type="Texture2D" uid="uid://re1xw6dyi6pl" path="res://assets/backgrounds/bg_parallax.png" id="4_d6xfv"]
 [ext_resource type="Texture2D" uid="uid://cen6l61r08gl4" path="res://assets/backgrounds/bg_parallax2.png" id="4_ix4eq"]
@@ -14,14 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://dne47q8u5if22" path="res://game_scenes/shared_nodes/item_display.tscn" id="7_emncc"]
 [ext_resource type="Texture2D" uid="uid://od3x5ltdhrud" path="res://assets/pour_hands.png" id="8_iumhh"]
 [ext_resource type="Script" path="res://game_scenes/01_make_yog/pour_hands.gd" id="9_kn5mc"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vdteo"]
-shader = ExtResource("3_7rk2f")
-shader_parameter/milk_speed = -0.01
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j2866"]
-shader = ExtResource("3_7rk2f")
-shader_parameter/milk_speed = 0.015
 
 [sub_resource type="LabelSettings" id="LabelSettings_vcmax"]
 font_size = 24
@@ -48,27 +40,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e2rrb")
 
-[node name="BG" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("2_xhjry")
-
-[node name="Sparkles" type="TextureRect" parent="."]
-texture_repeat = 2
-material = SubResource("ShaderMaterial_vdteo")
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("4_ix4eq")
-
-[node name="Sparkles2" type="TextureRect" parent="."]
-texture_repeat = 2
-material = SubResource("ShaderMaterial_j2866")
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("4_d6xfv")
+[node name="Background" parent="." instance=ExtResource("2_c2epk")]
+layout_mode = 1
+back_texture = ExtResource("2_xhjry")
+glow_1_texture = ExtResource("4_ix4eq")
+glow_2_texture = ExtResource("4_d6xfv")
+glow_1_speed = -0.01
+glow_2_speed = 0.015
 
 [node name="Table" type="TextureRect" parent="."]
 layout_mode = 1
