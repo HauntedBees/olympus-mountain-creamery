@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://game_scenes/03_shop/shop.gd" id="1_2k8su"]
 [ext_resource type="PackedScene" uid="uid://dne47q8u5if22" path="res://game_scenes/shared_nodes/item_display.tscn" id="1_naxsf"]
-[ext_resource type="Texture2D" uid="uid://p1dyj23bf1a8" path="res://assets/kenney/button_brown.png" id="2_0o0qk"]
+[ext_resource type="Texture2D" uid="uid://p1dyj23bf1a8" path="res://assets/other/kenney/button_brown.png" id="2_0o0qk"]
 [ext_resource type="PackedScene" uid="uid://4f3hwjrkf0my" path="res://game_scenes/03_shop/vert_prompt.tscn" id="3_5dhdj"]
 
 [node name="Shop" type="Control"]

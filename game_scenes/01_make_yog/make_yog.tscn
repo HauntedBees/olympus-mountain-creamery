@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://gojn6kl812co" path="res://assets/prep_background.png" id="2_xhjry"]
 [ext_resource type="Shader" path="res://game_scenes/01_make_yog/milk_top.gdshader" id="3_7rk2f"]
 [ext_resource type="Shader" uid="uid://76asy4soysao" path="res://game_scenes/01_make_yog/fire.tres" id="4_1emc4"]
-[ext_resource type="Texture2D" uid="uid://re1xw6dyi6pl" path="res://assets/bg_parallax.png" id="4_d6xfv"]
-[ext_resource type="Texture2D" uid="uid://cen6l61r08gl4" path="res://assets/bg_parallax2.png" id="4_ix4eq"]
+[ext_resource type="Texture2D" uid="uid://re1xw6dyi6pl" path="res://assets/backgrounds/bg_parallax.png" id="4_d6xfv"]
+[ext_resource type="Texture2D" uid="uid://cen6l61r08gl4" path="res://assets/backgrounds/bg_parallax2.png" id="4_ix4eq"]
 [ext_resource type="PackedScene" uid="uid://c7ggwfed6pagk" path="res://game_scenes/01_make_yog/boil_pot.tscn" id="4_us5hp"]
 [ext_resource type="PackedScene" uid="uid://bvqiad5oamvxy" path="res://game_scenes/01_make_yog/temp_meter.tscn" id="5_sycg0"]
 [ext_resource type="PackedScene" uid="uid://4f3hwjrkf0my" path="res://game_scenes/03_shop/vert_prompt.tscn" id="6_2mk1b"]
@@ -130,6 +130,7 @@ theme_override_constants/margin_bottom = 64
 [node name="BoilPot" parent="PotContainer" instance=ExtResource("4_us5hp")]
 unique_name_in_owner = true
 layout_mode = 2
+overflowing = false
 
 [node name="PourHands" type="TextureRect" parent="."]
 unique_name_in_owner = true
@@ -148,6 +149,10 @@ texture = ExtResource("8_iumhh")
 expand_mode = 1
 stretch_mode = 3
 script = ExtResource("9_kn5mc")
+
+[node name="MarginContainer2" type="MarginContainer" parent="PourHands"]
+layout_mode = 0
+size_flags_horizontal = 3
 
 [node name="FireContainer" type="MarginContainer" parent="."]
 layout_mode = 1

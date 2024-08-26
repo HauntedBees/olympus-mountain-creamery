@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=5 format=3 uid="uid://carntceclimm5"]
 
 [ext_resource type="FontFile" uid="uid://dhcii6gssucck" path="res://assets/other/KamilloGrotesk-SemiBold.ttf" id="1_81221"]
-[ext_resource type="Texture2D" uid="uid://ckplhoa70p81t" path="res://assets/kenney/panel_brown_corners_b.png" id="2_uirx6"]
+[ext_resource type="Texture2D" uid="uid://ckplhoa70p81t" path="res://assets/other/kenney/panel_brown_corners_b.png" id="2_uirx6"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6okd0"]
 texture = ExtResource("2_uirx6")

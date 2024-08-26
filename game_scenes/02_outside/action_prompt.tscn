@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bnurmvdujjqn1"]
 
-[ext_resource type="Texture2D" uid="uid://c2gq7b5wttnyk" path="res://assets/kenney/panel_brown_corners_a.png" id="1_nvtt3"]
+[ext_resource type="Texture2D" uid="uid://c2gq7b5wttnyk" path="res://assets/other/kenney/panel_brown_corners_a.png" id="1_nvtt3"]
 [ext_resource type="Script" path="res://game_scenes/02_outside/action_prompt.gd" id="2_l2xto"]
-[ext_resource type="Texture2D" uid="uid://4r6k78uqfcd8" path="res://assets/kenney/round_damaged_brown.png" id="2_nyqj0"]
-[ext_resource type="Texture2D" uid="uid://dxxxttfyqnckd" path="res://assets/kenney/round_brown_dark.png" id="4_fk2g6"]
+[ext_resource type="Texture2D" uid="uid://4r6k78uqfcd8" path="res://assets/other/kenney/round_damaged_brown.png" id="2_nyqj0"]
+[ext_resource type="Texture2D" uid="uid://dxxxttfyqnckd" path="res://assets/other/kenney/round_brown_dark.png" id="4_fk2g6"]
 
 [node name="ActionPrompt" type="NinePatchRect"]
 custom_minimum_size = Vector2(490, 96)

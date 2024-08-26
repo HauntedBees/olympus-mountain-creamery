@@ -2,6 +2,7 @@ class_name OutsideScene extends GameScene
 
 const _JAR_SCENE := preload("res://game_scenes/shared_nodes/lil_yog.tscn")
 const _JAR_SCALE := Vector2(0.5, 0.5)
+const _MAX_YOGURTS_TO_SHOW := 72
 
 @onready var _yog_prompt: ActionPrompt = %YogPrompt
 @onready var _offer_prompt: ActionPrompt = %OfferPrompt
@@ -20,7 +21,11 @@ func _ready() -> void:
 		Player.data.milk_amount,
 		Player.data.milk_pot_capacity
 	]
+	var count := 0
 	for y in Player.data.yogurts:
+		count += 1
+		if count > _MAX_YOGURTS_TO_SHOW:
+			continue
 		var c: LilYog = _JAR_SCENE.instantiate()
 		_yogurts_container.add_child(c)
 		c.yog_jar.set_from_info(y)

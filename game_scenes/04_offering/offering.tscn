@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://game_scenes/04_offering/offering.gd" id="1_jmqmc"]
 [ext_resource type="PackedScene" uid="uid://4f3hwjrkf0my" path="res://game_scenes/03_shop/vert_prompt.tscn" id="2_gty0a"]
-[ext_resource type="Texture2D" uid="uid://c2gq7b5wttnyk" path="res://assets/kenney/panel_brown_corners_a.png" id="2_j1m8x"]
-[ext_resource type="Texture2D" uid="uid://p1dyj23bf1a8" path="res://assets/kenney/button_brown.png" id="3_0801h"]
+[ext_resource type="Texture2D" uid="uid://c2gq7b5wttnyk" path="res://assets/other/kenney/panel_brown_corners_a.png" id="2_j1m8x"]
+[ext_resource type="Texture2D" uid="uid://p1dyj23bf1a8" path="res://assets/other/kenney/button_brown.png" id="3_0801h"]
 [ext_resource type="Texture2D" uid="uid://c501t58o105if" path="res://assets/items.png" id="3_k7bcv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rgxtt"]

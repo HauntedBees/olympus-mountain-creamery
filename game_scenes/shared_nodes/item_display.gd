@@ -1,8 +1,8 @@
 @tool
 class_name ItemDisplay extends TextureRect
 
-const _SELECTED_TEXTURE := preload("res://assets/kenney/panel_brown_arrows.png")
-const _STANDARD_TEXTURE := preload("res://assets/kenney/panel_brown_corners_a.png")
+const _SELECTED_TEXTURE := preload("res://assets/other/kenney/panel_brown_arrows.png")
+const _STANDARD_TEXTURE := preload("res://assets/other/kenney/panel_brown_corners_a.png")
 const _OFFSET := Vector2(64.0, 64.0)
 
 @export var item: ItemCount.Type:

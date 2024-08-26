@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b1hoftry4uri6"]
 
 [ext_resource type="Script" path="res://game_scenes/shared_nodes/framed_yog.gd" id="1_f7ebp"]
-[ext_resource type="Texture2D" uid="uid://c2gq7b5wttnyk" path="res://assets/kenney/panel_brown_corners_a.png" id="1_kp75d"]
+[ext_resource type="Texture2D" uid="uid://c2gq7b5wttnyk" path="res://assets/other/kenney/panel_brown_corners_a.png" id="1_kp75d"]
 [ext_resource type="PackedScene" uid="uid://onydyldr07sm" path="res://game_scenes/shared_nodes/yog_jar.tscn" id="2_8j0vc"]
 
 [node name="FramedYog" type="CenterContainer"]

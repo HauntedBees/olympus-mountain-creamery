@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://game_scenes/04_offering/gods/meus.gd" id="1_t0sso"]
 [ext_resource type="Script" path="res://game_scenes/04_offering/gods/desire.gd" id="2_0pvo5"]
-[ext_resource type="Texture2D" uid="uid://bfcvka4iuur25" path="res://assets/meus/zbody.png" id="2_d1w38"]
+[ext_resource type="Texture2D" uid="uid://bfcvka4iuur25" path="res://assets/gods/meus/zbody.png" id="2_d1w38"]
 [ext_resource type="Script" path="res://game_data/item_count.gd" id="3_fg4ya"]
-[ext_resource type="Texture2D" uid="uid://bjc3fth1ev1ga" path="res://assets/meus/zhead.png" id="3_wi8gn"]
+[ext_resource type="Texture2D" uid="uid://bjc3fth1ev1ga" path="res://assets/gods/meus/zhead.png" id="3_wi8gn"]
 [ext_resource type="Shader" uid="uid://76asy4soysao" path="res://game_scenes/01_make_yog/fire.tres" id="4_axbc6"]
 
 [sub_resource type="Resource" id="Resource_heya8"]

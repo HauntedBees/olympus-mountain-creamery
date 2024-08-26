@@ -1,7 +1,43 @@
-[gd_scene load_steps=3 format=3 uid="uid://ba5oef6kaft2k"]
+[gd_scene load_steps=15 format=3 uid="uid://ba5oef6kaft2k"]
 
 [ext_resource type="Script" path="res://game_scenes/02_outside/outside.gd" id="1_6smvh"]
 [ext_resource type="PackedScene" uid="uid://bnurmvdujjqn1" path="res://game_scenes/02_outside/action_prompt.tscn" id="1_yp2mu"]
+[ext_resource type="Texture2D" uid="uid://ba1cqqldcxtnt" path="res://assets/backgrounds/bg2.png" id="2_5wn8l"]
+[ext_resource type="Shader" path="res://game_scenes/01_make_yog/milk_top.gdshader" id="3_sohif"]
+[ext_resource type="Texture2D" uid="uid://y6sw2vih51h" path="res://assets/backgrounds/bgparla2.png" id="4_limcd"]
+[ext_resource type="Texture2D" uid="uid://dmacliuopvixi" path="res://assets/backgrounds/bgparla22.png" id="5_rdrxg"]
+[ext_resource type="Shader" uid="uid://76asy4soysao" path="res://game_scenes/01_make_yog/fire.tres" id="6_h8hcx"]
+[ext_resource type="Texture2D" uid="uid://cavkb4kakl83x" path="res://assets/other/kenney/banner_classic_curtain.png" id="8_exekd"]
+[ext_resource type="Texture2D" uid="uid://bbvk1h0hvn3vl" path="res://assets/other/kenney/pattern_grid_paper.png" id="9_qvjt6"]
+[ext_resource type="Texture2D" uid="uid://88ghydqm8ja4" path="res://assets/other/kenney/panel_grid_paper.png" id="10_pgpf1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_45d1f"]
+shader = ExtResource("3_sohif")
+shader_parameter/milk_speed = -0.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n6std"]
+shader = ExtResource("3_sohif")
+shader_parameter/milk_speed = 0.005
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rn7lj"]
+shader = ExtResource("6_h8hcx")
+shader_parameter/transparent = Color(0.27451, 0.0588235, 0.278431, 0)
+shader_parameter/inner = Color(0.733333, 0.564706, 0.94902, 1)
+shader_parameter/outer = Color(0.729412, 0.192157, 0.694118, 1)
+shader_parameter/inner_threshold = 0.375
+shader_parameter/outer_threshold = 0.14
+shader_parameter/soft_edge = 1.63
+shader_parameter/time_mult = 0.125
+shader_parameter/center = Vector2(0.5, 0.8)
+shader_parameter/OCTAVES = 6
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w8yw3"]
+texture = ExtResource("10_pgpf1")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+draw_center = false
 
 [node name="Outside" type="Control"]
 layout_mode = 3
@@ -11,6 +47,54 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6smvh")
+
+[node name="BG" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="BG"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5wn8l")
+
+[node name="TextureRect2" type="TextureRect" parent="BG"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_45d1f")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_limcd")
+
+[node name="TextureRect3" type="TextureRect" parent="BG"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_n6std")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_rdrxg")
+
+[node name="ColorRect" type="ColorRect" parent="BG"]
+material = SubResource("ShaderMaterial_rn7lj")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -65,34 +149,102 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Shop for Supplies"
 
-[node name="InfoLabel" type="Label" parent="."]
-unique_name_in_owner = true
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -180.0
-offset_top = 23.0
-offset_right = -27.0
-offset_bottom = 56.0
+offset_left = -325.0
+offset_bottom = 193.0
 grow_horizontal = 0
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="InfoLabel" type="Label" parent="MarginContainer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 text = "Money: 50ὀ
 Jars: 10
 Milk: 50τ
 Pot Capacity: 50τ"
 horizontal_alignment = 2
 
-[node name="Yogurts" type="GridContainer" parent="."]
-unique_name_in_owner = true
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_right = 666.0
+offset_right = 634.0
 grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/CenterContainer"]
+custom_minimum_size = Vector2(280, 82)
+layout_mode = 2
+texture = ExtResource("8_exekd")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/CenterContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 6
+
+[node name="Label" type="Label" parent="VBoxContainer2/CenterContainer/TextureRect/MarginContainer"]
+layout_mode = 2
+text = "Your Yogurts"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 9
+theme_override_constants/margin_top = 9
+theme_override_constants/margin_right = 9
+theme_override_constants/margin_bottom = 9
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer2/MarginContainer/MarginContainer"]
+modulate = Color(1, 1, 1, 0.454902)
+layout_mode = 2
+texture = ExtResource("9_qvjt6")
+stretch_mode = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer2/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_w8yw3")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Yogurts" type="GridContainer" parent="VBoxContainer2/MarginContainer/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
 columns = 8
 
 [node name="Transition" type="ColorRect" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

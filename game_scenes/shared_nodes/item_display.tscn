@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dne47q8u5if22"]
 
-[ext_resource type="Texture2D" uid="uid://c2gq7b5wttnyk" path="res://assets/kenney/panel_brown_corners_a.png" id="1_6psl6"]
+[ext_resource type="Texture2D" uid="uid://c2gq7b5wttnyk" path="res://assets/other/kenney/panel_brown_corners_a.png" id="1_6psl6"]
 [ext_resource type="Script" path="res://game_scenes/shared_nodes/item_display.gd" id="2_h76au"]
 [ext_resource type="Texture2D" uid="uid://c501t58o105if" path="res://assets/items.png" id="2_latkt"]
 
