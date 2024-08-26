@@ -13,6 +13,7 @@ class_name MakeYogurtScene extends GameScene
 @onready var none_flavor: ItemDisplay = %None
 @onready var flavors: Array[ItemDisplay] = [%Honey, %Mint, %Saffron, %Pomegranate, %Walnuts]
 @onready var flavor_labels: Array[Label] = [%HoneyLabel, %MintLabel, %SaffronLabel, %PomLabel, %NutLabel]
+@onready var pour_hands: TextureRect = %PourHands
 
 func _ready() -> void:
 	_change_state(PourMilkState.new(self, MilkPotData.new()))

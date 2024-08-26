@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://ppx0mkhv67k6"]
+[gd_scene load_steps=19 format=3 uid="uid://ppx0mkhv67k6"]
 
 [ext_resource type="Script" path="res://game_scenes/01_make_yog/make_yog.gd" id="1_e2rrb"]
 [ext_resource type="Texture2D" uid="uid://gojn6kl812co" path="res://assets/prep_background.png" id="2_xhjry"]
@@ -12,6 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://yemdonwx4dgu" path="res://assets/table.png" id="6_3i6k4"]
 [ext_resource type="Script" path="res://game_scenes/01_make_yog/ice_bath.gd" id="6_ojxcj"]
 [ext_resource type="PackedScene" uid="uid://dne47q8u5if22" path="res://game_scenes/shared_nodes/item_display.tscn" id="7_emncc"]
+[ext_resource type="Texture2D" uid="uid://od3x5ltdhrud" path="res://assets/pour_hands.png" id="8_iumhh"]
+[ext_resource type="Script" path="res://game_scenes/01_make_yog/pour_hands.gd" id="9_kn5mc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vdteo"]
 shader = ExtResource("3_7rk2f")
@@ -128,6 +130,24 @@ theme_override_constants/margin_bottom = 64
 [node name="BoilPot" parent="PotContainer" instance=ExtResource("4_us5hp")]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="PourHands" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -993.0
+offset_top = -100.0
+offset_right = 287.0
+offset_bottom = 620.0
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(640, 360)
+texture = ExtResource("8_iumhh")
+expand_mode = 1
+stretch_mode = 3
+script = ExtResource("9_kn5mc")
 
 [node name="FireContainer" type="MarginContainer" parent="."]
 layout_mode = 1

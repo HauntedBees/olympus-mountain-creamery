@@ -2,6 +2,7 @@ class_name FillJarsState extends MakeYogGameState
 
 const _YOG_JAR_SCENE := preload("res://game_scenes/shared_nodes/yog_jar.tscn")
 const _MILK_POUR_RATE := 1.75
+const _HANDS_OFFSET := Vector2(-50, 175)
 
 enum State { Animating, Pouring, Flavoring }
 
@@ -28,7 +29,9 @@ func initialize() -> void:
 		_make_yog.right_btn.toggle_visibility(false)
 	_add_yog()
 	_update_milk_label()
-	
+	_make_yog.pour_hands.visible = true
+	_make_yog.pour_hands.position += _HANDS_OFFSET
+
 func clean() -> void:
 	_make_yog.right_btn.toggle_visibility(true)
 	_root.visible = false
@@ -40,6 +43,8 @@ func clean() -> void:
 	_yog_jars.clear()
 	_current_jar = null
 	_current_jar_display = null
+	_make_yog.pour_hands.visible = false
+	_make_yog.pour_hands.position -= _HANDS_OFFSET
 
 func update(delta: float) -> void:
 	if _input_cooldown > 0.0:
@@ -59,6 +64,8 @@ func _update_pour(delta: float) -> void:
 		_add_yog()
 		return
 	if Input.is_action_pressed("button_one"):
+		if !_did_start_pouring:
+			_make_yog.pour_hands.pouring = true
 		_did_start_pouring = true
 		if !Player.options.multiple_milk_pours:
 			_make_yog.right_btn.toggle_visibility(false)
@@ -149,6 +156,7 @@ func _finish_pouring() -> void:
 	change_scene.emit("res://game_scenes/02_outside/outside.tscn")
 
 func _add_yog() -> void:
+	_make_yog.pour_hands.pouring = false
 	_flavor_added = false
 	_state = State.Animating
 	if Player.data.inventory.size() > 0:

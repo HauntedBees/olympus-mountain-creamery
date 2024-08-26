@@ -10,6 +10,7 @@ func initialize() -> void:
 	_make_yog.left_btn.text = "Pour"
 	_make_yog.right_btn.text = "Next"
 	_make_yog.right_btn.toggle_visibility(Player.options.multiple_milk_pours)
+	_make_yog.pour_hands.visible = true
 
 func update(delta: float) -> void:
 	if Player.options.multiple_milk_pours && Input.is_action_just_pressed("button_two"):
@@ -18,6 +19,8 @@ func update(delta: float) -> void:
 	if _make_yog.boil_pot.overflowing:
 		_make_yog.boil_pot.overflowing = false
 	if Input.is_action_pressed("button_one"):
+		if !_did_start_pouring:
+			_make_yog.pour_hands.pouring = true
 		_did_start_pouring = true
 		var fuller_bowl_faster_pour := _fill_formula(_make_yog.boil_pot.fill_percent)
 		var amount_poured := delta * _MILK_POUR_RATE * Player.options.speed_multiplier * fuller_bowl_faster_pour
@@ -32,11 +35,15 @@ func update(delta: float) -> void:
 			_make_yog.boil_pot.overflowing = true
 		else:
 			_make_yog.boil_pot.fill_percent = _pot.amount / Player.data.milk_pot_capacity
-	elif _did_start_pouring && !Player.options.multiple_milk_pours:
-		_finish_pouring()
+	elif _did_start_pouring:
+		_did_start_pouring = false
+		_make_yog.pour_hands.pouring = false
+		if !Player.options.multiple_milk_pours:
+			_finish_pouring()
 
 func clean() -> void:
 	_make_yog.right_btn.toggle_visibility(true)
+	_make_yog.pour_hands.visible = false
 
 ## Fills up faster at start and end than middle.
 func _fill_formula(current_amount: float) -> float:
