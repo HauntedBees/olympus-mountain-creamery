@@ -41,7 +41,7 @@ func _init() -> void:
 	for i in 5:
 		var m := MilkPotData.new()
 		m.amount = randf_range(JAR_CAPACITY * 0.6, JAR_CAPACITY * 0.8)
-		m.fermentation_time = randf()
+		m.fermentation_time = randf_range(0.0, 60.0)
 		yogurts.append(m)
 
 func get_item_count(i: ItemCount.Type) -> float:
@@ -77,3 +77,14 @@ func add_item(item: ItemCount.Type, amount: int) -> void:
 			i.amount += amount
 			return
 	inventory.append(ItemCount.new(item, amount))
+
+func remove_item(item: ItemCount.Type, amount: int) -> void:
+	match item:
+		ItemCount.Type.Money, ItemCount.Type.Milk, ItemCount.Type.Jars, ItemCount.Type.PotUpgrade, ItemCount.Type.SpoonUpgrade:
+			return
+	for i in inventory:
+		if i.type == item:
+			i.amount -= amount
+			if i.amount <= 0:
+				inventory.erase(i)
+			return

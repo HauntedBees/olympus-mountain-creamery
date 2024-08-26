@@ -11,12 +11,12 @@
 shader = ExtResource("4_d2vud")
 shader_parameter/milk_speed = 0.04
 
-[sub_resource type="Gradient" id="Gradient_el17i"]
+[sub_resource type="Gradient" id="Gradient_b26jw"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_sdsnm"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_el17i")
+gradient = SubResource("Gradient_b26jw")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
@@ -28,6 +28,7 @@ offset_right = 136.0
 offset_bottom = 119.0
 script = ExtResource("1_856o8")
 max_milk_y = 110.0
+flavor = null
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -110,6 +111,17 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 texture = SubResource("GradientTexture2D_sdsnm")
+
+[node name="Flavor" type="ColorRect" parent="CenterContainer/BackMaskContainer/Back"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="Front" type="TextureRect" parent="CenterContainer"]
 layout_mode = 2

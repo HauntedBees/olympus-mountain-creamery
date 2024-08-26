@@ -4,6 +4,7 @@ class_name ShopScene extends GameScene
 @onready var _item_desc: Label = %ItemDesc
 @onready var _money_label: Label = %MoneyLabel
 @onready var _item_list: GridContainer = %ItemList
+@onready var _buy_button: VertPrompt = %BuyButton
 
 var _idx := 1
 var _changing := false
@@ -51,7 +52,9 @@ func _change_idx(idx: int) -> void:
 	var item := _items[_idx].item
 	if item == ItemCount.Type.None:
 		_item_desc.text = "%s\n%s" % [ItemCount.ITEM_NAMES[item], ItemCount.ITEM_DESCRIPTIONS[item]]
+		_buy_button.text = "Leave"
 	else:
+		_buy_button.text = "Buy"
 		var count := Player.data.get_item_count(item)
 		var you_have_string := "You have %d" % count
 		match item:

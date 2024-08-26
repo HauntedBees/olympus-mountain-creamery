@@ -14,11 +14,11 @@ _data = {
 }
 point_count = 6
 
-[sub_resource type="Gradient" id="Gradient_jof00"]
+[sub_resource type="Gradient" id="Gradient_qpheg"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_sdsnm"]
-gradient = SubResource("Gradient_jof00")
+gradient = SubResource("Gradient_qpheg")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
@@ -27,7 +27,7 @@ custom_minimum_size = Vector2(407, 331)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_upsne")
-burn_amount = null
+flavor = null
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 0
@@ -124,6 +124,18 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 texture = SubResource("GradientTexture2D_sdsnm")
+
+[node name="Flavor" type="ColorRect" parent="CenterContainer/BackMaskContainer/Back"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="Front" type="TextureRect" parent="CenterContainer"]
 layout_mode = 2

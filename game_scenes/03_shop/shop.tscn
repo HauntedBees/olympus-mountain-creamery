@@ -92,7 +92,8 @@ layout_mode = 2
 theme_override_constants/separation = 32
 alignment = 1
 
-[node name="VertPrompt" parent="VBoxContainer/MarginContainer/Info" instance=ExtResource("3_5dhdj")]
+[node name="BuyButton" parent="VBoxContainer/MarginContainer/Info" instance=ExtResource("3_5dhdj")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Buy"
 state = 0

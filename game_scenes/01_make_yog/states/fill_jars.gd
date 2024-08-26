@@ -13,6 +13,7 @@ var _state := State.Animating
 var _current_jar_display: YogJar
 var _did_start_pouring := false
 var _flavor_idx := 0
+var _flavor_added := false
 var _input_cooldown := 0.0 # switching to pour from flavor was glitchy so this is the easiest possible fix
 
 func initialize() -> void:
@@ -40,16 +41,16 @@ func clean() -> void:
 	_current_jar_display = null
 
 func update(delta: float) -> void:
+	if _input_cooldown > 0.0:
+		_input_cooldown -= delta
+		return
 	match _state:
 		State.Pouring: _update_pour(delta)
 		State.Flavoring: _update_flavor()
 
 func _update_pour(delta: float) -> void:
-	if _input_cooldown > 0.0:
-		_input_cooldown -= delta
-		return
 	var pressed_two := Input.is_action_just_pressed("button_two")
-	if !_did_start_pouring && pressed_two && Player.data.inventory.size() > 0:
+	if !_did_start_pouring && !_flavor_added && pressed_two && Player.data.inventory.size() > 0:
 		_switch_to_flavor()
 	if Player.options.multiple_milk_pours && pressed_two:
 		_add_yog()
@@ -76,8 +77,14 @@ func _update_flavor() -> void:
 	if Input.is_action_just_pressed("button_two"):
 		_next_flavor()
 	elif Input.is_action_just_pressed("button_one"):
-		if _flavor_idx < 0:
-			_switch_to_pour()
+		if _flavor_idx >= 0:
+			var flavor := _make_yog.flavors[_flavor_idx].item
+			Player.data.remove_item(flavor, 1)
+			_current_jar.flavoring = flavor
+			_current_jar_display.flavor = flavor
+			_flavor_added = true
+			_make_yog.right_btn.visible = false
+		_switch_to_pour()
 
 func _next_flavor() -> void:
 	if _flavor_idx < 0:
@@ -116,6 +123,7 @@ func _switch_to_flavor() -> void:
 			continue
 		_make_yog.flavor_labels[idx].text = "x%d" % amount
 	_next_flavor()
+	_input_cooldown = 0.2
 
 func _update_flavor_button() -> void:
 	_make_yog.left_btn.text = "Back" if _flavor_idx < 0 else "Add"
@@ -134,9 +142,11 @@ func _finish_pouring() -> void:
 	change_scene.emit("res://game_scenes/02_outside/outside.tscn")
 
 func _add_yog() -> void:
+	_flavor_added = false
 	_state = State.Animating
-	_make_yog.right_btn.toggle_visibility(true)
-	_make_yog.right_btn.text = "Flavor"
+	if Player.data.inventory.size() > 0:
+		_make_yog.right_btn.toggle_visibility(true)
+		_make_yog.right_btn.text = "Flavor"
 	if _current_jar:
 		_yog_jars.append(_current_jar)
 	if Player.data.jars == 0:

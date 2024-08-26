@@ -65,6 +65,13 @@ const ITEM_DESCRIPTIONS := {
 	Type.Milk: "20τ of milk, for yogurt-making purposes.",
 	Type.Money: "This shouldn't be a thing you can see."
 }
+const ITEM_COLORS := {
+	Type.Honey: Color("#FFB10099"),
+	Type.Mint: Color("#ADEBB399"),
+	Type.Saffron: Color("#58000799"),
+	Type.Pomegranate: Color("DF555599"),
+	Type.Walnut: Color("#BC9F8B99")
+}
 
 ## What the item is.
 @export var type: Type
