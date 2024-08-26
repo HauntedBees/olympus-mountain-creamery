@@ -62,7 +62,7 @@ amount = 10
 script = ExtResource("2_0pvo5")
 yogurt_amount = 10
 flavor = 11
-time_limit = 3600.0
+time_limit = 5400.0
 reward = Array[ExtResource("3_fg4ya")]([SubResource("Resource_3ngol"), SubResource("Resource_088ay"), SubResource("Resource_f2i0f")])
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lskd7"]

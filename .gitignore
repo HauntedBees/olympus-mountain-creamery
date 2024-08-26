@@ -13,3 +13,5 @@ data_*/
 
 # Krita ignores
 *-autosave.kra
+
+export/
