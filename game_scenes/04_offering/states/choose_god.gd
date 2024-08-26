@@ -19,7 +19,8 @@ func update(_delta: float) -> void:
 		_next_god()
 	elif Input.is_action_pressed("button_one"):
 		if _god_idx < 0:
-			change_scene.emit("res://game_scenes/02_outside/outside.tscn")
+			if !_check_for_end_game():
+				change_scene.emit("res://game_scenes/02_outside/outside.tscn")
 			return
 		if _current_details.failed || _current_details.completed:
 			return

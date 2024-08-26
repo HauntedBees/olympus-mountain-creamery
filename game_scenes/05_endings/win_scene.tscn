@@ -1,7 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwt217j4vm8gx"]
+[gd_scene load_steps=8 format=3 uid="uid://bwt217j4vm8gx"]
 
 [ext_resource type="Script" path="res://game_scenes/05_endings/end_scene.gd" id="1_pyk1t"]
 [ext_resource type="PackedScene" uid="uid://bnurmvdujjqn1" path="res://game_scenes/02_outside/action_prompt.tscn" id="2_kfhtg"]
+[ext_resource type="PackedScene" uid="uid://qylh2eymlhye" path="res://game_scenes/shared_nodes/background.tscn" id="2_oervk"]
+[ext_resource type="Texture2D" uid="uid://bmtx8fojx3ib4" path="res://assets/backgrounds/bg4.png" id="3_auf5l"]
+[ext_resource type="Texture2D" uid="uid://bp16fhlv2o1sm" path="res://assets/backgrounds/bg4a.png" id="4_7loyo"]
+[ext_resource type="Texture2D" uid="uid://re1xw6dyi6pl" path="res://assets/backgrounds/bg_parallax.png" id="5_tmqbh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_p7dsc"]
 font_size = 64
@@ -16,6 +20,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pyk1t")
+
+[node name="Background" parent="." instance=ExtResource("2_oervk")]
+modulate = Color(0.917647, 1, 1, 1)
+layout_mode = 1
+back_texture = ExtResource("3_auf5l")
+glow_1_texture = ExtResource("4_7loyo")
+glow_2_texture = ExtResource("5_tmqbh")
+glow_1_speed = 0.01
+glow_2_speed = -0.005
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

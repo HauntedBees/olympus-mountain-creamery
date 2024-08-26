@@ -7,4 +7,4 @@ func _process(delta: float) -> void:
 	if _timer > 0.0:
 		return
 	if Input.is_action_just_pressed("button_one"):
-		_change_scene("")
+		_change_scene("res://game_scenes/00_title/title_scene.tscn")

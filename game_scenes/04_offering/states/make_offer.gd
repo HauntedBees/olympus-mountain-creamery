@@ -13,7 +13,8 @@ func initialize() -> void:
 
 func update(_delta: float) -> void:
 	if Input.is_action_pressed("button_one"):
-		change_state.emit(ChooseGodState.new(_scene, _god_idx, _god_node))
+		if !_check_for_end_game():
+			change_state.emit(ChooseGodState.new(_scene, _god_idx, _god_node))
 
 func clean() -> void:
 	Player.data.yogurts.erase(_yog_given)

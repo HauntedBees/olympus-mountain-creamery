@@ -1,7 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://hqauvkakebyc"]
+[gd_scene load_steps=10 format=3 uid="uid://hqauvkakebyc"]
 
 [ext_resource type="PackedScene" uid="uid://bnurmvdujjqn1" path="res://game_scenes/02_outside/action_prompt.tscn" id="1_460lg"]
 [ext_resource type="Script" path="res://game_scenes/05_endings/end_scene.gd" id="1_hq52o"]
+[ext_resource type="PackedScene" uid="uid://qylh2eymlhye" path="res://game_scenes/shared_nodes/background.tscn" id="2_ngjdu"]
+[ext_resource type="Texture2D" uid="uid://ba1cqqldcxtnt" path="res://assets/backgrounds/bg2.png" id="3_rbaxv"]
+[ext_resource type="Texture2D" uid="uid://dmacliuopvixi" path="res://assets/backgrounds/bgparla22.png" id="4_vdavq"]
+[ext_resource type="Texture2D" uid="uid://yr8os1yrpn0n" path="res://assets/backgrounds/bg3p1.png" id="5_mq5mg"]
+[ext_resource type="Shader" uid="uid://76asy4soysao" path="res://game_scenes/01_make_yog/fire.tres" id="6_d3whp"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hdmxy"]
+shader = ExtResource("6_d3whp")
+shader_parameter/transparent = Color(0, 0, 0, 0)
+shader_parameter/inner = Color(0.0588235, 0, 0, 1)
+shader_parameter/outer = null
+shader_parameter/inner_threshold = 0.4
+shader_parameter/outer_threshold = 0.15
+shader_parameter/soft_edge = 0.04
+shader_parameter/time_mult = 0.5
+shader_parameter/center = Vector2(0.5, 1)
+shader_parameter/OCTAVES = 6
 
 [sub_resource type="LabelSettings" id="LabelSettings_p7dsc"]
 font_size = 64
@@ -16,6 +33,24 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hq52o")
+
+[node name="Background" parent="." instance=ExtResource("2_ngjdu")]
+modulate = Color(0.52, 0.0884, 0.0884, 1)
+layout_mode = 1
+back_texture = ExtResource("3_rbaxv")
+glow_1_texture = ExtResource("4_vdavq")
+glow_2_texture = ExtResource("5_mq5mg")
+glow_1_speed = 0.01
+glow_2_speed = -0.005
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_hdmxy")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
