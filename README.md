@@ -13,3 +13,5 @@ A game about yogurt. Made for the [Solo Dev Game Jam #4](https://itch.io/jam/sol
 [FireShader](https://godotshaders.com/shader/fireshader/) by [Gonkee](https://www.youtube.com/@Gonkee) and [snesmocha](https://godotshaders.com/author/snesmocha/) is licensed under the [Creative Commons CC0 license](https://creativecommons.org/publicdomain/zero/1.0/).
 
 [Olympus National Park 30](https://en.wikipedia.org/wiki/File:Olympus_National_Park_30.jpg) by [kallerna](https://commons.wikimedia.org/wiki/User:Kallerna) is licensed under the [Creative Commons Attribution-Share Alike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/deed.en).
+
+The [Godot Accesibility Suite](https://github.com/HauntedBees/Godot-Accessibility-Suite/) is by me, [Haunted Bees Productions](https://www.hauntedbees.com/) and is licensed under the [MIT License](https://github.com/HauntedBees/Godot-Accessibility-Suite/blob/main/LICENSE), and is still incomplete, and mostly out-of-date for modern Godot versions. You should check it out (or contribute!) if game accessibility is important to you, which it should be!
