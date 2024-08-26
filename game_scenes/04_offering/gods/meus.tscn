@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dmf2jdr3xq56b"]
+[gd_scene load_steps=23 format=3 uid="uid://dmf2jdr3xq56b"]
 
 [ext_resource type="Script" path="res://game_scenes/04_offering/gods/meus.gd" id="1_t0sso"]
 [ext_resource type="Script" path="res://game_scenes/04_offering/gods/desire.gd" id="2_0pvo5"]
@@ -25,6 +25,45 @@ yogurt_amount = 1
 flavor = 0
 time_limit = 3600.0
 reward = Array[ExtResource("3_fg4ya")]([SubResource("Resource_heya8"), SubResource("Resource_38yj8")])
+
+[sub_resource type="Resource" id="Resource_mck6h"]
+script = ExtResource("3_fg4ya")
+type = 2
+amount = 3
+
+[sub_resource type="Resource" id="Resource_acds3"]
+script = ExtResource("3_fg4ya")
+type = 10
+amount = 60
+
+[sub_resource type="Resource" id="Resource_mwav8"]
+script = ExtResource("2_0pvo5")
+yogurt_amount = 3
+flavor = 1
+time_limit = 1800.0
+reward = Array[ExtResource("3_fg4ya")]([SubResource("Resource_mck6h"), SubResource("Resource_acds3")])
+
+[sub_resource type="Resource" id="Resource_3ngol"]
+script = ExtResource("3_fg4ya")
+type = 9
+amount = 100
+
+[sub_resource type="Resource" id="Resource_088ay"]
+script = ExtResource("3_fg4ya")
+type = 10
+amount = 200
+
+[sub_resource type="Resource" id="Resource_f2i0f"]
+script = ExtResource("3_fg4ya")
+type = 4
+amount = 10
+
+[sub_resource type="Resource" id="Resource_2nmie"]
+script = ExtResource("2_0pvo5")
+yogurt_amount = 10
+flavor = 11
+time_limit = 3600.0
+reward = Array[ExtResource("3_fg4ya")]([SubResource("Resource_3ngol"), SubResource("Resource_088ay"), SubResource("Resource_f2i0f")])
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lskd7"]
 shader = ExtResource("4_axbc6")
@@ -111,7 +150,7 @@ script = ExtResource("1_t0sso")
 base_head = ExtResource("3_wi8gn")
 happy_head = ExtResource("3_cwp5u")
 angry_head = ExtResource("4_1g8yk")
-requirements = Array[ExtResource("2_0pvo5")]([SubResource("Resource_cl1gn")])
+requirements = Array[ExtResource("2_0pvo5")]([SubResource("Resource_cl1gn"), SubResource("Resource_mwav8"), SubResource("Resource_2nmie")])
 god_name = "Meus"
 
 [node name="Body" type="TextureRect" parent="."]
