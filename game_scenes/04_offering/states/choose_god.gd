@@ -1,10 +1,5 @@
 class_name ChooseGodState extends OfferingGameState
 
-const _GODS: Array[PackedScene] = [
-	preload("res://game_scenes/04_offering/gods/meus.tscn"),
-	preload("res://game_scenes/04_offering/gods/demilker.tscn")
-]
-
 var _current_details: QuestDetails
 
 func initialize() -> void:
@@ -25,13 +20,6 @@ func update(_delta: float) -> void:
 		if _current_details.failed || _current_details.completed:
 			return
 		change_state.emit(ChooseYogurtState.new(_scene, _god_idx, _god_node))
-
-func _unlock_gods() -> void:
-	while Player.data.gods_unlocked > Player.data.god_details.size():
-		var god: God = _GODS[Player.data.god_details.size()].instantiate()
-		var desire := god.requirements[0].get_quest(0)
-		Player.data.god_details.append(desire)
-		god.queue_free()
 
 func _set_text() -> void:
 	if _god_idx < 0:
