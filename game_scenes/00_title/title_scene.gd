@@ -38,11 +38,24 @@ func _process(delta: float) -> void:
 func _option_press() -> void:
 	match _option_idx:
 		0: # Toggle
-			pass
+			Player.options.use_toggles = !Player.options.use_toggles
+			_options[0].text = "Push to Toggle: %s" % ("On" if Player.options.use_toggles else "Off")
 		1: # Speed
-			pass
+			if is_equal_approx(Player.options.speed_multiplier, 1.0):
+				Player.options.speed_multiplier = 0.75
+				_options[1].text = "Speed: Slow"
+			elif is_equal_approx(Player.options.speed_multiplier, 0.75):
+				Player.options.speed_multiplier = 0.4
+				_options[1].text = "Speed: Slowest"
+			elif is_equal_approx(Player.options.speed_multiplier, 0.4):
+				Player.options.speed_multiplier = 2.5
+				_options[1].text = "Speed: Fast"
+			else:
+				Player.options.speed_multiplier = 1.0
+				_options[1].text = "Speed: Normal"
 		2: # Timer
-			pass
+			Player.options.no_time_limits = !Player.options.no_time_limits
+			_options[0].text = "Time Limits: %s" % ("Off" if Player.options.no_time_limits else "On")
 		3: # Return
 			_step = State.Main
 			_main_menu.visible = true

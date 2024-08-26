@@ -19,6 +19,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
+GASConfig="*res://accessibility/GASConfig.gd"
+GASInput="*res://accessibility/GASInput.gd"
 Player="*res://game_data/player.gd"
 
 [display]
