@@ -16,6 +16,7 @@ func update(_delta: float) -> void:
 		change_state.emit(ChooseGodState.new(_scene, _god_idx, _god_node))
 
 func clean() -> void:
+	_god_node.head.texture = _god_node.base_head
 	_make_off.next_prompt.toggle_visibility(true)
 
 func _bestow_yogurt_reward() -> void:
@@ -23,6 +24,7 @@ func _bestow_yogurt_reward() -> void:
 	var desire := _god_node.requirements[quest.desire_idx]
 	var tb := _make_off.text_box
 	if _yog_given.fermentation_time < MilkPotData.SOUPY_LIMIT:
+		_god_node.head.texture = _god_node.angry_head
 		quest.strikes += 1
 		if quest.strikes >= 3:
 			quest.failed = true
@@ -39,6 +41,7 @@ func _bestow_yogurt_reward() -> void:
 			quest.strikes += 1
 			half_full = true
 		if quest.amount_given >= desire.yogurt_amount:
+			_god_node.head.texture = _god_node.happy_head
 			var items: PackedStringArray = []
 			for i in desire.reward:
 				Player.data.add_item(i.type, i.amount)
@@ -53,15 +56,19 @@ func _bestow_yogurt_reward() -> void:
 			_advance_to_next_quest()
 		elif half_full:
 			if quest.strikes >= 3:
+				_god_node.head.texture = _god_node.angry_head
 				quest.failed = true
 				tb.text = "%s %s %s" % [_god_node.success_message, _god_node.not_enough_message, _god_node.failed_message]
 			elif quest.strikes == 2:
 				tb.text = "%s %s %s" % [_god_node.success_message, _god_node.not_enough_message, _god_node.final_warning_message]
 			else:
+				_god_node.head.texture = _god_node.happy_head
 				tb.text = "%s %s" % [_god_node.success_message, _god_node.not_enough_message]
 		else:
+			_god_node.head.texture = _god_node.happy_head
 			tb.text = _god_node.success_message
 	else:
+		_god_node.head.texture = _god_node.angry_head
 		quest.strikes += 1
 		if quest.strikes >= 3:
 			quest.failed = true

@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://dmf2jdr3xq56b"]
+[gd_scene load_steps=16 format=3 uid="uid://dmf2jdr3xq56b"]
 
 [ext_resource type="Script" path="res://game_scenes/04_offering/gods/meus.gd" id="1_t0sso"]
 [ext_resource type="Script" path="res://game_scenes/04_offering/gods/desire.gd" id="2_0pvo5"]
 [ext_resource type="Texture2D" uid="uid://bfcvka4iuur25" path="res://assets/gods/meus/zbody.png" id="2_d1w38"]
+[ext_resource type="Texture2D" uid="uid://b27kfgbqe8p70" path="res://assets/gods/meus/zhead_happy.png" id="3_cwp5u"]
 [ext_resource type="Script" path="res://game_data/item_count.gd" id="3_fg4ya"]
 [ext_resource type="Texture2D" uid="uid://bjc3fth1ev1ga" path="res://assets/gods/meus/zhead.png" id="3_wi8gn"]
+[ext_resource type="Texture2D" uid="uid://di0mhwfay54a4" path="res://assets/gods/meus/zhead_angry.png" id="4_1g8yk"]
 [ext_resource type="Shader" uid="uid://76asy4soysao" path="res://game_scenes/01_make_yog/fire.tres" id="4_axbc6"]
 
 [sub_resource type="Resource" id="Resource_heya8"]
@@ -106,6 +108,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t0sso")
+base_head = ExtResource("3_wi8gn")
+happy_head = ExtResource("3_cwp5u")
+angry_head = ExtResource("4_1g8yk")
 requirements = Array[ExtResource("2_0pvo5")]([SubResource("Resource_cl1gn")])
 
 [node name="Body" type="TextureRect" parent="."]
@@ -125,6 +130,7 @@ texture = ExtResource("2_d1w38")
 stretch_mode = 3
 
 [node name="Head" type="TextureRect" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5

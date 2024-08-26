@@ -1,5 +1,8 @@
 class_name God extends Control
 
+@export var base_head: Texture2D
+@export var happy_head: Texture2D
+@export var angry_head: Texture2D
 @export var requirements: Array[Desire] = []
 @export var success_message := "This is exactly what I wanted, thank you! Bring me %d more and I'll reward you!"
 @export var complete_message := "Thank you! Now please take this reward!"
@@ -8,6 +11,8 @@ class_name God extends Control
 @export var didnt_want_message := "This isn't what I wanted."
 @export var final_warning_message := "Don't fail me again!"
 @export var failed_message := "Your yogurt is not welcome here anymore!"
+
+@onready var head: TextureRect = %Head
 
 func get_desires_string(d: QuestDetails) -> String:
 	if d.completed:
