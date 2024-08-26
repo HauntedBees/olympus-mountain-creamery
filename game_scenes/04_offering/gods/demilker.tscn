@@ -102,6 +102,7 @@ base_head = ExtResource("8_crp4y")
 happy_head = ExtResource("3_xyywi")
 angry_head = ExtResource("4_qd4kf")
 requirements = Array[ExtResource("5_shkll")]([SubResource("Resource_tr02q")])
+god_name = "Demilker"
 complete_message = "Thank you! Now please take accept this as my thanks!"
 not_ready_message = "It looks like this yogurt isn't ready yet. Please ensure your yogurt is properly fermented!"
 not_enough_message = "But... jar wasn't very full. Please fill the jar better next time!"

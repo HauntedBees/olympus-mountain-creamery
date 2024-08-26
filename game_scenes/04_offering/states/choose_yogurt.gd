@@ -41,7 +41,10 @@ func _next_yog() -> void:
 
 func _set_text() -> void:
 	if _yog_idx < 0:
-		_make_off.text_box.text = "Choose a different God to offer yogurt to, or return to your Yogurt Chamber."
+		if Player.data.yogurts.size() == 0:
+			_make_off.text_box.text = "It looks like you don't have any yogurt to give. Return to your Yogurt Chamber and make some more!"
+		else:
+			_make_off.text_box.text = "Choose a different God to offer yogurt to, or return to your Yogurt Chamber."
 		_make_off.offer_go_prompt.text = "Back"
 		return
 	_make_off.offer_go_prompt.text = "Offer"

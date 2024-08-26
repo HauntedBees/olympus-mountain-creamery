@@ -16,6 +16,7 @@ func update(_delta: float) -> void:
 		change_state.emit(ChooseGodState.new(_scene, _god_idx, _god_node))
 
 func clean() -> void:
+	Player.data.yogurts.erase(_yog_given)
 	_god_node.head.texture = _god_node.base_head
 	_make_off.next_prompt.toggle_visibility(true)
 
@@ -80,6 +81,7 @@ func _bestow_yogurt_reward() -> void:
 
 func _advance_to_next_quest() -> void:
 	Player.data.items_available_to_buy += 1
+	Player.data.gods_unlocked += 1 if Player.data.items_available_to_buy % 2 == 0 else 0
 	var quest := Player.data.god_details[_god_idx]
 	var next_quest := quest.desire_idx + 1
 	if next_quest >= _god_node.requirements.size():

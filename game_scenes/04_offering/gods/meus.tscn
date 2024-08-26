@@ -112,6 +112,7 @@ base_head = ExtResource("3_wi8gn")
 happy_head = ExtResource("3_cwp5u")
 angry_head = ExtResource("4_1g8yk")
 requirements = Array[ExtResource("2_0pvo5")]([SubResource("Resource_cl1gn")])
+god_name = "Meus"
 
 [node name="Body" type="TextureRect" parent="."]
 layout_mode = 1

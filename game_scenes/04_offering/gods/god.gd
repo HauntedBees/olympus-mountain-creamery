@@ -4,6 +4,7 @@ class_name God extends Control
 @export var happy_head: Texture2D
 @export var angry_head: Texture2D
 @export var requirements: Array[Desire] = []
+@export var god_name := "Bob"
 @export_multiline var success_message := "This is exactly what I wanted, thank you! Bring me %d more and I'll reward you!"
 @export_multiline var complete_message := "Thank you! Now please take this reward!"
 @export_multiline var not_ready_message := "This isn't yogurt! This is slightly curdled milk! Make sure your yogurt ferments before serving it!"

@@ -3,7 +3,7 @@ class_name PlayerData extends Resource
 const JAR_CAPACITY := 5.0
 
 ## Number of Gods available to be offered yogurt.
-@export var gods_unlocked := 2
+@export var gods_unlocked := 1
 
 ## Progress on each God's yogurt-desiring quests.
 @export var god_details: Array[QuestDetails] = [QuestDetails.new()]

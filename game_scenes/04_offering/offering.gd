@@ -7,6 +7,7 @@ class_name OfferingScene extends GameScene
 @onready var next_prompt: VertPrompt = %NextPrompt
 @onready var choice_container: CenterContainer = %ChoiceContainer
 @onready var no_item: CenterContainer = %NoItem
+@onready var name_label: Label = %NameLabel
 
 func _ready() -> void:
 	_change_state(ChooseGodState.new(self))
