@@ -37,7 +37,7 @@ func update(delta: float) -> void:
 			_pot.quality_multiplier *= 1.25
 		else:
 			var amount_cold := _temperature / TempMeter.JUST_RIGHT_MAX
-			_pot.fermentation_time_diminisher *= 0.5 + (amount_cold / 2.0)
+			_pot.fermentation_time_diminisher = clampf(_pot.fermentation_time_diminisher * (0.5 + (amount_cold / 2.0)), 0.3, 1.0)
 		change_state.emit(FillJarsState.new(_make_yog, _pot))
 		return
 	if Input.is_action_just_pressed("button_one"):
