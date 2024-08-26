@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://cn3fvsba1wgna"]
+[gd_scene load_steps=11 format=3 uid="uid://cn3fvsba1wgna"]
 
 [ext_resource type="Script" path="res://game_scenes/04_offering/offering.gd" id="1_jmqmc"]
+[ext_resource type="PackedScene" uid="uid://qylh2eymlhye" path="res://game_scenes/shared_nodes/background.tscn" id="2_dhrq6"]
 [ext_resource type="PackedScene" uid="uid://4f3hwjrkf0my" path="res://game_scenes/03_shop/vert_prompt.tscn" id="2_gty0a"]
 [ext_resource type="Texture2D" uid="uid://c2gq7b5wttnyk" path="res://assets/other/kenney/panel_brown_corners_a.png" id="2_j1m8x"]
+[ext_resource type="Texture2D" uid="uid://bmtx8fojx3ib4" path="res://assets/backgrounds/bg4.png" id="3_5mnnc"]
 [ext_resource type="Texture2D" uid="uid://p1dyj23bf1a8" path="res://assets/other/kenney/button_brown.png" id="3_0801h"]
 [ext_resource type="Texture2D" uid="uid://c501t58o105if" path="res://assets/items.png" id="3_k7bcv"]
+[ext_resource type="Texture2D" uid="uid://bp16fhlv2o1sm" path="res://assets/backgrounds/bg4a.png" id="4_57mef"]
+[ext_resource type="Texture2D" uid="uid://c26mgnxc4ffod" path="res://assets/backgrounds/bg4b.png" id="5_lkglb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rgxtt"]
 atlas = ExtResource("3_k7bcv")
@@ -18,6 +22,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jmqmc")
+
+[node name="Background" parent="." instance=ExtResource("2_dhrq6")]
+layout_mode = 1
+back_texture = ExtResource("3_5mnnc")
+glow_1_texture = ExtResource("4_57mef")
+glow_2_texture = ExtResource("5_lkglb")
+glow_1_speed = 0.1
+glow_2_speed = -0.002
 
 [node name="GodSpot" type="Control" parent="."]
 unique_name_in_owner = true
