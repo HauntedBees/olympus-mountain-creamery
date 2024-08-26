@@ -173,7 +173,7 @@ func _add_yog() -> void:
 		_finish_pouring()
 		return
 	var rect := _root.get_viewport_rect()
-	var y_position := rect.size.y * 0.7 # TODO: probably not resolution-proof; fix this if mobile happens
+	var y_position := rect.size.y * 0.7 #REF: probably not resolution-proof; fix this if mobile happens
 	if _current_jar_display:
 		var last_t := _root.create_tween()
 		last_t.tween_property(_current_jar_display, "position", Vector2(-_current_jar_display.size.x, y_position), 0.25)

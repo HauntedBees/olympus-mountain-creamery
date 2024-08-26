@@ -1,40 +1,28 @@
-[gd_scene load_steps=14 format=3 uid="uid://dmf2jdr3xq56b"]
+[gd_scene load_steps=13 format=3 uid="uid://bh5btu372im12"]
 
-[ext_resource type="Script" path="res://game_scenes/04_offering/gods/meus.gd" id="1_t0sso"]
-[ext_resource type="Script" path="res://game_scenes/04_offering/gods/desire.gd" id="2_0pvo5"]
-[ext_resource type="Texture2D" uid="uid://bfcvka4iuur25" path="res://assets/gods/meus/zbody.png" id="2_d1w38"]
-[ext_resource type="Script" path="res://game_data/item_count.gd" id="3_fg4ya"]
-[ext_resource type="Texture2D" uid="uid://bjc3fth1ev1ga" path="res://assets/gods/meus/zhead.png" id="3_wi8gn"]
-[ext_resource type="Shader" uid="uid://76asy4soysao" path="res://game_scenes/01_make_yog/fire.tres" id="4_axbc6"]
+[ext_resource type="Script" path="res://game_scenes/04_offering/gods/meus.gd" id="1_b7i3d"]
+[ext_resource type="Script" path="res://game_scenes/04_offering/gods/desire.gd" id="2_05nyg"]
+[ext_resource type="Script" path="res://game_data/item_count.gd" id="3_mph14"]
+[ext_resource type="Texture2D" uid="uid://c7b0pwy7k2bbc" path="res://assets/gods/shopkeeper/body.png" id="4_xvgh6"]
+[ext_resource type="Texture2D" uid="uid://dwqxxypba021h" path="res://assets/gods/shopkeeper/head.png" id="5_wtpn7"]
+[ext_resource type="Texture2D" uid="uid://yemdonwx4dgu" path="res://assets/table.png" id="6_b3r46"]
 
 [sub_resource type="Resource" id="Resource_heya8"]
-script = ExtResource("3_fg4ya")
+script = ExtResource("3_mph14")
 type = 1
 amount = 3
 
 [sub_resource type="Resource" id="Resource_38yj8"]
-script = ExtResource("3_fg4ya")
+script = ExtResource("3_mph14")
 type = 10
 amount = 30
 
 [sub_resource type="Resource" id="Resource_cl1gn"]
-script = ExtResource("2_0pvo5")
+script = ExtResource("2_05nyg")
 yogurt_amount = 1
 flavor = 0
 time_limit = 3600.0
-reward = Array[ExtResource("3_fg4ya")]([SubResource("Resource_heya8"), SubResource("Resource_38yj8")])
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lskd7"]
-shader = ExtResource("4_axbc6")
-shader_parameter/transparent = Color(0, 0, 0, 0)
-shader_parameter/inner = Color(1, 1, 1, 1)
-shader_parameter/outer = Color(0.796078, 1, 1, 1)
-shader_parameter/inner_threshold = 0.3
-shader_parameter/outer_threshold = 0.045
-shader_parameter/soft_edge = 0.0
-shader_parameter/time_mult = 0.1
-shader_parameter/center = Vector2(0.5, 0.87)
-shader_parameter/OCTAVES = 6
+reward = Array[ExtResource("3_mph14")]([SubResource("Resource_heya8"), SubResource("Resource_38yj8")])
 
 [sub_resource type="Animation" id="Animation_sauja"]
 length = 0.001
@@ -60,12 +48,12 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0.0]
+"values": [45.0]
 }
 
 [sub_resource type="Animation" id="Animation_wv334"]
 resource_name = "base"
-length = 5.5
+length = 4.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -74,10 +62,10 @@ tracks/0/path = NodePath("Body:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 3.03333, 4.66667),
+"times": PackedFloat32Array(0, 2, 3, 4.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.1, 1), Vector2(1.1, 1), Vector2(1, 1)]
+"values": [Vector2(1, 1), Vector2(0.9, 1), Vector2(0.930769, 1), Vector2(1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -86,10 +74,10 @@ tracks/1/path = NodePath("Head:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 2, 3, 4.66667),
+"times": PackedFloat32Array(0, 1.96667, 3, 4.16667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 10.0, 10.0, 0.0]
+"values": [45.0, 50.0, 48.4264, 45.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dk4nw"]
@@ -98,15 +86,15 @@ _data = {
 "base": SubResource("Animation_wv334")
 }
 
-[node name="Meus" type="Control"]
+[node name="Shopkeep" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_t0sso")
-requirements = Array[ExtResource("2_0pvo5")]([SubResource("Resource_cl1gn")])
+script = ExtResource("1_b7i3d")
+requirements = Array[ExtResource("2_05nyg")]([SubResource("Resource_cl1gn")])
 
 [node name="Body" type="TextureRect" parent="."]
 layout_mode = 1
@@ -114,14 +102,14 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -143.5
-offset_top = 0.333332
-offset_right = 143.5
-offset_bottom = 0.333313
+offset_left = -174.5
+offset_top = 25.3333
+offset_right = 174.5
+offset_bottom = 25.3333
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(143, 0)
-texture = ExtResource("2_d1w38")
+texture = ExtResource("4_xvgh6")
 stretch_mode = 3
 
 [node name="Head" type="TextureRect" parent="."]
@@ -130,27 +118,26 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -140.5
+offset_top = 49.4791
 offset_right = 140.5
-offset_bottom = 307.0
+offset_bottom = 356.479
 grow_horizontal = 2
-texture = ExtResource("3_wi8gn")
+texture = ExtResource("5_wtpn7")
 stretch_mode = 3
 
-[node name="Clouds" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_lskd7")
-custom_minimum_size = Vector2(940, 300)
+[node name="Table" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -865.0
-offset_top = -345.0
-offset_right = 880.0
-offset_bottom = 40.0
+offset_left = -157.5
+offset_top = -228.0
+offset_right = 157.5
 grow_horizontal = 2
 grow_vertical = 0
+texture = ExtResource("6_b3r46")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

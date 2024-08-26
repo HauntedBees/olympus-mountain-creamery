@@ -1,15 +1,32 @@
 class_name ShopScene extends GameScene
 
+const _WELCOME_MESSAGES: Array[String] = [
+	"Welcome! Please feel free to spend as much money as you want here!",
+	"Hello! I sell yogurt accessories. But not yogurt, that's your job!",
+	"Got a lot of good things on sale, stranger!",
+	"I've got a special sale today! Every purchase comes with a free thumbs up and a smile!",
+	"Greetings and welcome to my humble shop.",
+	"If you make the Gods happy, I'll be able to sell more stuff! So make 'em happy!"
+]
+const _NO_MONEY_MESSAGES: Array[String] = [
+	"Sorry, you don't have enough money for that.",
+	"Oops! Looks like you can't afford that right now!",
+	"Hey, what're you trying to pull here? Come back when you have more money.",
+	"Thank you for- hey, wait! That's not enough money!"
+]
+
 @onready var _items: Array[ItemDisplay] = [%None, %Milk, %Jars, %Honey, %Mint, %Saffron, %Pomegranate, %Walnuts, %PotUpgrade, %SpoonUpgrade]
 @onready var _item_desc: Label = %ItemDesc
 @onready var _money_label: Label = %MoneyLabel
 @onready var _item_list: GridContainer = %ItemList
 @onready var _buy_button: VertPrompt = %BuyButton
+@onready var _speech: Label = %Speech
 
 var _idx := 1
 var _changing := false
 
 func _ready() -> void:
+	_speech.text = _WELCOME_MESSAGES.pick_random()
 	_change_idx(_idx)
 	_update_money_label()
 	for idx in _items.size():
@@ -38,7 +55,7 @@ func _try_buy_item() -> void:
 		return
 	var cost: int = ItemCount.ITEM_COSTS[item]
 	if cost > Player.data.money:
-		# TODO: signal lack of monies
+		_speech.text = _NO_MONEY_MESSAGES.pick_random()
 		return
 	Player.data.money -= cost
 	Player.data.add_item(item, 1)
