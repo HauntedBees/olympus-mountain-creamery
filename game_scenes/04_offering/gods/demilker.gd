@@ -33,5 +33,6 @@ func get_desires_string(d: QuestDetails) -> String:
 			string += " Could you please bring one jar?"
 		else:
 			string += " Could you please bring %d jars?" % amount
-	string += " Please bring it within %s, if it's not too much trouble!" % _time_string(d.time_remaining)
+	if !Player.options.no_time_limits:
+		string += " Please bring it within %s, if it's not too much trouble!" % _time_string(d.time_remaining)
 	return string

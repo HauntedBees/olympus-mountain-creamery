@@ -55,7 +55,7 @@ func _option_press() -> void:
 				_options[1].text = "Speed: Normal"
 		2: # Timer
 			Player.options.no_time_limits = !Player.options.no_time_limits
-			_options[0].text = "Time Limits: %s" % ("Off" if Player.options.no_time_limits else "On")
+			_options[2].text = "Time Limits: %s" % ("Off" if Player.options.no_time_limits else "On")
 		3: # Return
 			_step = State.Main
 			_main_menu.visible = true

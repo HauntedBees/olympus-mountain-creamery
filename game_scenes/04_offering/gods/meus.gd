@@ -33,5 +33,6 @@ func get_desires_string(d: QuestDetails) -> String:
 			string += " Bring me one jar to satisfy my hunger."
 		else:
 			string += " Bring me %d jars to satisfy my hunger." % amount
-	string += " You have %s." % _time_string(d.time_remaining)
+	if !Player.options.no_time_limits:
+		string += " You have %s." % _time_string(d.time_remaining)
 	return string
