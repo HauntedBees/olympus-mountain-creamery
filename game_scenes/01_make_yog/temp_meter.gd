@@ -7,8 +7,8 @@ const MAX_LOW_FIRE_HEAT_TEMP := 100.0 * _RADIAN
 const SAFE_TEMP := 130.0 * _RADIAN
 const GOOD_TEMP := 155.0 * _RADIAN
 
-const TOO_WARM_MAX := 230.0 * _RADIAN
-const JUST_RIGHT_MAX := 206.0 * _RADIAN
+const TOO_WARM_MAX := 50.0 * _RADIAN
+const JUST_RIGHT_MAX := 26.0 * _RADIAN
 
 @export_range(0.0, PI) var temperature := 0.0:
 	set(value):

@@ -25,9 +25,19 @@ func clean() -> void:
 	_make_yog.ice_container.ice_amount = 0
 
 func update(delta: float) -> void:
+	#print(_temperature / (PI / 180.0))
 	if Input.is_action_just_pressed("button_two"):
 		input_blocked = true
-		# TODO: calculate bacteria and cool multipliers
+		if _temperature >= TempMeter.TOO_WARM_MAX:
+			var amount_warm := _temperature - TempMeter.TOO_WARM_MAX
+			var max_amount := PI - TempMeter.TOO_WARM_MAX
+			var bacteria_damage_ratio := clampf((amount_warm / max_amount), 0.1, 1.0)
+			_pot.bacteria_amount *= bacteria_damage_ratio
+		elif _temperature >= TempMeter.JUST_RIGHT_MAX:
+			_pot.quality_multiplier *= 1.25
+		else:
+			var amount_cold := _temperature / TempMeter.JUST_RIGHT_MAX
+			_pot.fermentation_time_diminisher *= 0.5 + (amount_cold / 2.0)
 		change_state.emit(FillJarsState.new(_make_yog, _pot))
 		return
 	if Input.is_action_just_pressed("button_one"):

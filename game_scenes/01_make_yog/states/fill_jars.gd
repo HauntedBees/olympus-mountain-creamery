@@ -162,6 +162,22 @@ func _update_milk_label() -> void:
 func _finish_pouring() -> void:
 	if _current_jar:
 		_yog_jars.append(_current_jar)
+	var avg_milk := 0.0
+	# Get average, and apply bacteria and burn debuffs
+	for y in _yog_jars:
+		y.quality_multiplier *= y.bacteria_amount
+		if y.burnt_amount >= 0.2:
+			y.quality_multiplier *= clampf(1.2 - y.burnt_amount, 0.25, 1.0)
+		avg_milk += y.amount
+	avg_milk /= _yog_jars.size()
+	var all_in_range := true
+	for y in _yog_jars:
+		if absf(y.amount - avg_milk) > 0.4:
+			all_in_range = false
+			break
+	if all_in_range:
+		for y in _yog_jars:
+			y.quality_multiplier *= 2.0
 	Player.data.yogurts.append_array(_yog_jars)
 	change_scene.emit("res://game_scenes/02_outside/outside.tscn")
 
