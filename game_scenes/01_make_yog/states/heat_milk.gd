@@ -22,6 +22,7 @@ var _temperature: float:
 		_make_yog.temp_meter.temperature = value
 
 func initialize() -> void:
+	_make_yog.detail_label.text = "Press the Secondary Button to adjust the heat. Warm the milk to the right temperature and keep it there for 5 seconds. Be sure to stir it often by holding the Primary Button, or it'll burn!"
 	_make_yog.fire.visible = true
 	_make_yog.temp_meter.visible = true
 	_spoon = _make_yog.boil_pot.spoon_path

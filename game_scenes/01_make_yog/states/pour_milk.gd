@@ -6,6 +6,7 @@ var _did_start_pouring := false
 
 func initialize() -> void:
 	_update_milk_label()
+	_make_yog.detail_label.text = "Press and hold the Primary Button to pour milk into the pot. Be careful not to overfill the pot!"
 	_make_yog.left_btn.text = "Pour"
 	_make_yog.right_btn.text = "Next"
 	_make_yog.right_btn.toggle_visibility(Player.options.multiple_milk_pours)

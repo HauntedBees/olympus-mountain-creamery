@@ -9,3 +9,5 @@ A game about yogurt. Made for the [Solo Dev Game Jam #4](https://itch.io/jam/sol
 [UI Pack - Adventure](https://kenney.nl/assets/ui-pack-adventure) by [Kenney](https://kenney.nl/) is licensed under the [Creative Commons CC0 license](https://creativecommons.org/publicdomain/zero/1.0/).
 
 [FireShader](https://godotshaders.com/shader/fireshader/) by [Gonkee](https://www.youtube.com/@Gonkee) and [snesmocha](https://godotshaders.com/author/snesmocha/) is licensed under the [Creative Commons CC0 license](https://creativecommons.org/publicdomain/zero/1.0/).
+
+[Olympus National Park 30](https://en.wikipedia.org/wiki/File:Olympus_National_Park_30.jpg) by [kallerna](https://commons.wikimedia.org/wiki/User:Kallerna) is licensed under the [Creative Commons Attribution-Share Alike 4.0 International license](https://creativecommons.org/licenses/by-sa/4.0/deed.en).

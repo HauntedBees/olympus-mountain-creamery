@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ppx0mkhv67k6"]
+[gd_scene load_steps=10 format=3 uid="uid://ppx0mkhv67k6"]
 
 [ext_resource type="Script" path="res://game_scenes/01_make_yog/make_yog.gd" id="1_e2rrb"]
 [ext_resource type="Shader" uid="uid://76asy4soysao" path="res://game_scenes/01_make_yog/fire.tres" id="4_1emc4"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://4f3hwjrkf0my" path="res://game_scenes/03_shop/vert_prompt.tscn" id="6_2mk1b"]
 [ext_resource type="Script" path="res://game_scenes/01_make_yog/ice_bath.gd" id="6_ojxcj"]
 [ext_resource type="PackedScene" uid="uid://dne47q8u5if22" path="res://game_scenes/shared_nodes/item_display.tscn" id="7_emncc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vcmax"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lkslk"]
 shader = ExtResource("4_1emc4")
@@ -29,12 +33,33 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e2rrb")
 
-[node name="InfoLabel" type="Label" parent="."]
-unique_name_in_owner = true
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
 offset_right = 40.0
-offset_bottom = 23.0
+offset_bottom = 40.0
+
+[node name="InfoLabel" type="Label" parent="PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 text = "Milk Remaining: 10.0τ"
+
+[node name="PanelContainer2" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -640.0
+offset_bottom = 63.0
+grow_horizontal = 0
+
+[node name="DetailLabel" type="Label" parent="PanelContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+text = "Placeholder"
+label_settings = SubResource("LabelSettings_vcmax")
+horizontal_alignment = 2
+autowrap_mode = 3
 
 [node name="PotContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -53,7 +78,6 @@ theme_override_constants/margin_bottom = 64
 [node name="BoilPot" parent="PotContainer" instance=ExtResource("4_us5hp")]
 unique_name_in_owner = true
 layout_mode = 2
-overflowing = null
 
 [node name="FireContainer" type="MarginContainer" parent="."]
 layout_mode = 1

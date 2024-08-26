@@ -1,0 +1,149 @@
+[gd_scene load_steps=7 format=3 uid="uid://c1uydfl0h6rfm"]
+
+[ext_resource type="Texture2D" uid="uid://d34vlsj2sn2d3" path="res://assets/other/Olympus_National_Park_30.jpg" id="1_sxqel"]
+[ext_resource type="Script" path="res://game_scenes/00_title/title_scene.gd" id="1_uinmu"]
+[ext_resource type="Texture2D" uid="uid://bw74igvww7duo" path="res://assets/logo.png" id="2_gde2o"]
+[ext_resource type="PackedScene" uid="uid://bnurmvdujjqn1" path="res://game_scenes/02_outside/action_prompt.tscn" id="3_i3b8b"]
+
+[sub_resource type="Gradient" id="Gradient_027s6"]
+colors = PackedColorArray(0, 1, 0.72549, 0.501961, 0.780392, 1, 1, 0.337255)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0wvtq"]
+gradient = SubResource("Gradient_027s6")
+fill_from = Vector2(1, 1)
+fill_to = Vector2(0, 0)
+
+[node name="TitleScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uinmu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_sxqel")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_0wvtq")
+
+[node name="MainMenu" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -443.0
+offset_top = -311.0
+offset_right = 443.0
+offset_bottom = 311.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+
+[node name="Logo" type="TextureRect" parent="MainMenu"]
+layout_mode = 2
+texture = ExtResource("2_gde2o")
+stretch_mode = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMenu"]
+layout_mode = 2
+
+[node name="ActionPrompt" parent="MainMenu/CenterContainer" instance=ExtResource("3_i3b8b")]
+layout_mode = 2
+text = "New Game"
+state = 0
+
+[node name="CenterContainer2" type="CenterContainer" parent="MainMenu"]
+layout_mode = 2
+
+[node name="ActionPrompt2" parent="MainMenu/CenterContainer2" instance=ExtResource("3_i3b8b")]
+layout_mode = 2
+text = "Options"
+state = 1
+
+[node name="IntroMenu" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="IntroMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="IntroMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="PanelContainer" type="PanelContainer" parent="IntroMenu/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="IntroMenu/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="MarginContainer" type="MarginContainer" parent="IntroMenu/MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="IntroMenu/MarginContainer/PanelContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "    You have been given a mighty task... make yogurt for the Gods of Mount Olympus! They hunger for the fermented dairy, and only one person has the skill and bravery to make and offer them these milky treats.
+
+    Do you have what it takes to yog your way to the top? Or will you flounder under the weight of the Gods?"
+autowrap_mode = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="IntroMenu/MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ActionPrompt" parent="IntroMenu/MarginContainer/PanelContainer/VBoxContainer/CenterContainer" instance=ExtResource("3_i3b8b")]
+layout_mode = 2
+text = "Begin the Journey"
+state = 0
+
+[node name="MarginContainer3" type="MarginContainer" parent="IntroMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Transition" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.12549, 0)

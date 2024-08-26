@@ -1,0 +1,76 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwt217j4vm8gx"]
+
+[ext_resource type="Script" path="res://game_scenes/05_endings/end_scene.gd" id="1_pyk1t"]
+[ext_resource type="PackedScene" uid="uid://bnurmvdujjqn1" path="res://game_scenes/02_outside/action_prompt.tscn" id="2_kfhtg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p7dsc"]
+font_size = 64
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[node name="WinScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pyk1t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -479.0
+offset_top = -80.0
+offset_right = 479.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "A Winner Is You!"
+label_settings = SubResource("LabelSettings_p7dsc")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "You have pleased the Gods with your delicious yogurts. Their
+blessings will give you much good fortune in the years to come.
+We're all dairy proud of you."
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -236.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 8
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="ActionPrompt" parent="MarginContainer/CenterContainer" instance=ExtResource("2_kfhtg")]
+layout_mode = 2
+text = "Return to Title"
+
+[node name="Transition" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.12549, 0)

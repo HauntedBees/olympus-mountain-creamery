@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dhcii6gssucck"
-path="res://.godot/imported/KamilloGrotesk-SemiBold.ttf-a6700e8ea23dd83b034591e2b972a7cf.fontdata"
+path="res://.godot/imported/KamilloGrotesk-SemiBold.ttf-e464774a3e046c53dbb0af5fda1ce857.fontdata"
 
 [deps]
 
-source_file="res://assets/KamilloGrotesk-SemiBold.ttf"
-dest_files=["res://.godot/imported/KamilloGrotesk-SemiBold.ttf-a6700e8ea23dd83b034591e2b972a7cf.fontdata"]
+source_file="res://assets/other/KamilloGrotesk-SemiBold.ttf"
+dest_files=["res://.godot/imported/KamilloGrotesk-SemiBold.ttf-e464774a3e046c53dbb0af5fda1ce857.fontdata"]
 
 [params]
 

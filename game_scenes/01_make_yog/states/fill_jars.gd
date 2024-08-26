@@ -17,6 +17,7 @@ var _flavor_added := false
 var _input_cooldown := 0.0 # switching to pour from flavor was glitchy so this is the easiest possible fix
 
 func initialize() -> void:
+	_make_yog.detail_label.text = "Add ingredients with the Secondary Button if you have any, then press and hold the Primary Button to pour the heated milk mixture into each jar until you run out of milk or jars."
 	_make_yog.boil_pot.visible = false
 	_root = _make_yog.yog_jars
 	_root.visible = true
@@ -136,7 +137,7 @@ func _update_flavor_button() -> void:
 
 ## Fills up faster at start and end than middle.
 func _fill_formula(current_amount: float) -> float:
-	return 1.0 + pow(2.0 * (0.25 + current_amount) - 1.0, 2.0) * 3.0
+	return 1.0 + 0.5 * current_amount
 
 func _update_milk_label() -> void:
 	_make_yog.info_label.text = "Mixture Remaining: %.1fτ" % _pot.amount
