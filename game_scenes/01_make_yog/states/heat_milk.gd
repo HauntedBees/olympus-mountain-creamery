@@ -32,6 +32,7 @@ func initialize() -> void:
 	_make_yog.left_btn.text = "Stir"
 	_make_yog.right_btn.text = "Heat"
 	_update_energy_label()
+	_toggle_action_hold("button_one", true)
 
 func update(delta: float) -> void:
 	_finish_check(delta)
@@ -58,6 +59,7 @@ func clean() -> void:
 	_make_yog.fire.visible = false
 	_spoon.visible = false
 	_make_yog.temp_meter.visible = false
+	_toggle_action_hold("button_one", false)
 
 func _finish_check(delta: float) -> void:
 	if _temperature >= TempMeter.SAFE_TEMP && _temperature <= TempMeter.GOOD_TEMP:

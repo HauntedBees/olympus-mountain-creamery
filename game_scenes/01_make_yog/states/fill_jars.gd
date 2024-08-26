@@ -31,6 +31,7 @@ func initialize() -> void:
 	_update_milk_label()
 	_make_yog.pour_hands.visible = true
 	_make_yog.pour_hands.position += _HANDS_OFFSET
+	_toggle_action_hold("button_one", true)
 
 func clean() -> void:
 	_make_yog.right_btn.toggle_visibility(true)
@@ -45,6 +46,7 @@ func clean() -> void:
 	_current_jar_display = null
 	_make_yog.pour_hands.visible = false
 	_make_yog.pour_hands.position -= _HANDS_OFFSET
+	_toggle_action_hold("button_one", false)
 
 func update(delta: float) -> void:
 	if _input_cooldown > 0.0:

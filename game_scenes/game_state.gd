@@ -15,3 +15,8 @@ func _init(s: GameScene) -> void:
 func initialize() -> void: pass
 func update(_d: float) -> void: pass
 func clean() -> void: pass
+
+func _toggle_action_hold(action: String, is_toggle: bool) -> void:
+	if !Player.options.use_toggles:
+		return
+	GASInput.set_toggle_action(action, is_toggle)

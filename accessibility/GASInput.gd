@@ -44,6 +44,11 @@ func _process(delta: float) -> void:
 			Input.action_press(action) # TODO: how to prevent this from returning true checked another is_action_just_pressed?
 			#get_tree().set_input_as_handled()
 
+func set_toggle_action(action: String, is_toggle: bool):
+	GASConfig.set_toggle_action(action, is_toggle)
+	if !is_toggle:
+		active_toggle_actions.erase(action)
+
 func _input(event: InputEvent):
 	# https://gameaccessibilityguidelines.com/avoid-provide-alternatives-to-requiring-buttons-to-be-held-down/
 	for action in active_toggle_actions:

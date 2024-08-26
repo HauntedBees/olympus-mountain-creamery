@@ -6,6 +6,7 @@ var _did_start_pouring := false
 
 func initialize() -> void:
 	_update_milk_label()
+	_toggle_action_hold("button_one", true)
 	_make_yog.detail_label.text = "Press and hold the Primary Button to pour milk into the pot. Be careful not to overfill the pot!"
 	_make_yog.left_btn.text = "Pour"
 	_make_yog.right_btn.text = "Next"
@@ -44,6 +45,7 @@ func update(delta: float) -> void:
 func clean() -> void:
 	_make_yog.right_btn.toggle_visibility(true)
 	_make_yog.pour_hands.visible = false
+	_toggle_action_hold("button_one", false)
 
 ## Fills up faster at start and end than middle.
 func _fill_formula(current_amount: float) -> float:
