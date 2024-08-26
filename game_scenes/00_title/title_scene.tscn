@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1uydfl0h6rfm"]
+[gd_scene load_steps=9 format=3 uid="uid://c1uydfl0h6rfm"]
 
 [ext_resource type="Texture2D" uid="uid://d34vlsj2sn2d3" path="res://assets/other/Olympus_National_Park_30.jpg" id="1_sxqel"]
 [ext_resource type="Script" path="res://game_scenes/00_title/title_scene.gd" id="1_uinmu"]
@@ -12,6 +12,11 @@ colors = PackedColorArray(0, 1, 0.72549, 0.501961, 0.780392, 1, 1, 0.337255)
 gradient = SubResource("Gradient_027s6")
 fill_from = Vector2(1, 1)
 fill_to = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hw5it"]
+font_size = 28
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_cq3a4"]
 font_size = 28
@@ -48,6 +53,7 @@ texture = SubResource("GradientTexture2D_0wvtq")
 
 [node name="MainMenu" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -156,10 +162,14 @@ offset_bottom = 729.0
 grow_horizontal = 2
 theme_override_constants/separation = 48
 
-[node name="PanelContainer" type="PanelContainer" parent="OptionsMenu"]
+[node name="CenterContainer" type="CenterContainer" parent="OptionsMenu"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="OptionsMenu/PanelContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="OptionsMenu/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OptionsMenu/CenterContainer/PanelContainer"]
+custom_minimum_size = Vector2(240, 0)
 layout_mode = 2
 text = "Options"
 horizontal_alignment = 1
@@ -167,6 +177,7 @@ horizontal_alignment = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="OptionsMenu"]
 layout_mode = 2
 theme_override_constants/separation = 32
+alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="OptionsMenu/HBoxContainer"]
 layout_mode = 2
@@ -275,15 +286,14 @@ offset_right = 490.0
 scale = Vector2(0.75, 0.75)
 text = "Return to Title"
 
-[node name="Transition" type="ColorRect" parent="."]
+[node name="OptionInfo" type="Label" parent="OptionsMenu"]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0.12549, 0)
+custom_minimum_size = Vector2(1100, 0)
+layout_mode = 2
+text = "Here's information about what you picked bru whatsie daisey ha ha"
+label_settings = SubResource("LabelSettings_hw5it")
+horizontal_alignment = 1
+autowrap_mode = 3
 
 [node name="Remap" type="Control" parent="."]
 unique_name_in_owner = true
@@ -331,3 +341,13 @@ layout_mode = 2
 text = "Press any key to remap the Primary Button to the new key."
 label_settings = SubResource("LabelSettings_cq3a4")
 autowrap_mode = 3
+
+[node name="Transition" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.12549, 0)
