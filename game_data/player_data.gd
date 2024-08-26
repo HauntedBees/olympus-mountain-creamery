@@ -27,7 +27,7 @@ const JAR_CAPACITY := 5.0
 @export var arm_recovery_rate := 0.5
 
 ## The items the player can buy. More are unlocked with each successful quest completed.
-@export var items_available_to_buy := 3
+@export var items_available_to_buy := 4
 
 ## The player's actively fermenting yogurt jars.
 @export var yogurts: Array[MilkPotData] = []
