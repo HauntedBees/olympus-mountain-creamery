@@ -1,12 +1,25 @@
-[gd_scene load_steps=10 format=3 uid="uid://ppx0mkhv67k6"]
+[gd_scene load_steps=17 format=3 uid="uid://ppx0mkhv67k6"]
 
 [ext_resource type="Script" path="res://game_scenes/01_make_yog/make_yog.gd" id="1_e2rrb"]
+[ext_resource type="Texture2D" uid="uid://gojn6kl812co" path="res://assets/prep_background.png" id="2_xhjry"]
+[ext_resource type="Shader" path="res://game_scenes/01_make_yog/milk_top.gdshader" id="3_7rk2f"]
 [ext_resource type="Shader" uid="uid://76asy4soysao" path="res://game_scenes/01_make_yog/fire.tres" id="4_1emc4"]
+[ext_resource type="Texture2D" uid="uid://re1xw6dyi6pl" path="res://assets/bg_parallax.png" id="4_d6xfv"]
+[ext_resource type="Texture2D" uid="uid://cen6l61r08gl4" path="res://assets/bg_parallax2.png" id="4_ix4eq"]
 [ext_resource type="PackedScene" uid="uid://c7ggwfed6pagk" path="res://game_scenes/01_make_yog/boil_pot.tscn" id="4_us5hp"]
 [ext_resource type="PackedScene" uid="uid://bvqiad5oamvxy" path="res://game_scenes/01_make_yog/temp_meter.tscn" id="5_sycg0"]
 [ext_resource type="PackedScene" uid="uid://4f3hwjrkf0my" path="res://game_scenes/03_shop/vert_prompt.tscn" id="6_2mk1b"]
+[ext_resource type="Texture2D" uid="uid://yemdonwx4dgu" path="res://assets/table.png" id="6_3i6k4"]
 [ext_resource type="Script" path="res://game_scenes/01_make_yog/ice_bath.gd" id="6_ojxcj"]
 [ext_resource type="PackedScene" uid="uid://dne47q8u5if22" path="res://game_scenes/shared_nodes/item_display.tscn" id="7_emncc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vdteo"]
+shader = ExtResource("3_7rk2f")
+shader_parameter/milk_speed = -0.01
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j2866"]
+shader = ExtResource("3_7rk2f")
+shader_parameter/milk_speed = 0.015
 
 [sub_resource type="LabelSettings" id="LabelSettings_vcmax"]
 font_size = 24
@@ -32,6 +45,43 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e2rrb")
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_xhjry")
+
+[node name="Sparkles" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_vdteo")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_ix4eq")
+
+[node name="Sparkles2" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_j2866")
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_d6xfv")
+
+[node name="Table" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -157.5
+offset_top = -152.0
+offset_right = 157.5
+offset_bottom = 76.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("6_3i6k4")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0

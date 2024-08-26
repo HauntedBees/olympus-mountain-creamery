@@ -1,7 +1,7 @@
 class_name FillJarsState extends MakeYogGameState
 
 const _YOG_JAR_SCENE := preload("res://game_scenes/shared_nodes/yog_jar.tscn")
-const _MILK_POUR_RATE := 0.75
+const _MILK_POUR_RATE := 1.75
 
 enum State { Animating, Pouring, Flavoring }
 
@@ -160,21 +160,21 @@ func _add_yog() -> void:
 		_finish_pouring()
 		return
 	var rect := _root.get_viewport_rect()
-	var midpoint := rect.size.y * 0.6
+	var y_position := rect.size.y * 0.7 # TODO: probably not resolution-proof; fix this if mobile happens
 	if _current_jar_display:
 		var last_t := _root.create_tween()
-		last_t.tween_property(_current_jar_display, "position", Vector2(-_current_jar_display.size.x, midpoint), 0.25)
+		last_t.tween_property(_current_jar_display, "position", Vector2(-_current_jar_display.size.x, y_position), 0.25)
 	_current_jar_display = _YOG_JAR_SCENE.instantiate()
 	_yog_jar_displays.append(_current_jar_display)
 	_root.add_child(_current_jar_display)
-	_current_jar_display.position = Vector2(rect.end.x + _current_jar_display.size.x, midpoint)
+	_current_jar_display.position = Vector2(rect.end.x + _current_jar_display.size.x, y_position)
 	_current_jar = _pot.duplicate()
 	_current_jar.amount = 0.0
 	Player.data.jars -= 1
 	input_blocked = true
 	var t := _root.create_tween()
 	var mid_x := rect.size.x / 2.0 - _current_jar_display.size.x / 2.0
-	t.tween_property(_current_jar_display, "position", Vector2(mid_x, midpoint), 0.25)
+	t.tween_property(_current_jar_display, "position", Vector2(mid_x, y_position), 0.25)
 	t.tween_callback(func() -> void: 
 		input_blocked = false
 		_state = State.Pouring
