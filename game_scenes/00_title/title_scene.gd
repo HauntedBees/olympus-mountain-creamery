@@ -2,7 +2,7 @@ class_name TitleScreen extends GameScene
 
 enum State { Main, Intro, Options, RemapPrimary, RemapSecondary }
 
-var _timer := 0.5
+var _timer := 0.125
 var _option_idx := 0
 var _step := State.Main
 

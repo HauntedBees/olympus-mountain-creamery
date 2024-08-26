@@ -7,6 +7,7 @@ const _READY = preload("res://assets/other/kenney/minimap_icon_star_red.png")
 @onready var yog_jar: YogJar = %YogJar
 @onready var _label: Label = %Label
 @onready var _lil_star: TextureRect = %LilStar
+@onready var _quality_milk: Control = %QualityMilk
 
 var _milk_pot: MilkPotData
 
@@ -15,6 +16,7 @@ func bind_jar(m: MilkPotData) -> void:
 	_label.visible = true
 	_lil_star.visible = true
 	_milk_pot = m
+	_quality_milk.visible = _milk_pot.quality_multiplier >= Desire.QUALITY_YOGURT_MIN
 
 func _process(_delta: float) -> void:
 	if !_milk_pot:

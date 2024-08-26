@@ -175,7 +175,7 @@ func _finish_pouring() -> void:
 		if absf(y.amount - avg_milk) <= 0.4:
 			yogs_in_range += 1
 	if yogs_in_range > 1:
-		var multiplier := 2.5 if yogs_in_range == _yog_jars.size() else (1.2 + yogs_in_range / _yog_jars.size())
+		var multiplier := 2.5 if yogs_in_range == _yog_jars.size() else (1.2 + float(yogs_in_range) / _yog_jars.size())
 		for y in _yog_jars:
 			y.quality_multiplier *= multiplier
 	Player.data.yogurts.append_array(_yog_jars)

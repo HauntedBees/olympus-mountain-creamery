@@ -1,14 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://db3scdbjxvvfs"]
+[gd_scene load_steps=11 format=3 uid="uid://db3scdbjxvvfs"]
 
 [ext_resource type="Script" path="res://game_scenes/shared_nodes/lil_yog.gd" id="1_l3ux7"]
 [ext_resource type="PackedScene" uid="uid://onydyldr07sm" path="res://game_scenes/shared_nodes/yog_jar.tscn" id="1_mdp3w"]
 [ext_resource type="FontFile" uid="uid://bqnmxhr0x5kxm" path="res://assets/other/Monoid-Regular.ttf" id="3_ylnhk"]
 [ext_resource type="Texture2D" uid="uid://cknusnj486xhc" path="res://assets/other/kenney/minimap_icon_star_red.png" id="4_ow7vu"]
+[ext_resource type="Shader" path="res://game_scenes/01_make_yog/milk_top.gdshader" id="5_rt8pj"]
+[ext_resource type="Texture2D" uid="uid://cen6l61r08gl4" path="res://assets/backgrounds/bg_parallax2.png" id="6_7ls2p"]
+[ext_resource type="Texture2D" uid="uid://re1xw6dyi6pl" path="res://assets/backgrounds/bg_parallax.png" id="7_xft3h"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mh5ik"]
 font = ExtResource("3_ylnhk")
 outline_size = 6
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eku2r"]
+shader = ExtResource("5_rt8pj")
+shader_parameter/milk_speed = 0.125
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wkrny"]
+shader = ExtResource("5_rt8pj")
+shader_parameter/milk_speed = -0.25
 
 [node name="LilYog" type="Control"]
 custom_minimum_size = Vector2(70, 60)
@@ -58,3 +69,38 @@ grow_vertical = 0
 texture = ExtResource("4_ow7vu")
 expand_mode = 1
 stretch_mode = 4
+
+[node name="QualityMilk" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="QualityMilk"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_eku2r")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_7ls2p")
+expand_mode = 1
+flip_v = true
+
+[node name="TextureRect2" type="TextureRect" parent="QualityMilk"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_wkrny")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_xft3h")
+expand_mode = 1

@@ -7,7 +7,7 @@ class_name QuestDetails extends Resource
 @export var desire_idx := 0
 
 ## The time the player has left to complete this quest.
-@export var time_remaining := 5.0
+@export var time_remaining := 3600.0
 
 ## Three and you fail the God permanently.
 @export var strikes := 0

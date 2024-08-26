@@ -1,5 +1,7 @@
 class_name Desire extends Resource
 
+const QUALITY_YOGURT_MIN := 1.5
+
 enum Flavor { Any, Sweet, Rich, Refreshing, Savory, Luxurious, Earthy, Floral, Fruity, Bitter, Sour, Quality }
 
 ## The amount of yogurts they want.
@@ -24,7 +26,7 @@ static func get_flavors(p: MilkPotData) -> Array[Flavor]:
 		ItemCount.Type.Saffron: f.append_array([Flavor.Luxurious, Flavor.Earthy, Flavor.Floral])
 		ItemCount.Type.Pomegranate: f.append_array([Flavor.Fruity, Flavor.Rich, Flavor.Floral])
 		ItemCount.Type.Walnut: f.append_array([Flavor.Bitter, Flavor.Earthy, Flavor.Savory])
-	if p.quality_multiplier >= 1.5:
+	if p.quality_multiplier >= QUALITY_YOGURT_MIN:
 		f.append(Flavor.Quality)
 	return f
 

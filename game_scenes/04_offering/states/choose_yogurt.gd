@@ -55,7 +55,7 @@ func _set_text() -> void:
 		details.append("This yogurt is ready to be eaten, but it's been fermenting for a while, so it might turn sour if you don't offer it soon.")
 	else:
 		details.append("This yogurt is ready to be eaten.")
-	if _curr_yog_info.quality_multiplier >= 1.5:
+	if _curr_yog_info.quality_multiplier >= Desire.QUALITY_YOGURT_MIN:
 		details.append("It's very high quality yogurt.")
 	elif _curr_yog_info.quality_multiplier <= 0.4:
 		details.append("It's pretty low-quality yogurt.")
