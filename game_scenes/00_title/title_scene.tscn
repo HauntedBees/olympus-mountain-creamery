@@ -138,6 +138,46 @@ state = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="OptionsMenu" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+offset_left = 395.0
+offset_top = 20.0
+offset_right = 885.0
+offset_bottom = 700.0
+theme_override_constants/separation = 48
+
+[node name="PanelContainer" type="PanelContainer" parent="OptionsMenu"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="OptionsMenu/PanelContainer"]
+layout_mode = 2
+text = "Options"
+horizontal_alignment = 1
+
+[node name="Toggle" parent="OptionsMenu" instance=ExtResource("3_i3b8b")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Push to Toggle: Off"
+state = 0
+
+[node name="Speed" parent="OptionsMenu" instance=ExtResource("3_i3b8b")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Speed: Normal"
+state = 1
+
+[node name="Timer" parent="OptionsMenu" instance=ExtResource("3_i3b8b")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Time Limits: On"
+
+[node name="Return" parent="OptionsMenu" instance=ExtResource("3_i3b8b")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Return to Title"
+
 [node name="Transition" type="ColorRect" parent="."]
 unique_name_in_owner = true
 layout_mode = 1
