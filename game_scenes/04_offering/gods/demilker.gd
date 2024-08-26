@@ -5,6 +5,8 @@ func get_desires_string(d: QuestDetails) -> String:
 		return "Thank you for all the yogurt you've given me!"
 	if d.failed:
 		return "I'm not ready to be hurt again by your terrible yogurt. I'm sorry."
+	elif d.time_remaining < 0.0:
+		return times_up_message
 	var desire := requirements[d.desire_idx]
 	var string := "Hello... would you be kind enough to share some yogurt with me? "
 	match desire.flavor:

@@ -12,14 +12,17 @@ class_name God extends Control
 @export_multiline var didnt_want_message := "This isn't what I wanted."
 @export_multiline var final_warning_message := "Don't fail me again!"
 @export_multiline var failed_message := "Your yogurt is not welcome here anymore!"
+@export_multiline var times_up_message := "You took too long to bring me what I need! I don't want your yogurt anymore!"
 
 @onready var head: TextureRect = %Head
 
 func get_desires_string(d: QuestDetails) -> String:
 	if d.completed:
-		return "You are my hero."
+		return complete_message
 	if d.failed:
-		return "You failed."
+		return failed_message
+	elif d.time_remaining < 0.0:
+		return times_up_message
 	var desire := requirements[d.desire_idx]
 	return "I want %d yogurts in %.0f seconds." % [desire.yogurt_amount - d.amount_given, _time_string(d.time_remaining)]
 

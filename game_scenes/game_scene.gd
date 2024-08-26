@@ -38,6 +38,8 @@ func _change_scene(path: String) -> void:
 	var t := create_tween()
 	t.tween_property(_transition, "color:a", 1.0, _TRANSITION_TIME)
 	t.tween_callback(func() -> void:
+		if _state:
+			_state.clean()
 		var scene: PackedScene = load(path)
 		var instance: GameScene = scene.instantiate()
 		get_tree().root.add_child(instance)

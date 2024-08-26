@@ -12,5 +12,3 @@ func _process(delta: float) -> void:
 		y.fermentation_time += delta
 	for d in data.god_details:
 		d.time_remaining -= delta
-		if d.time_remaining <= 0.0:
-			d.failed = true
