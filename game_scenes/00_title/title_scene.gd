@@ -1,6 +1,6 @@
 class_name TitleScreen extends GameScene
 
-enum State { Main, Intro, Options }
+enum State { Main, Intro, Options, RemapPrimary, RemapSecondary }
 
 var _timer := 0.5
 var _option_idx := 0
@@ -9,11 +9,15 @@ var _step := State.Main
 @onready var _main_menu: VBoxContainer = %MainMenu
 @onready var _intro_menu: HBoxContainer = %IntroMenu
 @onready var _options_menu: VBoxContainer = %OptionsMenu
-@onready var _options: Array[ActionPrompt] = [%Toggle, %Speed, %Timer, %MultiPour, %Return]
+@onready var _options: Array[ActionPrompt] = [%Toggle, %Speed, %Timer, %MultiPour, %RemapPrimary, %RemapSecondary, %Return]
+@onready var _remap_dialog: Control = %Remap
+@onready var _remap_text: Label = %RemapText
 
 func _process(delta: float) -> void:
 	_timer -= delta
 	if _timer > 0.0:
+		return
+	if _step == State.RemapPrimary || _step == State.RemapSecondary:
 		return
 	if Input.is_action_just_pressed("button_one"):
 		if _step == State.Main:
@@ -34,6 +38,20 @@ func _process(delta: float) -> void:
 		elif _step == State.Options:
 			_option_idx = (_option_idx + 1) % _options.size()
 			_update_options()
+
+func _input(event: InputEvent) -> void:
+	if _timer > 0.0:
+		return
+	if _step != State.RemapPrimary && _step != State.RemapSecondary:
+		return
+	if event is InputEventKey && Player.last_input_was_gamepad:
+		return
+	elif event is InputEventJoypadButton && !Player.last_input_was_gamepad:
+		return
+	GASInput.remap_action("button_one" if _step == State.RemapPrimary else "button_two", event)
+	Player.input_method_changed.emit()
+	_step = State.Options
+	_remap_dialog.visible = false
 
 func _option_press() -> void:
 	match _option_idx:
@@ -59,7 +77,23 @@ func _option_press() -> void:
 		3: # Multipour
 			Player.options.multiple_milk_pours = !Player.options.multiple_milk_pours
 			_options[3].text = "Multi-Pour: %s" % ("On" if Player.options.multiple_milk_pours else "Off")
-		4: # Return
+		4: # Remap Primary
+			_step = State.RemapPrimary
+			_remap_dialog.visible = true
+			_timer = 0.25
+			if Player.last_input_was_gamepad:
+				_remap_text.text = "Press any button on your gamepad to remap the Primary Button to the new button."
+			else:
+				_remap_text.text = "Press any key on your keyboard to remap the Primary Button to the new key."
+		5: # Remap Secondary
+			_step = State.RemapSecondary
+			_remap_dialog.visible = true
+			_timer = 0.25
+			if Player.last_input_was_gamepad:
+				_remap_text.text = "Press any button on your gamepad to remap the Secondary Button to the new button."
+			else:
+				_remap_text.text = "Press any key on your keyboard to remap the Secondary Button to the new key."
+		6: # Return
 			_step = State.Main
 			_main_menu.visible = true
 			_options_menu.visible = false

@@ -48,12 +48,4 @@ func _set_keyboard_display(i: InputEventKey) -> void:
 	_prompt_text.text = OS.get_keycode_string(i.physical_keycode)
 
 func _set_gamepad_display(i: InputEventJoypadButton) -> void:
-	match i.button_index:
-		JOY_BUTTON_A: _prompt_text.text = "A"
-		JOY_BUTTON_B: _prompt_text.text = "B"
-		JOY_BUTTON_X: _prompt_text.text = "X"
-		JOY_BUTTON_Y: _prompt_text.text = "Y"
-		JOY_BUTTON_LEFT_SHOULDER: _prompt_text.text = "L"
-		JOY_BUTTON_RIGHT_SHOULDER: _prompt_text.text = "R"
-		JOY_BUTTON_LEFT_STICK: _prompt_text.text = "LS"
-		JOY_BUTTON_RIGHT_STICK: _prompt_text.text = "RS"
+	_prompt_text.text = Player.options.get_gamepad_display(i)

@@ -24,3 +24,21 @@ class_name PlayerOptions extends Resource
 @export var gamepad_one := JOY_BUTTON_A
 ## Gamepad button for the second button.
 @export var gamepad_two := JOY_BUTTON_B
+
+func get_gamepad_display(i: InputEventJoypadButton) -> String:
+	match i.button_index:
+		JOY_BUTTON_A: return "A"
+		JOY_BUTTON_B: return "B"
+		JOY_BUTTON_X: return "X"
+		JOY_BUTTON_Y: return "Y"
+		JOY_BUTTON_LEFT_SHOULDER: return "L"
+		JOY_BUTTON_RIGHT_SHOULDER: return "R"
+		JOY_BUTTON_LEFT_STICK: return "LS"
+		JOY_BUTTON_RIGHT_STICK: return "RS"
+		JOY_BUTTON_DPAD_UP: return "^"
+		JOY_BUTTON_DPAD_DOWN: return "v"
+		JOY_BUTTON_DPAD_LEFT: return "<"
+		JOY_BUTTON_DPAD_RIGHT: return ">"
+		JOY_BUTTON_BACK: return "s"
+		JOY_BUTTON_START: return "S"
+	return "?"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1uydfl0h6rfm"]
+[gd_scene load_steps=8 format=3 uid="uid://c1uydfl0h6rfm"]
 
 [ext_resource type="Texture2D" uid="uid://d34vlsj2sn2d3" path="res://assets/other/Olympus_National_Park_30.jpg" id="1_sxqel"]
 [ext_resource type="Script" path="res://game_scenes/00_title/title_scene.gd" id="1_uinmu"]
@@ -12,6 +12,10 @@ colors = PackedColorArray(0, 1, 0.72549, 0.501961, 0.780392, 1, 1, 0.337255)
 gradient = SubResource("Gradient_027s6")
 fill_from = Vector2(1, 1)
 fill_to = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cq3a4"]
+font_size = 28
+font_color = Color(0, 0, 0, 1)
 
 [node name="TitleScene" type="Control"]
 layout_mode = 3
@@ -205,12 +209,11 @@ layout_mode = 2
 custom_minimum_size = Vector2(367.5, 72)
 layout_mode = 2
 
-[node name="CenterContainer4" type="CenterContainer" parent="OptionsMenu/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Control" type="Control" parent="OptionsMenu/HBoxContainer/VBoxContainer/CenterContainer4"]
-custom_minimum_size = Vector2(367.5, 72)
-layout_mode = 2
+[node name="RemapPrimary" parent="OptionsMenu/HBoxContainer/VBoxContainer/CenterContainer3/Control" instance=ExtResource("3_i3b8b")]
+unique_name_in_owner = true
+layout_mode = 0
+scale = Vector2(0.75, 0.75)
+text = "Remap Primary Btn"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="OptionsMenu/HBoxContainer"]
 layout_mode = 2
@@ -252,14 +255,20 @@ layout_mode = 2
 custom_minimum_size = Vector2(367.5, 72)
 layout_mode = 2
 
-[node name="CenterContainer4" type="CenterContainer" parent="OptionsMenu/HBoxContainer/VBoxContainer2"]
+[node name="RemapSecondary" parent="OptionsMenu/HBoxContainer/VBoxContainer2/CenterContainer3/Control" instance=ExtResource("3_i3b8b")]
+unique_name_in_owner = true
+layout_mode = 0
+scale = Vector2(0.75, 0.75)
+text = "Remap Secondary"
+
+[node name="CenterContainer4" type="CenterContainer" parent="OptionsMenu"]
 layout_mode = 2
 
-[node name="Control" type="Control" parent="OptionsMenu/HBoxContainer/VBoxContainer2/CenterContainer4"]
+[node name="Control" type="Control" parent="OptionsMenu/CenterContainer4"]
 custom_minimum_size = Vector2(367.5, 72)
 layout_mode = 2
 
-[node name="Return" parent="OptionsMenu/HBoxContainer/VBoxContainer2/CenterContainer4/Control" instance=ExtResource("3_i3b8b")]
+[node name="Return" parent="OptionsMenu/CenterContainer4/Control" instance=ExtResource("3_i3b8b")]
 unique_name_in_owner = true
 layout_mode = 2
 offset_right = 490.0
@@ -275,3 +284,50 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0.12549, 0)
+
+[node name="Remap" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Remap"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.453487, 0.212118, 0.261373, 0.666667)
+
+[node name="CenterContainer" type="CenterContainer" parent="Remap"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Remap/CenterContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Remap/CenterContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Remap/CenterContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Remap Control"
+horizontal_alignment = 1
+
+[node name="RemapText" type="Label" parent="Remap/CenterContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+text = "Press any key to remap the Primary Button to the new key."
+label_settings = SubResource("LabelSettings_cq3a4")
+autowrap_mode = 3
