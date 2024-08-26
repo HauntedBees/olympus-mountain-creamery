@@ -25,6 +25,13 @@ func _ready() -> void:
 		Player.data.milk_pot_capacity
 	]
 	var count := 0
+	Player.data.yogurts.sort_custom(func(a: MilkPotData, b: MilkPotData) -> bool:
+		if a.fermentation_time >= MilkPotData.SOUR_LIMIT && b.fermentation_time < MilkPotData.SOUR_LIMIT:
+			return false
+		elif b.fermentation_time >= MilkPotData.SOUR_LIMIT && a.fermentation_time < MilkPotData.SOUR_LIMIT:
+			return true
+		return a.fermentation_time > b.fermentation_time
+	)
 	for y in Player.data.yogurts:
 		count += 1
 		if count > _MAX_YOGURTS_TO_SHOW:
@@ -32,7 +39,7 @@ func _ready() -> void:
 			break
 		var c: LilYog = _JAR_SCENE.instantiate()
 		_yogurts_container.add_child(c)
-		c.yog_jar.set_from_info(y)
+		c.bind_jar(y)
 	for idx in _flavors.size():
 		var flavor := _flavors[idx].item
 		var item_count := Player.data.get_item_count(flavor)

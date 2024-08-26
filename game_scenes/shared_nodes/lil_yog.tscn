@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://db3scdbjxvvfs"]
+[gd_scene load_steps=6 format=3 uid="uid://db3scdbjxvvfs"]
 
 [ext_resource type="Script" path="res://game_scenes/shared_nodes/lil_yog.gd" id="1_l3ux7"]
 [ext_resource type="PackedScene" uid="uid://onydyldr07sm" path="res://game_scenes/shared_nodes/yog_jar.tscn" id="1_mdp3w"]
+[ext_resource type="FontFile" uid="uid://bqnmxhr0x5kxm" path="res://assets/other/Monoid-Regular.ttf" id="3_ylnhk"]
+[ext_resource type="Texture2D" uid="uid://cknusnj486xhc" path="res://assets/other/kenney/minimap_icon_star_red.png" id="4_ow7vu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mh5ik"]
+font = ExtResource("3_ylnhk")
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
 
 [node name="LilYog" type="Control"]
 custom_minimum_size = Vector2(70, 60)
@@ -18,3 +25,36 @@ script = ExtResource("1_l3ux7")
 [node name="YogJar" parent="." instance=ExtResource("1_mdp3w")]
 unique_name_in_owner = true
 scale = Vector2(0.5, 0.5)
+overflowing = false
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -43.0
+offset_top = -22.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "2:00"
+label_settings = SubResource("LabelSettings_mh5ik")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="LilStar" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 24.0
+grow_vertical = 0
+texture = ExtResource("4_ow7vu")
+expand_mode = 1
+stretch_mode = 4
