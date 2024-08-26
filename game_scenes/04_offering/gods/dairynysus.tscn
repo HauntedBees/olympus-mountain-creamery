@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://biaw1pekj8wvc"]
+[gd_scene load_steps=23 format=3 uid="uid://biaw1pekj8wvc"]
 
 [ext_resource type="Script" path="res://game_scenes/04_offering/gods/dairynysus.gd" id="1_vgn82"]
 [ext_resource type="Texture2D" uid="uid://7pmels5sn4v6" path="res://assets/gods/dairynysus/nhappy.png" id="3_c7tp6"]
@@ -12,19 +12,58 @@
 [sub_resource type="Resource" id="Resource_nl4kj"]
 script = ExtResource("6_3sik8")
 type = 4
-amount = 2
+amount = 5
 
 [sub_resource type="Resource" id="Resource_8pp2y"]
 script = ExtResource("6_3sik8")
 type = 10
-amount = 40
+amount = 120
 
 [sub_resource type="Resource" id="Resource_1vnai"]
 script = ExtResource("5_xrwc6")
-yogurt_amount = 2
+yogurt_amount = 5
 flavor = 5
 time_limit = 1200.0
 reward = Array[ExtResource("6_3sik8")]([SubResource("Resource_nl4kj"), SubResource("Resource_8pp2y")])
+
+[sub_resource type="Resource" id="Resource_vfme4"]
+script = ExtResource("6_3sik8")
+type = 10
+amount = 120
+
+[sub_resource type="Resource" id="Resource_6er0l"]
+script = ExtResource("6_3sik8")
+type = 3
+amount = 6
+
+[sub_resource type="Resource" id="Resource_ndfqg"]
+script = ExtResource("5_xrwc6")
+yogurt_amount = 5
+flavor = 8
+time_limit = 600.0
+reward = Array[ExtResource("6_3sik8")]([SubResource("Resource_vfme4"), SubResource("Resource_6er0l")])
+
+[sub_resource type="Resource" id="Resource_e4tvl"]
+script = ExtResource("6_3sik8")
+type = 9
+amount = 100
+
+[sub_resource type="Resource" id="Resource_bwgoa"]
+script = ExtResource("6_3sik8")
+type = 5
+amount = 10
+
+[sub_resource type="Resource" id="Resource_jm55v"]
+script = ExtResource("6_3sik8")
+type = 4
+amount = 5
+
+[sub_resource type="Resource" id="Resource_vunha"]
+script = ExtResource("5_xrwc6")
+yogurt_amount = 15
+flavor = 7
+time_limit = 900.0
+reward = Array[ExtResource("6_3sik8")]([SubResource("Resource_e4tvl"), SubResource("Resource_bwgoa"), SubResource("Resource_jm55v")])
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2lt73"]
 shader = ExtResource("8_s4m7j")
@@ -111,7 +150,7 @@ script = ExtResource("1_vgn82")
 base_head = ExtResource("8_duv02")
 happy_head = ExtResource("3_c7tp6")
 angry_head = ExtResource("4_w2la0")
-requirements = Array[ExtResource("5_xrwc6")]([SubResource("Resource_1vnai")])
+requirements = Array[ExtResource("5_xrwc6")]([SubResource("Resource_1vnai"), SubResource("Resource_ndfqg"), SubResource("Resource_vunha")])
 god_name = "Dairynysus"
 success_message = "Bestie, this is perfect! Bring me %d more and you'll be glad you did!"
 complete_message = "Yoooooo you did it! Please accept this as thanks!"
