@@ -41,13 +41,13 @@ const ITEM_NAMES := {
 }
 const ITEM_COSTS := {
 	Type.None: 0,
-	Type.Honey: 10,
-	Type.Mint: 15,
+	Type.Honey: 5,
+	Type.Mint: 10,
 	Type.Saffron: 50,
-	Type.Pomegranate: 20,
-	Type.Walnut: 30,
+	Type.Pomegranate: 15,
+	Type.Walnut: 20,
 	Type.Jars: 5,
-	Type.PotUpgrade: 30,
+	Type.PotUpgrade: 40,
 	Type.SpoonUpgrade: 30,
 	Type.Milk: 10,
 	Type.Money: 1
