@@ -14,6 +14,8 @@ func update(delta: float) -> void:
 	if Player.options.multiple_milk_pours && Input.is_action_just_pressed("button_two"):
 		_finish_pouring()
 		return
+	if _make_yog.boil_pot.overflowing:
+		_make_yog.boil_pot.overflowing = false
 	if Input.is_action_pressed("button_one"):
 		_did_start_pouring = true
 		var fuller_bowl_faster_pour := _fill_formula(_make_yog.boil_pot.fill_percent)
@@ -23,8 +25,12 @@ func update(delta: float) -> void:
 		_pot.amount += amount_poured
 		Player.data.milk_amount -= amount_poured
 		_update_milk_label()
-		# TODO: overflow
-		_make_yog.boil_pot.fill_percent = _pot.amount / Player.data.milk_pot_capacity
+		if _pot.amount > Player.data.milk_pot_capacity:
+			_pot.amount += Player.data.milk_pot_capacity
+			_make_yog.boil_pot.fill_percent = 1.0
+			_make_yog.boil_pot.overflowing = true
+		else:
+			_make_yog.boil_pot.fill_percent = _pot.amount / Player.data.milk_pot_capacity
 	elif _did_start_pouring && !Player.options.multiple_milk_pours:
 		_finish_pouring()
 

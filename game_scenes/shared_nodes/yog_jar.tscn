@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://onydyldr07sm"]
+[gd_scene load_steps=11 format=3 uid="uid://onydyldr07sm"]
 
 [ext_resource type="Script" path="res://game_scenes/shared_nodes/yog_jar.gd" id="1_856o8"]
 [ext_resource type="Texture2D" uid="uid://j0thu0idbytq" path="res://assets/yog_jar_back.png" id="2_jorf2"]
@@ -6,17 +6,18 @@
 [ext_resource type="Shader" path="res://game_scenes/01_make_yog/milk_top.gdshader" id="4_d2vud"]
 [ext_resource type="Texture2D" uid="uid://b24ddyh74mwan" path="res://assets/yog_jar_front.png" id="6_72sl3"]
 [ext_resource type="Texture2D" uid="uid://bo3njgjsco0st" path="res://assets/milk_top.png" id="6_cjwf5"]
+[ext_resource type="PackedScene" uid="uid://dsmguqw5b0k6v" path="res://game_scenes/shared_nodes/milk_flow.tscn" id="7_qcviq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l6x03"]
 shader = ExtResource("4_d2vud")
 shader_parameter/milk_speed = 0.04
 
-[sub_resource type="Gradient" id="Gradient_b26jw"]
+[sub_resource type="Gradient" id="Gradient_cqb3x"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_sdsnm"]
 resource_local_to_scene = true
-gradient = SubResource("Gradient_b26jw")
+gradient = SubResource("Gradient_cqb3x")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
@@ -28,7 +29,7 @@ offset_right = 136.0
 offset_bottom = 119.0
 script = ExtResource("1_856o8")
 max_milk_y = 110.0
-flavor = null
+overflowing = null
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -114,6 +115,7 @@ texture = SubResource("GradientTexture2D_sdsnm")
 
 [node name="Flavor" type="ColorRect" parent="CenterContainer/BackMaskContainer/Back"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 1
 anchors_preset = 12
@@ -126,3 +128,12 @@ grow_vertical = 0
 [node name="Front" type="TextureRect" parent="CenterContainer"]
 layout_mode = 2
 texture = ExtResource("6_72sl3")
+
+[node name="Overflow" parent="CenterContainer/Front" instance=ExtResource("7_qcviq")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+offset_top = -10.0
+offset_bottom = 224.0
+scale = Vector2(0.4, 0.4)
+pivot_offset = Vector2(135, 0)

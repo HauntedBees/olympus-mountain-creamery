@@ -53,8 +53,7 @@ theme_override_constants/margin_bottom = 64
 [node name="BoilPot" parent="PotContainer" instance=ExtResource("4_us5hp")]
 unique_name_in_owner = true
 layout_mode = 2
-burn_amount = 0.0
-flavor = null
+overflowing = null
 
 [node name="FireContainer" type="MarginContainer" parent="."]
 layout_mode = 1

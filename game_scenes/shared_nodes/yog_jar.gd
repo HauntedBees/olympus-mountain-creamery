@@ -20,11 +20,19 @@ const _BURN_COLOR := Color("#501500")
 		flavor = value
 		_update_flavor()
 
+@export var overflowing := false:
+	set(value):
+		overflowing = value
+		if !is_inside_tree():
+			await ready
+		_overflow.visible = overflowing
+
 var _milk_gradient: Gradient
 
 @onready var _milk: VBoxContainer = %Milk
 @onready var _milk_base: TextureRect = %MilkBase
 @onready var _flavor_base: ColorRect = %Flavor
+@onready var _overflow: TextureRect = %Overflow
 
 func _ready() -> void:
 	var grad_tex := _milk_base.texture as GradientTexture2D

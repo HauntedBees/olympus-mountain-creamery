@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c7ggwfed6pagk"]
+[gd_scene load_steps=12 format=3 uid="uid://c7ggwfed6pagk"]
 
 [ext_resource type="Texture2D" uid="uid://bwooy8nn6ri5j" path="res://assets/boil_pot_back.png" id="1_joymm"]
 [ext_resource type="Script" path="res://game_scenes/01_make_yog/boil_pot.gd" id="1_upsne"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bo3njgjsco0st" path="res://assets/milk_top.png" id="3_qvwro"]
 [ext_resource type="Texture2D" uid="uid://g68eturabbx8" path="res://assets/stir_spoon.png" id="4_ka1xr"]
 [ext_resource type="Texture2D" uid="uid://cmtn48i8uhhr8" path="res://assets/boil_pot_back_lip.png" id="6_4h61a"]
+[ext_resource type="PackedScene" uid="uid://dsmguqw5b0k6v" path="res://game_scenes/shared_nodes/milk_flow.tscn" id="8_15o35"]
 
 [sub_resource type="Curve2D" id="Curve2D_4aijx"]
 _data = {
@@ -14,11 +15,11 @@ _data = {
 }
 point_count = 6
 
-[sub_resource type="Gradient" id="Gradient_qpheg"]
+[sub_resource type="Gradient" id="Gradient_vgrjc"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_sdsnm"]
-gradient = SubResource("Gradient_qpheg")
+gradient = SubResource("Gradient_vgrjc")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
@@ -27,7 +28,7 @@ custom_minimum_size = Vector2(407, 331)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_upsne")
-flavor = null
+overflowing = null
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 0
@@ -140,3 +141,10 @@ grow_vertical = 0
 [node name="Front" type="TextureRect" parent="CenterContainer"]
 layout_mode = 2
 texture = ExtResource("2_hrtsu")
+
+[node name="Overflow" parent="CenterContainer/Front" instance=ExtResource("8_15o35")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+offset_top = -36.0
+offset_bottom = 198.0

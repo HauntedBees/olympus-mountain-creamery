@@ -49,6 +49,8 @@ func update(delta: float) -> void:
 		State.Flavoring: _update_flavor()
 
 func _update_pour(delta: float) -> void:
+	if _current_jar_display && _current_jar_display.overflowing:
+		_current_jar_display.overflowing = false
 	var pressed_two := Input.is_action_just_pressed("button_two")
 	if !_did_start_pouring && !_flavor_added && pressed_two && Player.data.inventory.size() > 0:
 		_switch_to_flavor()
@@ -66,8 +68,12 @@ func _update_pour(delta: float) -> void:
 		_current_jar.amount += amount_poured
 		_pot.amount -= amount_poured
 		_update_milk_label()
-		# TODO: overflow
-		_current_jar_display.fill_percent = _current_jar.amount / PlayerData.JAR_CAPACITY
+		if _current_jar.amount > Player.data.JAR_CAPACITY:
+			_current_jar_display.fill_percent = 1.0
+			_current_jar_display.overflowing = true
+			_current_jar.amount = Player.data.JAR_CAPACITY
+		else:
+			_current_jar_display.fill_percent = _current_jar.amount / PlayerData.JAR_CAPACITY
 		if _pot.amount <= 0:
 			_finish_pouring()
 	elif _did_start_pouring && !Player.options.multiple_milk_pours:
@@ -133,7 +139,7 @@ func _fill_formula(current_amount: float) -> float:
 	return 1.0 + pow(2.0 * (0.25 + current_amount) - 1.0, 2.0) * 3.0
 
 func _update_milk_label() -> void:
-	_make_yog.info_label.text = "Milk Remaining: %.1fτ" % _pot.amount
+	_make_yog.info_label.text = "Mixture Remaining: %.1fτ" % _pot.amount
 
 func _finish_pouring() -> void:
 	if _current_jar:
