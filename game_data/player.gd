@@ -1,6 +1,5 @@
 extends Node
 
-@warning_ignore("unused_signal") #TODO: this
 signal input_method_changed()
 
 var options := PlayerOptions.new()
@@ -14,3 +13,12 @@ func _process(delta: float) -> void:
 		return
 	for d in data.god_details:
 		d.time_remaining -= delta
+
+func _input(event: InputEvent) -> void:
+	var before := last_input_was_gamepad
+	if event is InputEventJoypadButton:
+		last_input_was_gamepad = true
+	elif event is InputEventKey:
+		last_input_was_gamepad = false
+	if last_input_was_gamepad != before:
+		input_method_changed.emit()
