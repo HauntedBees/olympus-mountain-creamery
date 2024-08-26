@@ -157,7 +157,7 @@ func _fill_formula(current_amount: float) -> float:
 	return 1.0 + 0.5 * current_amount
 
 func _update_milk_label() -> void:
-	_make_yog.info_label.text = "Mixture Remaining: %.1fτ" % _pot.amount
+	_make_yog.info_label.text = "Mixture Remaining: %.1ft" % _pot.amount
 
 func _finish_pouring() -> void:
 	if _current_jar:

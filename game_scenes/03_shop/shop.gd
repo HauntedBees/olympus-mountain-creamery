@@ -53,7 +53,7 @@ func _process(_delta: float) -> void:
 		_try_buy_item()
 
 func _update_money_label() -> void:
-	_money_label.text = "You have %d ὀbolus." % Player.data.money
+	_money_label.text = "You have %d obolus." % Player.data.money
 
 func _try_buy_item() -> void:
 	var item := _items[_idx].item
@@ -84,11 +84,11 @@ func _change_idx(idx: int) -> void:
 		var count := Player.data.get_item_count(item)
 		var you_have_string := "You have %d" % count
 		match item:
-			ItemCount.Type.Money: you_have_string = "You have %dὀ" % count
-			ItemCount.Type.Milk: you_have_string = "You have %.1fτ" % count
-			ItemCount.Type.PotUpgrade: you_have_string = "Current capacity is %.1fτ" % count
+			ItemCount.Type.Money: you_have_string = "You have %do" % count
+			ItemCount.Type.Milk: you_have_string = "You have %.1ft" % count
+			ItemCount.Type.PotUpgrade: you_have_string = "Current capacity is %.1ft" % count
 			ItemCount.Type.SpoonUpgrade: you_have_string = "Current power is %.1f" % count
-		_item_desc.text = "%s (%dὀ)\n%s.\n%s" % [
+		_item_desc.text = "%s (%do)\n%s.\n%s" % [
 			ItemCount.ITEM_NAMES[item], 
 			ItemCount.ITEM_COSTS[item],
 			you_have_string,

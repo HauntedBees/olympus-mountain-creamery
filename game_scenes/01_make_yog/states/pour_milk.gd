@@ -52,7 +52,7 @@ func _fill_formula(current_amount: float) -> float:
 	return 1.0 + pow(2.0 * (0.25 + current_amount) - 1.0, 2.0) * 3.0
 
 func _update_milk_label() -> void:
-	_make_yog.info_label.text = "Milk Remaining: %.1fτ" % Player.data.milk_amount
+	_make_yog.info_label.text = "Milk Remaining: %.1ft" % Player.data.milk_amount
 
 func _finish_pouring() -> void:
 	input_blocked = true

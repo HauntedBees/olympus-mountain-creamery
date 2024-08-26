@@ -36,8 +36,8 @@ const ITEM_NAMES := {
 	Type.Jars: "Five Yogurt Jars",
 	Type.PotUpgrade: "Bigger Pot",
 	Type.SpoonUpgrade: "Sturdier Spoon",
-	Type.Milk: "20τ of Milk",
-	Type.Money: "Ὀbolus"
+	Type.Milk: "20t of Milk",
+	Type.Money: "Obolus"
 }
 const ITEM_COSTS := {
 	Type.None: 0,
@@ -60,9 +60,9 @@ const ITEM_DESCRIPTIONS := {
 	Type.Pomegranate: "Fruity, Rich, and Floral. Hard to eat, but well worth the effort.",
 	Type.Walnut: "Bitter, Earthy, and Savory. Tough nuts to crack. Like most nuts. Hence the expression.",
 	Type.Jars: "Five more Jars to fill with yogurt.",
-	Type.PotUpgrade: "Increase the amount of milk you can pour in your preparation pot by 10τ.",
+	Type.PotUpgrade: "Increase the amount of milk you can pour in your preparation pot by 10t.",
 	Type.SpoonUpgrade: "A sturdier spoon that you can stir more easily without getting tired.",
-	Type.Milk: "20τ of milk, for yogurt-making purposes.",
+	Type.Milk: "20t of milk, for yogurt-making purposes.",
 	Type.Money: "This shouldn't be a thing you can see."
 }
 const ITEM_COLORS := {

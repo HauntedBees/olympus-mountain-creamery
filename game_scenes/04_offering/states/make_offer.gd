@@ -49,7 +49,7 @@ func _bestow_yogurt_reward() -> void:
 			for i in desire.reward:
 				Player.data.add_item(i.type, i.amount)
 				if i.type == ItemCount.Type.Milk:
-					items.append("%dτ of Milk" % i.amount)
+					items.append("%dt of Milk" % i.amount)
 				## pomegranate is the only item that'd actually have its name pluralized; ope!
 				elif i.amount != 1 && i.type == ItemCount.Type.Pomegranate:
 					items.append("%d Pomegranates" % i.amount)

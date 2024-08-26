@@ -18,7 +18,7 @@ var _active_idx := 0
 var _changing := false
 
 func _ready() -> void:
-	_info_label.text = "Money: %dὀ\nJars: %d\nMilk: %.1fτ\nPot Capacity: %.1fτ" % [
+	_info_label.text = "Money: %do\nJars: %d\nMilk: %.1ft\nPot Capacity: %.1ft" % [
 		Player.data.money,
 		Player.data.jars,
 		Player.data.milk_amount,
