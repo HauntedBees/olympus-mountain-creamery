@@ -31,6 +31,6 @@ func update(delta: float) -> void:
 		change_state.emit(FillJarsState.new(_make_yog, _pot))
 		return
 	if Input.is_action_just_pressed("button_one"):
-		_ice_added += 0.1
+		_ice_added *= 1.5
 		_make_yog.ice_container.ice_amount += randi_range(10, 30)
 	_temperature -= delta * log(_ice_added) * (Player.data.milk_pot_capacity / _pot.amount)

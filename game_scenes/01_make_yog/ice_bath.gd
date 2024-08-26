@@ -2,10 +2,11 @@
 class_name IceBath extends Control
 
 const _ICE_SCENE := preload("res://game_scenes/01_make_yog/ice.tscn")
+const _MAX_ICE := 200
 
 @export var ice_amount := 0:
 	set(value):
-		ice_amount = value
+		ice_amount = mini(value, _MAX_ICE)
 		if is_inside_tree():
 			_update_ices()
 

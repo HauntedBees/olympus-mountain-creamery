@@ -66,9 +66,9 @@ func _update_pour(delta: float) -> void:
 	if Input.is_action_pressed("button_one"):
 		if !_did_start_pouring:
 			_make_yog.pour_hands.pouring = true
-		_did_start_pouring = true
-		if !Player.options.multiple_milk_pours:
-			_make_yog.right_btn.toggle_visibility(false)
+			if !Player.options.multiple_milk_pours:
+				_make_yog.right_btn.toggle_visibility(false)
+			_did_start_pouring = true
 		var fuller_bowl_faster_pour := _fill_formula(_make_yog.boil_pot.fill_percent)
 		var amount_poured := delta * _MILK_POUR_RATE * Player.options.speed_multiplier * fuller_bowl_faster_pour
 		if amount_poured > _pot.amount:
@@ -97,7 +97,7 @@ func _update_flavor() -> void:
 			_current_jar.flavoring = flavor
 			_current_jar_display.flavor = flavor
 			_flavor_added = true
-			_make_yog.right_btn.visible = false
+			_make_yog.right_btn.toggle_visibility(false)
 		_switch_to_pour()
 
 func _next_flavor() -> void:
@@ -127,6 +127,10 @@ func _switch_to_pour() -> void:
 func _switch_to_flavor() -> void:
 	_state = State.Flavoring
 	_make_yog.item_list.visible = true
+	if _flavor_idx < 0:
+		_make_yog.none_flavor.selected = false
+	else:
+		_make_yog.flavors[_flavor_idx].selected = false
 	_flavor_idx = -1
 	_make_yog.right_btn.text = "Next"
 	for idx in _make_yog.flavors.size():
@@ -156,6 +160,7 @@ func _finish_pouring() -> void:
 	change_scene.emit("res://game_scenes/02_outside/outside.tscn")
 
 func _add_yog() -> void:
+	_input_cooldown = 0.2
 	_make_yog.pour_hands.pouring = false
 	_flavor_added = false
 	_state = State.Animating
