@@ -31,7 +31,7 @@ func update(delta: float) -> void:
 		Player.data.milk_amount -= amount_poured
 		_update_milk_label()
 		if _pot.amount > Player.data.milk_pot_capacity:
-			_pot.amount += Player.data.milk_pot_capacity
+			_pot.amount = Player.data.milk_pot_capacity
 			_make_yog.boil_pot.fill_percent = 1.0
 			_make_yog.boil_pot.overflowing = true
 		else:

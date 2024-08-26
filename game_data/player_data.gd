@@ -18,7 +18,7 @@ const JAR_CAPACITY := 5.0
 @export var milk_pot_capacity := 15.0
 
 ## The number of jars available for yogurt-filling.
-@export var jars := 10
+@export var jars := 50
 
 ## How much strength the player has in their arm.
 @export var arm_energy := 5.0
@@ -27,7 +27,7 @@ const JAR_CAPACITY := 5.0
 @export var arm_recovery_rate := 0.5
 
 ## The items the player can buy. More are unlocked with each successful quest completed.
-@export var items_available_to_buy := 4
+@export var items_available_to_buy := 6
 
 ## The player's actively fermenting yogurt jars.
 @export var yogurts: Array[MilkPotData] = []
@@ -38,10 +38,10 @@ const JAR_CAPACITY := 5.0
 ]
 
 func _init() -> void:
-	for i in 5:
+	for i in 3:
 		var m := MilkPotData.new()
 		m.amount = randf_range(JAR_CAPACITY * 0.6, JAR_CAPACITY * 0.8)
-		m.fermentation_time = randf_range(0.0, 60.0)
+		m.fermentation_time = randf_range(30.0, 120.0)
 		yogurts.append(m)
 
 func get_item_count(i: ItemCount.Type) -> float:
