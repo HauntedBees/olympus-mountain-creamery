@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dbrhe5ja58srd"]
+[gd_scene load_steps=24 format=3 uid="uid://dbrhe5ja58srd"]
 
 [ext_resource type="Script" path="res://game_scenes/04_offering/gods/demilker.gd" id="1_ake5b"]
 [ext_resource type="Texture2D" uid="uid://dxdfhjic22454" path="res://assets/gods/demilker/dheadhappy.png" id="3_xyywi"]
@@ -9,12 +9,66 @@
 [ext_resource type="Texture2D" uid="uid://pmt8ovp6kcrk" path="res://assets/gods/demilker/dhead.png" id="8_crp4y"]
 [ext_resource type="Shader" uid="uid://76asy4soysao" path="res://game_scenes/01_make_yog/fire.tres" id="8_ipnyj"]
 
+[sub_resource type="Resource" id="Resource_kto16"]
+script = ExtResource("6_v25uf")
+type = 2
+amount = 10
+
+[sub_resource type="Resource" id="Resource_tgxta"]
+script = ExtResource("6_v25uf")
+type = 10
+amount = 50
+
 [sub_resource type="Resource" id="Resource_tr02q"]
 script = ExtResource("5_shkll")
 yogurt_amount = 5
 flavor = 6
-time_limit = 1200.0
-reward = Array[ExtResource("6_v25uf")]([])
+time_limit = 1800.0
+reward = Array[ExtResource("6_v25uf")]([SubResource("Resource_kto16"), SubResource("Resource_tgxta")])
+
+[sub_resource type="Resource" id="Resource_8sd7c"]
+script = ExtResource("6_v25uf")
+type = 10
+amount = 60
+
+[sub_resource type="Resource" id="Resource_ijpof"]
+script = ExtResource("6_v25uf")
+type = 9
+amount = 20
+
+[sub_resource type="Resource" id="Resource_4tm0r"]
+script = ExtResource("6_v25uf")
+type = 5
+amount = 2
+
+[sub_resource type="Resource" id="Resource_yeayn"]
+script = ExtResource("5_shkll")
+yogurt_amount = 10
+flavor = 3
+time_limit = 1500.0
+reward = Array[ExtResource("6_v25uf")]([SubResource("Resource_8sd7c"), SubResource("Resource_ijpof"), SubResource("Resource_4tm0r")])
+
+[sub_resource type="Resource" id="Resource_8prfk"]
+script = ExtResource("6_v25uf")
+type = 10
+amount = 300
+
+[sub_resource type="Resource" id="Resource_oxw3p"]
+script = ExtResource("6_v25uf")
+type = 1
+amount = 10
+
+[sub_resource type="Resource" id="Resource_xqejt"]
+script = ExtResource("6_v25uf")
+type = 4
+amount = 10
+
+[sub_resource type="Resource" id="Resource_ar4i6"]
+script = ExtResource("5_shkll")
+yogurt_amount = 20
+flavor = 4
+time_limit = 2700.0
+reward = Array[ExtResource("6_v25uf")]([SubResource("Resource_8prfk"), SubResource("Resource_oxw3p"), SubResource("Resource_xqejt")])
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_du8nd"]
 shader = ExtResource("8_ipnyj")
@@ -101,7 +155,7 @@ script = ExtResource("1_ake5b")
 base_head = ExtResource("8_crp4y")
 happy_head = ExtResource("3_xyywi")
 angry_head = ExtResource("4_qd4kf")
-requirements = Array[ExtResource("5_shkll")]([SubResource("Resource_tr02q")])
+requirements = Array[ExtResource("5_shkll")]([SubResource("Resource_tr02q"), SubResource("Resource_yeayn"), SubResource("Resource_ar4i6")])
 god_name = "Demilker"
 complete_message = "Thank you! Now please take accept this as my thanks!"
 not_ready_message = "It looks like this yogurt isn't ready yet. Please ensure your yogurt is properly fermented!"
