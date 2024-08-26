@@ -38,7 +38,7 @@ const JAR_CAPACITY := 5.0
 ]
 
 func _init() -> void:
-	for i in 88:
+	for i in 5:
 		var m := MilkPotData.new()
 		m.amount = randf_range(JAR_CAPACITY * 0.6, JAR_CAPACITY * 0.8)
 		m.fermentation_time = randf_range(0.0, 60.0)

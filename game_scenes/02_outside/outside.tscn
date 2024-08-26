@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ba5oef6kaft2k"]
+[gd_scene load_steps=16 format=3 uid="uid://ba5oef6kaft2k"]
 
 [ext_resource type="Script" path="res://game_scenes/02_outside/outside.gd" id="1_6smvh"]
 [ext_resource type="PackedScene" uid="uid://bnurmvdujjqn1" path="res://game_scenes/02_outside/action_prompt.tscn" id="1_yp2mu"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://y6sw2vih51h" path="res://assets/backgrounds/bgparla2.png" id="4_limcd"]
 [ext_resource type="Texture2D" uid="uid://dmacliuopvixi" path="res://assets/backgrounds/bgparla22.png" id="5_rdrxg"]
 [ext_resource type="Shader" uid="uid://76asy4soysao" path="res://game_scenes/01_make_yog/fire.tres" id="6_h8hcx"]
+[ext_resource type="PackedScene" uid="uid://dne47q8u5if22" path="res://game_scenes/shared_nodes/item_display.tscn" id="8_2c1cw"]
 [ext_resource type="Texture2D" uid="uid://cavkb4kakl83x" path="res://assets/other/kenney/banner_classic_curtain.png" id="8_exekd"]
 [ext_resource type="Texture2D" uid="uid://bbvk1h0hvn3vl" path="res://assets/other/kenney/pattern_grid_paper.png" id="9_qvjt6"]
 [ext_resource type="Texture2D" uid="uid://88ghydqm8ja4" path="res://assets/other/kenney/panel_grid_paper.png" id="10_pgpf1"]
@@ -103,10 +104,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -577.0
-offset_top = -382.0
-offset_right = -23.0
-offset_bottom = -11.0
+offset_left = -604.0
+offset_top = -371.0
+offset_right = -10.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_constants/separation = 32
@@ -157,13 +157,17 @@ anchor_right = 1.0
 offset_left = -325.0
 offset_bottom = 193.0
 grow_horizontal = 0
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="InfoLabel" type="Label" parent="MarginContainer/PanelContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="InfoLabel" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Money: 50ὀ
@@ -171,6 +175,107 @@ Jars: 10
 Milk: 50τ
 Pot Capacity: 50τ"
 horizontal_alignment = 2
+
+[node name="ItemList" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+alignment = 2
+
+[node name="Honey" parent="MarginContainer/VBoxContainer/ItemList" instance=ExtResource("8_2c1cw")]
+unique_name_in_owner = true
+layout_mode = 2
+item = 1
+
+[node name="HoneyLabel" type="Label" parent="MarginContainer/VBoxContainer/ItemList/Honey"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "x5"
+
+[node name="Mint" parent="MarginContainer/VBoxContainer/ItemList" instance=ExtResource("8_2c1cw")]
+unique_name_in_owner = true
+layout_mode = 2
+item = 2
+
+[node name="MintLabel" type="Label" parent="MarginContainer/VBoxContainer/ItemList/Mint"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "x5"
+
+[node name="Saffron" parent="MarginContainer/VBoxContainer/ItemList" instance=ExtResource("8_2c1cw")]
+unique_name_in_owner = true
+layout_mode = 2
+item = 3
+
+[node name="SaffronLabel" type="Label" parent="MarginContainer/VBoxContainer/ItemList/Saffron"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "x5"
+
+[node name="Pomegranate" parent="MarginContainer/VBoxContainer/ItemList" instance=ExtResource("8_2c1cw")]
+unique_name_in_owner = true
+layout_mode = 2
+item = 4
+
+[node name="PomLabel" type="Label" parent="MarginContainer/VBoxContainer/ItemList/Pomegranate"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "x5"
+
+[node name="Walnuts" parent="MarginContainer/VBoxContainer/ItemList" instance=ExtResource("8_2c1cw")]
+unique_name_in_owner = true
+layout_mode = 2
+item = 5
+
+[node name="NutLabel" type="Label" parent="MarginContainer/VBoxContainer/ItemList/Walnuts"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "x5"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -206,9 +311,9 @@ horizontal_alignment = 1
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 16
+theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
+theme_override_constants/margin_right = 48
 theme_override_constants/margin_bottom = 16
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/MarginContainer"]
@@ -236,11 +341,21 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="Yogurts" type="GridContainer" parent="VBoxContainer2/MarginContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Yogurts" type="GridContainer" parent="VBoxContainer2/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
-columns = 8
+columns = 7
+
+[node name="AndMore" type="Label" parent="VBoxContainer2/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "...and more, somehow!"
+horizontal_alignment = 1
 
 [node name="Transition" type="ColorRect" parent="."]
 unique_name_in_owner = true

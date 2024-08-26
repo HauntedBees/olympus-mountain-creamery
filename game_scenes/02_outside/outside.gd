@@ -2,7 +2,7 @@ class_name OutsideScene extends GameScene
 
 const _JAR_SCENE := preload("res://game_scenes/shared_nodes/lil_yog.tscn")
 const _JAR_SCALE := Vector2(0.5, 0.5)
-const _MAX_YOGURTS_TO_SHOW := 72
+const _MAX_YOGURTS_TO_SHOW := 56
 
 @onready var _yog_prompt: ActionPrompt = %YogPrompt
 @onready var _offer_prompt: ActionPrompt = %OfferPrompt
@@ -10,6 +10,9 @@ const _MAX_YOGURTS_TO_SHOW := 72
 @onready var _prompts: Array[ActionPrompt] = [_yog_prompt, _offer_prompt, _shop_prompt]
 @onready var _info_label: Label = %InfoLabel
 @onready var _yogurts_container: GridContainer = %Yogurts
+@onready var _and_more: Label = %AndMore
+@onready var _flavors: Array[ItemDisplay] = [%Honey, %Mint, %Saffron, %Pomegranate, %Walnuts]
+@onready var _flavor_labels: Array[Label] = [%HoneyLabel, %MintLabel, %SaffronLabel, %PomLabel, %NutLabel]
 
 var _active_idx := 0
 var _changing := false
@@ -25,10 +28,18 @@ func _ready() -> void:
 	for y in Player.data.yogurts:
 		count += 1
 		if count > _MAX_YOGURTS_TO_SHOW:
-			continue
+			_and_more.visible = true
+			break
 		var c: LilYog = _JAR_SCENE.instantiate()
 		_yogurts_container.add_child(c)
 		c.yog_jar.set_from_info(y)
+	for idx in _flavors.size():
+		var flavor := _flavors[idx].item
+		var item_count := Player.data.get_item_count(flavor)
+		if item_count == 0:
+			_flavors[idx].visible = false
+		else:
+			_flavor_labels[idx].text = "x%d" % item_count
 
 func _input(event: InputEvent) -> void:
 	if _changing:
