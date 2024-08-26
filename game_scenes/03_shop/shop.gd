@@ -14,6 +14,14 @@ const _NO_MONEY_MESSAGES: Array[String] = [
 	"Hey, what're you trying to pull here? Come back when you have more money.",
 	"Thank you for- hey, wait! That's not enough money!"
 ]
+const _PURCHASE_MESSAGES: Array[String] = [
+	"Thanks much!",
+	"Thank you! Take good care of that!",
+	"Thank you dairy much! Get it? Because we're in a yogurt video game.",
+	"Thank you for your patronage!",
+	"Your money is always welcome here!",
+	"Don't forget: buy one, get one for full price!"
+]
 
 @onready var _items: Array[ItemDisplay] = [%None, %Milk, %Jars, %Honey, %Mint, %Saffron, %Pomegranate, %Walnuts, %PotUpgrade, %SpoonUpgrade]
 @onready var _item_desc: Label = %ItemDesc
@@ -57,6 +65,7 @@ func _try_buy_item() -> void:
 	if cost > Player.data.money:
 		_speech.text = _NO_MONEY_MESSAGES.pick_random()
 		return
+	_speech.text = _PURCHASE_MESSAGES.pick_random()
 	Player.data.money -= cost
 	Player.data.add_item(item, 1)
 	_change_idx(_idx)
