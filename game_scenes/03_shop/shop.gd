@@ -23,7 +23,7 @@ const _PURCHASE_MESSAGES: Array[String] = [
 	"Don't forget: buy one, get one for full price!"
 ]
 
-@onready var _items: Array[ItemDisplay] = [%None, %Milk, %Jars, %Honey, %Mint, %Saffron, %Pomegranate, %Walnuts, %PotUpgrade, %SpoonUpgrade]
+@onready var _items: Array[ItemDisplay] = [%None, %Milk, %Jars, %Honey, %Mint, %PotUpgrade, %Saffron, %Pomegranate, %SpoonUpgrade, %Walnuts]
 @onready var _item_desc: Label = %ItemDesc
 @onready var _money_label: Label = %MoneyLabel
 @onready var _item_list: GridContainer = %ItemList
