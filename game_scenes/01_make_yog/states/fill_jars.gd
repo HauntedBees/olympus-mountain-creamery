@@ -170,14 +170,14 @@ func _finish_pouring() -> void:
 			y.quality_multiplier *= clampf(1.2 - y.burnt_amount, 0.25, 1.0)
 		avg_milk += y.amount
 	avg_milk /= _yog_jars.size()
-	var all_in_range := true
+	var yogs_in_range := 0
 	for y in _yog_jars:
-		if absf(y.amount - avg_milk) > 0.4:
-			all_in_range = false
-			break
-	if all_in_range:
+		if absf(y.amount - avg_milk) <= 0.4:
+			yogs_in_range += 1
+	if yogs_in_range > 1:
+		var multiplier := 2.5 if yogs_in_range == _yog_jars.size() else (1.2 + yogs_in_range / _yog_jars.size())
 		for y in _yog_jars:
-			y.quality_multiplier *= 2.0
+			y.quality_multiplier *= multiplier
 	Player.data.yogurts.append_array(_yog_jars)
 	change_scene.emit("res://game_scenes/02_outside/outside.tscn")
 
