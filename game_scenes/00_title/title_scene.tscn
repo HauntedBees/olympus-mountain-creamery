@@ -44,6 +44,7 @@ texture = SubResource("GradientTexture2D_0wvtq")
 
 [node name="MainMenu" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -140,12 +141,15 @@ size_flags_horizontal = 3
 
 [node name="OptionsMenu" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
-visible = false
-layout_mode = 2
-offset_left = 395.0
-offset_top = 20.0
-offset_right = 885.0
-offset_bottom = 700.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -369.0
+offset_top = 49.0
+offset_right = 369.0
+offset_bottom = 729.0
+grow_horizontal = 2
 theme_override_constants/separation = 48
 
 [node name="PanelContainer" type="PanelContainer" parent="OptionsMenu"]
@@ -156,26 +160,110 @@ layout_mode = 2
 text = "Options"
 horizontal_alignment = 1
 
-[node name="Toggle" parent="OptionsMenu" instance=ExtResource("3_i3b8b")]
+[node name="HBoxContainer" type="HBoxContainer" parent="OptionsMenu"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OptionsMenu/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="CenterContainer" type="CenterContainer" parent="OptionsMenu/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(367.5, 72)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="OptionsMenu/HBoxContainer/VBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(367.5, 72)
+layout_mode = 2
+
+[node name="Toggle" parent="OptionsMenu/HBoxContainer/VBoxContainer/CenterContainer/Control" instance=ExtResource("3_i3b8b")]
 unique_name_in_owner = true
 layout_mode = 2
+offset_right = 490.0
+scale = Vector2(0.75, 0.75)
 text = "Push to Toggle: Off"
 state = 0
 
-[node name="Speed" parent="OptionsMenu" instance=ExtResource("3_i3b8b")]
+[node name="CenterContainer2" type="CenterContainer" parent="OptionsMenu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="OptionsMenu/HBoxContainer/VBoxContainer/CenterContainer2"]
+custom_minimum_size = Vector2(367.5, 72)
+layout_mode = 2
+
+[node name="Timer" parent="OptionsMenu/HBoxContainer/VBoxContainer/CenterContainer2/Control" instance=ExtResource("3_i3b8b")]
 unique_name_in_owner = true
 layout_mode = 2
+offset_right = 490.0
+scale = Vector2(0.75, 0.75)
+text = "Time Limits: On"
+
+[node name="CenterContainer3" type="CenterContainer" parent="OptionsMenu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="OptionsMenu/HBoxContainer/VBoxContainer/CenterContainer3"]
+custom_minimum_size = Vector2(367.5, 72)
+layout_mode = 2
+
+[node name="CenterContainer4" type="CenterContainer" parent="OptionsMenu/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="OptionsMenu/HBoxContainer/VBoxContainer/CenterContainer4"]
+custom_minimum_size = Vector2(367.5, 72)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="OptionsMenu/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="CenterContainer" type="CenterContainer" parent="OptionsMenu/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(367.5, 72)
+layout_mode = 2
+
+[node name="Control" type="Control" parent="OptionsMenu/HBoxContainer/VBoxContainer2/CenterContainer"]
+custom_minimum_size = Vector2(367.5, 72)
+layout_mode = 2
+
+[node name="Speed" parent="OptionsMenu/HBoxContainer/VBoxContainer2/CenterContainer/Control" instance=ExtResource("3_i3b8b")]
+unique_name_in_owner = true
+layout_mode = 2
+offset_right = 490.0
+scale = Vector2(0.75, 0.75)
 text = "Speed: Normal"
 state = 1
 
-[node name="Timer" parent="OptionsMenu" instance=ExtResource("3_i3b8b")]
-unique_name_in_owner = true
+[node name="CenterContainer2" type="CenterContainer" parent="OptionsMenu/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Time Limits: On"
 
-[node name="Return" parent="OptionsMenu" instance=ExtResource("3_i3b8b")]
+[node name="Control" type="Control" parent="OptionsMenu/HBoxContainer/VBoxContainer2/CenterContainer2"]
+custom_minimum_size = Vector2(367.5, 72)
+layout_mode = 2
+
+[node name="MultiPour" parent="OptionsMenu/HBoxContainer/VBoxContainer2/CenterContainer2/Control" instance=ExtResource("3_i3b8b")]
+unique_name_in_owner = true
+layout_mode = 0
+scale = Vector2(0.75, 0.75)
+text = "Multi-Pour: Off"
+
+[node name="CenterContainer3" type="CenterContainer" parent="OptionsMenu/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="OptionsMenu/HBoxContainer/VBoxContainer2/CenterContainer3"]
+custom_minimum_size = Vector2(367.5, 72)
+layout_mode = 2
+
+[node name="CenterContainer4" type="CenterContainer" parent="OptionsMenu/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="OptionsMenu/HBoxContainer/VBoxContainer2/CenterContainer4"]
+custom_minimum_size = Vector2(367.5, 72)
+layout_mode = 2
+
+[node name="Return" parent="OptionsMenu/HBoxContainer/VBoxContainer2/CenterContainer4/Control" instance=ExtResource("3_i3b8b")]
 unique_name_in_owner = true
 layout_mode = 2
+offset_right = 490.0
+scale = Vector2(0.75, 0.75)
 text = "Return to Title"
 
 [node name="Transition" type="ColorRect" parent="."]

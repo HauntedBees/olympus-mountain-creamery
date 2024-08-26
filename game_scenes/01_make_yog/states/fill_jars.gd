@@ -62,13 +62,17 @@ func _update_pour(delta: float) -> void:
 	var pressed_two := Input.is_action_just_pressed("button_two")
 	if !_did_start_pouring && !_flavor_added && pressed_two && Player.data.inventory.size() > 0:
 		_switch_to_flavor()
+		return
 	if Player.options.multiple_milk_pours && pressed_two:
 		_add_yog()
 		return
 	if Input.is_action_pressed("button_one"):
 		if !_did_start_pouring:
 			_make_yog.pour_hands.pouring = true
-			if !Player.options.multiple_milk_pours:
+			if Player.options.multiple_milk_pours:
+				_make_yog.right_btn.text = "Next"
+				_make_yog.right_btn.toggle_visibility(true)
+			else:
 				_make_yog.right_btn.toggle_visibility(false)
 			_did_start_pouring = true
 		var fuller_bowl_faster_pour := _fill_formula(_make_yog.boil_pot.fill_percent)
@@ -165,6 +169,7 @@ func _add_yog() -> void:
 	_input_cooldown = 0.2
 	_make_yog.pour_hands.pouring = false
 	_flavor_added = false
+	_did_start_pouring = false
 	_state = State.Animating
 	if Player.data.inventory.size() > 0:
 		_make_yog.right_btn.toggle_visibility(true)

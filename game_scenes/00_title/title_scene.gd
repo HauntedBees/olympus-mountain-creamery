@@ -9,7 +9,7 @@ var _step := State.Main
 @onready var _main_menu: VBoxContainer = %MainMenu
 @onready var _intro_menu: HBoxContainer = %IntroMenu
 @onready var _options_menu: VBoxContainer = %OptionsMenu
-@onready var _options: Array[ActionPrompt] = [%Toggle, %Speed, %Timer, %Return]
+@onready var _options: Array[ActionPrompt] = [%Toggle, %Speed, %Timer, %MultiPour, %Return]
 
 func _process(delta: float) -> void:
 	_timer -= delta
@@ -56,7 +56,10 @@ func _option_press() -> void:
 		2: # Timer
 			Player.options.no_time_limits = !Player.options.no_time_limits
 			_options[2].text = "Time Limits: %s" % ("Off" if Player.options.no_time_limits else "On")
-		3: # Return
+		3: # Multipour
+			Player.options.multiple_milk_pours = !Player.options.multiple_milk_pours
+			_options[3].text = "Multi-Pour: %s" % ("On" if Player.options.multiple_milk_pours else "Off")
+		4: # Return
 			_step = State.Main
 			_main_menu.visible = true
 			_options_menu.visible = false
