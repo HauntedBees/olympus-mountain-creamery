@@ -24,12 +24,12 @@ func get_desires_string(d: QuestDetails) -> String:
 		Desire.Flavor.Quality: string += "The highest quality yogurt you have!"
 	var amount := desire.yogurt_amount - d.amount_given
 	if d.amount_given > 0:
-		if desire.yogurt_amount == 1:
+		if amount == 1:
 			string += " Could you please bring one more jar?"
 		else:
 			string += " Could you please bring %d more jars?" % amount
 	else:
-		if desire.yogurt_amount == 1:
+		if amount == 1:
 			string += " Could you please bring one jar?"
 		else:
 			string += " Could you please bring %d jars?" % amount

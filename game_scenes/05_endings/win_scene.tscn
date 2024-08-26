@@ -77,6 +77,7 @@ layout_mode = 2
 [node name="ActionPrompt" parent="MarginContainer/CenterContainer" instance=ExtResource("2_kfhtg")]
 layout_mode = 2
 text = "Return to Title"
+state = 0
 
 [node name="Transition" type="ColorRect" parent="."]
 unique_name_in_owner = true

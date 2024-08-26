@@ -2,7 +2,8 @@ class_name OfferingGameState extends GameState
 
 const _GODS: Array[PackedScene] = [
 	preload("res://game_scenes/04_offering/gods/meus.tscn"),
-	preload("res://game_scenes/04_offering/gods/demilker.tscn")
+	preload("res://game_scenes/04_offering/gods/demilker.tscn"),
+	preload("res://game_scenes/04_offering/gods/dairynysus.tscn")
 ]
 
 var _make_off: OfferingScene

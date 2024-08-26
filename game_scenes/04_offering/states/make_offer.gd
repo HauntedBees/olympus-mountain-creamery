@@ -42,6 +42,7 @@ func _bestow_yogurt_reward() -> void:
 		if _yog_given.amount <= MilkPotData.SMALL_JAR_LIMIT:
 			quest.strikes += 1
 			half_full = true
+		var success := _god_node.success_message % (desire.yogurt_amount - quest.amount_given)
 		if quest.amount_given >= desire.yogurt_amount:
 			_god_node.head.texture = _god_node.happy_head
 			var items: PackedStringArray = []
@@ -60,15 +61,15 @@ func _bestow_yogurt_reward() -> void:
 			if quest.strikes >= 3:
 				_god_node.head.texture = _god_node.angry_head
 				quest.failed = true
-				tb.text = "%s %s %s" % [_god_node.success_message, _god_node.not_enough_message, _god_node.failed_message]
+				tb.text = "%s %s %s" % [success, _god_node.not_enough_message, _god_node.failed_message]
 			elif quest.strikes == 2:
-				tb.text = "%s %s %s" % [_god_node.success_message, _god_node.not_enough_message, _god_node.final_warning_message]
+				tb.text = "%s %s %s" % [success, _god_node.not_enough_message, _god_node.final_warning_message]
 			else:
 				_god_node.head.texture = _god_node.happy_head
-				tb.text = "%s %s" % [_god_node.success_message, _god_node.not_enough_message]
+				tb.text = "%s %s" % [success, _god_node.not_enough_message]
 		else:
 			_god_node.head.texture = _god_node.happy_head
-			tb.text = _god_node.success_message
+			tb.text = success
 	else:
 		_god_node.head.texture = _god_node.angry_head
 		quest.strikes += 1
