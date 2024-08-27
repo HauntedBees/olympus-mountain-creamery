@@ -43,7 +43,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_sxqel")
-expand_mode = 5
+expand_mode = 3
 stretch_mode = 4
 
 [node name="TextureRect2" type="TextureRect" parent="."]
